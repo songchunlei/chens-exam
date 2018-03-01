@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chens.exam.book.mapper.TrainingMapper">
+
+    <!-- 开启二级缓存 -->
+<!--     <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/> -->
+
+    <!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		id, training_name AS trainingName, description, is_private AS isPrivate, field_id AS fieldId, status, effective_time AS effectiveTime, expiry_time AS expiryTime, is_delete AS isDelete, create_time AS createTime, create_by AS createBy, update_time AS updateTime, update_by AS updateBy, tenant_id AS tenantId
+	</sql>
+
+</mapper>
