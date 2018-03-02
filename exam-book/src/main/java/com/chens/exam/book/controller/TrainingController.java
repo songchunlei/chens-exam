@@ -37,6 +37,39 @@ public class TrainingController {
     		return "新增失败";
     	}
     }
+    
+    
+    @RequestMapping("/update_training")
+   	public String updateTraining(Training training){
+ //   	training.setId(969096958142681089l);
+    	training = trainingService.selectById(training.getId());
+    	if(training != null){
+    		training.setTrainingName("语文练习册");
+        	training.setStatus("1");
+        	training.setDescription("第三期培训练习");
+        	boolean flag = trainingService.updateById(training);
+        	if(flag){
+        		return "修改成功";
+        	}else{
+        		return "修改失败";
+        	}
+    	}else{
+    		return "数据不存在";
+    	}
+    	
+    }
+    
+    @RequestMapping("/delete_training")
+   	public String deleteTraining(Training training){
+ //   	training.setId(969096958142681089l);
+    	boolean flag = trainingService.deleteById(training.getId());
+    	if(flag){
+        	return "删除成功";  
+    	}else{
+    		return "删除失败";
+    	}
+    	
+    }
 	
 }
 
