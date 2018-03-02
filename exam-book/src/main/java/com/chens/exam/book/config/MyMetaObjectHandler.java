@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
-import com.chens.exam.core.enums.YesNoEnum;
+import com.chens.exam.book.enums.YesNoEnum;
 
 
 /**
