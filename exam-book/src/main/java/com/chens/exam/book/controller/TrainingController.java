@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chens.core.web.BaseController;
 import com.chens.exam.book.entity.Training;
 import com.chens.exam.book.service.TrainingService;
 
@@ -18,7 +19,7 @@ import com.chens.exam.book.service.TrainingService;
  */
 @RestController
 @RequestMapping("/trainingController")
-public class TrainingController {
+public class TrainingController extends BaseController {
 
 	@Autowired
 	private TrainingService trainingService;

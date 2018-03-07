@@ -9,6 +9,8 @@
         <module>exam-core</module>
         <module>exam-wms</module>
 		<module>exam-book</module>
+		<module>exam-web</module>
+		<module>exam-wms-feign</module>
     </modules>
 
     <parent>

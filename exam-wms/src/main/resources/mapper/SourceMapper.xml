@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chens.exam.wms.mapper.SourceMapper">
+
+	<!-- 通用查询结果列-->
+	<sql id="Base_Column_List">
+		id, zone_id AS zoneId, forder_id AS forderId, tennat_id AS tennatId, type, name, content, file_name AS fileName, file_type AS fileType, file_forder AS fileForder, path, status, qr_code AS qrCode, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
+	</sql>
+
+
+</mapper>

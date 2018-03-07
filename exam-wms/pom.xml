@@ -11,5 +11,68 @@
 
     <artifactId>exam-wms</artifactId>
 
+	<dependencies>
+        <!--database-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!--web-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        
+         <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+         </dependency>
+        
+         <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+          </dependency>
+          
+           <dependency>
+              <groupId>com.chens</groupId>
+              <artifactId>exam-core</artifactId>
+              <version>1.0-SNAPSHOT</version>
+          </dependency>
+          <dependency>
+              <groupId>com.chens</groupId>
+              <artifactId>chens-core</artifactId>
+              <version>1.0-SNAPSHOT</version>
+          </dependency>
+		
+		<dependency>
+              <groupId>com.chens</groupId>
+              <artifactId>exam-wms-feign</artifactId>
+              <version>1.0-SNAPSHOT</version>
+        </dependency>
+        
+        <!-- feign依赖start -->
+          <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-feign</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-eureka</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-actuator</artifactId>
+		 </dependency>
+            <!-- feign依赖end -->
+         
+
+    </dependencies>
 
 </project>

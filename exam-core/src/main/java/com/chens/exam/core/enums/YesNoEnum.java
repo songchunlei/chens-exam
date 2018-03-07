@@ -1,4 +1,4 @@
-package com.chens.exam.book.enums;
+package com.chens.exam.core.enums;
 
 public enum YesNoEnum{
 	YES("是", "1"), NO("否","0");

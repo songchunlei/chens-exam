@@ -1,4 +1,4 @@
-package com.chens.exam.book.config;
+package com.chens.exam.wms.config;
 
 import java.util.Date;
 
@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
+import com.chens.core.entity.UserInfo;
 import com.chens.exam.core.enums.YesNoEnum;
 
 
@@ -23,15 +24,20 @@ public class MyMetaObjectHandler extends MetaObjectHandler {
 
 	@Override
 	public void insertFill(MetaObject metaObject) {
-		// 更多查看源码测试用例
-//		logger.info("*************************insert fill*************************");	        
+		logger.info("*****************保存自动填充******************");
         Date date = new Date();
+        
+        //用户信息需要后期统一修改
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername("wudepeng");
+        userInfo.setTennatId(10101010123l);
+        
+        
         setFieldValByName("createTime", date, metaObject);
         setFieldValByName("updateTime", date, metaObject); 
-        //等人员sessionn确定后修改
-        setFieldValByName("createBy", "wdp", metaObject);
-        setFieldValByName("updateBy", "wdp", metaObject);
-        setFieldValByName("tenantId", "AAAAASSSADD", metaObject);
+        setFieldValByName("createBy", userInfo.getUsername(), metaObject);
+        setFieldValByName("updateBy", userInfo.getUsername(), metaObject);
+        setFieldValByName("tennatId", userInfo.getTennatId(), metaObject);
         setFieldValByName("isDelete", YesNoEnum.NO.getCode(), metaObject);
         
 	}
@@ -39,11 +45,15 @@ public class MyMetaObjectHandler extends MetaObjectHandler {
 	@Override
 	public void updateFill(MetaObject metaObject) {
 		 //更新填充
-        logger.info("*************************update fill*************************");
+        logger.info("********************更新自动填充********************");
         //mybatis-plus版本2.0.9+  
         Date date = new Date();
+        //用户信息需要后期统一修改
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername("wdp");
+
         setFieldValByName("updateTime", date, metaObject);
-        setFieldValByName("updateBy", "www", metaObject);
+        setFieldValByName("updateBy", userInfo.getUsername(), metaObject);
 
 	}
 
