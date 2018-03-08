@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chens.core.entity.Result;
+import com.chens.exam.core.entity.wms.Forder;
 import com.chens.exam.wms.remote.forder.hystrix.ForderClientHystrix;
 /**
  * @ClassName: IForderClient 
@@ -23,5 +24,20 @@ public interface IForderClient {
 	@RequestMapping(value="/save")
 	Result save(@RequestBody Map<String, Object> map);
 
+	/**
+	 * 获取全部资源目录，同租户下目录树
+	 * @param forder
+	 * @return
+	 */
+	@RequestMapping(value="/loadForderTree")
+	Result loadForderTree(Forder forder);
+	
+	/**
+	 * 删除文件夹
+	 * @param forder
+	 * @return
+	 */
+	@RequestMapping(value="/delete")
+	Result delete(Forder forder) ;
 
 }

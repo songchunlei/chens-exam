@@ -17,8 +17,4 @@ eureka:
   instance:
     prefer-ip-address: true #使用IP地址
     
-feign:
-  hystrix:
-    enabled: false
-    
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 5000

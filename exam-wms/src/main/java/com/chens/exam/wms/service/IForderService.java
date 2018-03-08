@@ -22,5 +22,19 @@ public interface IForderService extends IService<Forder> {
 	 * @return
 	 */
 	Result save(Forder forder, UserInfo userInfo);
+	
+	/**
+	 * 获取我的资源目录树
+	 * @param forder
+	 * @return
+	 */
+	Result loadForderTree(Forder forder);
+	
+	/**
+	 * 删除文件夹，逻辑删除
+	 * @param forder
+	 * @return
+	 */
+	Result delete(Forder forder);
 
 }

@@ -30,6 +30,16 @@ public class ForderClientImpl implements IForderClient {
 		UserInfo userInfo = JsonUtils.conveterObject(map.get("userInfo"), UserInfo.class);  	
 		return forderService.save(forder, userInfo);
 	}
+
+	@Override
+	public Result loadForderTree(@RequestBody Forder forder) {
+		return forderService.loadForderTree(forder);
+	}
+
+	@Override
+	public Result delete(@RequestBody Forder forder) {
+		return forderService.delete(forder);
+	}
 	
 	
 

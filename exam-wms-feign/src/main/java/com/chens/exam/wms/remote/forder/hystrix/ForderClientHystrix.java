@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.baomidou.mybatisplus.exceptions.MybatisPlusException;
 import com.chens.core.entity.Result;
+import com.chens.exam.core.entity.wms.Forder;
 import com.chens.exam.wms.remote.forder.IForderClient;
 @Component
 public class ForderClientHystrix implements IForderClient {
@@ -17,6 +18,18 @@ public class ForderClientHystrix implements IForderClient {
 	public Result save(Map<String, Object> map) {
 		logger.error("----调用保存方法出错-----");
 		throw new MybatisPlusException("调用保存方法出错");
+	}
+
+	@Override
+	public Result loadForderTree(Forder forder) {
+		logger.error("----调用获取资源目录方法出错-----");
+		throw new MybatisPlusException("调用获取资源目录方法出错");
+	}
+
+	@Override
+	public Result delete(Forder forder) {
+		logger.error("----调用删除 方法出错-----");
+		throw new MybatisPlusException("调用删除 方法出错");
 	}
 
 	

@@ -38,12 +38,55 @@ public class ForderController extends BaseController {
 	public Result save(Forder forder) {
 		try{
 			if(forder != null){
+//				forder.setForderName("小学英语");
+//				forder.setParentId(971338448474591233L);
 				//用户信息需要从缓存 中获取，待后续修改
-				UserInfo userInfo = new UserInfo();			
+				UserInfo userInfo = new UserInfo();	
+//				userInfo.setUsername("wudepeng");
+				
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("forder", forder);
 				map.put("userInfo", userInfo);
 				return forderService.save(map);		
+			} else {
+				return ResultHelper.getError("数据传输失败！");
+			}
+		}catch(Exception e){
+			logger.error(e.getMessage());
+			return ResultHelper.getError(e.getMessage());
+		}
+
+	}
+	
+	/*
+	 * 获取的全部资源目录树
+	 */
+	@RequestMapping("/loadForderTree")
+	public Result loadForderTree() {
+		try{
+				//用户信息需要从缓存 中获取，待后续修改
+				UserInfo userInfo = new UserInfo();
+				
+				Forder forder = new Forder();
+				forder.setTennatId(userInfo.getTennatId());
+				return forderService.loadForderTree(forder);		
+		}catch(Exception e){
+			logger.error(e.getMessage());
+			return ResultHelper.getError(e.getMessage());
+		}
+
+	}
+	
+	/**
+	 * 删除文件夹, 逻辑删除
+	 * @param forder
+	 * @return
+	 */
+	@RequestMapping("/delete")
+	public Result delete(Forder forder) {
+		try{
+			if(forder != null && forder.getId() != null){		
+				return forderService.delete(forder);
 			} else {
 				return ResultHelper.getError("数据传输失败！");
 			}
