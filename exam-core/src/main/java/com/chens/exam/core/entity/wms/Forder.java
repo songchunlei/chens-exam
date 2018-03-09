@@ -26,6 +26,12 @@ public class Forder implements Serializable {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = 1815815883025805854L;
+	
+	/**
+	 * 多个id用英文逗号拼接，用于批量操作场景
+	 */
+	@TableField(exist = false)
+	private String idStr;
 
     /**
      * id
@@ -40,8 +46,8 @@ public class Forder implements Serializable {
     /**
      * 租户id
      */
-    @TableField(value = "tennat_id", fill = FieldFill.INSERT)
-    private Long tennatId;
+    @TableField(value = "tenant_id", fill = FieldFill.INSERT)
+    private Long tenantId;
     /**
      * 文件夹类型
      */
@@ -112,15 +118,16 @@ public class Forder implements Serializable {
         this.zoneId = zoneId;
     }
 
-    public Long getTennatId() {
-        return tennatId;
-    }
 
-    public void setTennatId(Long tennatId) {
-        this.tennatId = tennatId;
-    }
+    public Long getTenantId() {
+		return tenantId;
+	}
 
-    public String getForderType() {
+	public void setTenantId(Long tenantId) {
+		this.tenantId = tenantId;
+	}
+
+	public String getForderType() {
         return forderType;
     }
 
@@ -205,7 +212,7 @@ public class Forder implements Serializable {
         return "Forder{" +
         "id=" + id +
         ", zoneId=" + zoneId +
-        ", tennatId=" + tennatId +
+        ", tenantId=" + tenantId +
         ", forderType=" + forderType +
         ", forderName=" + forderName +
         ", forderCascadeId=" + forderCascadeId +
@@ -218,4 +225,14 @@ public class Forder implements Serializable {
         ", isDelete=" + isDelete +
         "}";
     }
+
+	public String getIdStr() {
+		return idStr;
+	}
+
+	public void setIdStr(String idStr) {
+		this.idStr = idStr;
+	}
+    
+    
 }

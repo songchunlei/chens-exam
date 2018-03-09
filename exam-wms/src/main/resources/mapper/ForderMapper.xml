@@ -4,7 +4,7 @@
 
 		<!-- 通用查询结果列-->
 	<sql id="Base_Column_List">
-		id, zone_id AS zoneId, tennat_id AS tennatId, forder_type AS forderType, forder_name AS forderName, forder_cascade_id AS forderCascadeId, parent_id AS parentId, remark, create_time AS createTime, create_by AS createBy, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
+		id, zone_id AS zoneId, tenant_id AS tenantId, forder_type AS forderType, forder_name AS forderName, forder_cascade_id AS forderCascadeId, parent_id AS parentId, remark, create_time AS createTime, create_by AS createBy, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
 	</sql>
 
 </mapper>

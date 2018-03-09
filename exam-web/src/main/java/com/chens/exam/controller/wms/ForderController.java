@@ -1,17 +1,21 @@
 package com.chens.exam.controller.wms;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chens.core.entity.Result;
-import com.chens.core.entity.UserInfo;
-import com.chens.core.util.ResultHelper;
+import com.chens.core.constants.SuccessMsgContants;
+import com.chens.core.exception.BaseException;
+import com.chens.core.exception.BaseExceptionEnum;
+import com.chens.core.vo.Result;
+import com.chens.core.vo.UserInfo;
+import com.chens.core.vo.ZTree;
 import com.chens.core.web.BaseController;
 import com.chens.exam.core.entity.wms.Forder;
 import com.chens.exam.wms.remote.forder.IForderClient;
@@ -27,34 +31,29 @@ import com.chens.exam.wms.remote.forder.IForderClient;
 @RestController
 @RequestMapping("/forderController")
 public class ForderController extends BaseController {
-
-	 private Logger logger = LogManager.getLogger(ForderController.class);
 	
 	@Autowired
 	private IForderClient forderService;
 	
 	
 	@RequestMapping("/save")
-	public Result save(Forder forder) {
-		try{
+	public ResponseEntity<Result> save(Forder forder) {
 			if(forder != null){
-//				forder.setForderName("小学英语");
+//				forder.setForderName("小学劳技");
+//				forder.setId(972037445715595265L);
 //				forder.setParentId(971338448474591233L);
 				//用户信息需要从缓存 中获取，待后续修改
 				UserInfo userInfo = new UserInfo();	
-//				userInfo.setUsername("wudepeng");
-				
+				userInfo.setUsername("wudepeng");
+//				userInfo.setTenantId(1L);
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("forder", forder);
 				map.put("userInfo", userInfo);
-				return forderService.save(map);		
+				Long id = forderService.save(map);
+				return doSuccess(SuccessMsgContants.SAVE_SUCCESS,id);
 			} else {
-				return ResultHelper.getError("数据传输失败！");
+				throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
 			}
-		}catch(Exception e){
-			logger.error(e.getMessage());
-			return ResultHelper.getError(e.getMessage());
-		}
 
 	}
 	
@@ -62,18 +61,10 @@ public class ForderController extends BaseController {
 	 * 获取的全部资源目录树
 	 */
 	@RequestMapping("/loadForderTree")
-	public Result loadForderTree() {
-		try{
-				//用户信息需要从缓存 中获取，待后续修改
-				UserInfo userInfo = new UserInfo();
-				
-				Forder forder = new Forder();
-				forder.setTennatId(userInfo.getTennatId());
-				return forderService.loadForderTree(forder);		
-		}catch(Exception e){
-			logger.error(e.getMessage());
-			return ResultHelper.getError(e.getMessage());
-		}
+	public ResponseEntity<Result> loadForderTree() {
+		//用户信息需要从缓存 中获取，待后续修改
+		List<ZTree> ztreeList = forderService.loadForderTree(new Forder());
+		return doSuccess(SuccessMsgContants.QUERY_SUCCESS,ztreeList);
 
 	}
 	
@@ -81,20 +72,17 @@ public class ForderController extends BaseController {
 	 * 删除文件夹, 逻辑删除
 	 * @param forder
 	 * @return
+	 * @throws BaseException 
 	 */
 	@RequestMapping("/delete")
-	public Result delete(Forder forder) {
-		try{
-			if(forder != null && forder.getId() != null){		
-				return forderService.delete(forder);
-			} else {
-				return ResultHelper.getError("数据传输失败！");
-			}
-		}catch(Exception e){
-			logger.error(e.getMessage());
-			return ResultHelper.getError(e.getMessage());
+	public ResponseEntity<Result> delete(Forder forder) {
+//		forder.setIdStr("972037445715595265,971995178036420610");
+		if(forder != null && StringUtils.isNotBlank(forder.getIdStr())){
+			forderService.delete(forder);
+			return doSuccess(SuccessMsgContants.DELETE_SUCCESS);				 
+		} else {
+			throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
 		}
-
 	}
 	
 }

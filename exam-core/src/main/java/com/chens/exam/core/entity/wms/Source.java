@@ -25,6 +25,12 @@ public class Source implements Serializable {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = -7496356762631622092L;
+	
+	/**
+	 * 多个id用英文逗号拼接，用于批量操作场景
+	 */
+	@TableField(exist = false)
+	private String idStr;
 
     /**
      * id
@@ -44,8 +50,8 @@ public class Source implements Serializable {
     /**
      * 租户Id
      */
-    @TableField(value = "tennat_id", fill = FieldFill.INSERT)
-    private Long tennatId;
+    @TableField(value = "tenant_id", fill = FieldFill.INSERT)
+    private Long tenantId;
     /**
      * 资源类型
      */
@@ -144,15 +150,15 @@ public class Source implements Serializable {
         this.forderId = forderId;
     }
 
-    public Long getTennatId() {
-        return tennatId;
-    }
+    public Long getTenantId() {
+		return tenantId;
+	}
 
-    public void setTennatId(Long tennatId) {
-        this.tennatId = tennatId;
-    }
+	public void setTenantId(Long tenantId) {
+		this.tenantId = tenantId;
+	}
 
-    public String getType() {
+	public String getType() {
         return type;
     }
 
@@ -278,7 +284,7 @@ public class Source implements Serializable {
         "id=" + id +
         ", zoneId=" + zoneId +
         ", forderId=" + forderId +
-        ", tennatId=" + tennatId +
+        ", tenantId=" + tenantId +
         ", type=" + type +
         ", name=" + name +
         ", content=" + content +
@@ -296,4 +302,12 @@ public class Source implements Serializable {
         ", isDelete=" + isDelete +
         "}";
     }
+
+	public String getIdStr() {
+		return idStr;
+	}
+
+	public void setIdStr(String idStr) {
+		this.idStr = idStr;
+	}
 }

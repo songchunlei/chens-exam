@@ -1,6 +1,12 @@
 package com.chens.exam.core.enums;
+
+/**
+ * 数节点类型枚举
+ * @author WDP
+ *
+ */
 public enum NodeTypeEnum {
-	 SOURCE_ROOT("资源树根节点类型","ROOT"); 
+	SOURCE_ROOT("资源目录树根节点类型","ROOT");
 	
 	private String name;
 	private String code;

@@ -21,7 +21,7 @@ mybatis-plus:
     logic-not-delete-value: 0
     sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
     #公共字段填充配置
-    meta-object-handler: com.chens.exam.wms.config.MyMetaObjectHandler
+    meta-object-handler: com.chens.core.handler.MyMetaObjectHandler
   configuration:
     map-underscore-to-camel-case: false
     cache-enabled: true
@@ -51,3 +51,7 @@ eureka:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10      # 心跳时间，即服务续约间隔时间（缺省为30s）
     lease-expiration-duration-in-seconds: 30  # 发呆时间，即服务续约到期时间（缺省为90s）
+
+feign:
+  httpclient:
+    enabled: true

@@ -1,5 +1,6 @@
 package com.chens.exam.wms.remote.forder;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chens.core.entity.Result;
-import com.chens.core.entity.UserInfo;
+import com.chens.core.vo.UserInfo;
+import com.chens.core.vo.ZTree;
 import com.chens.exam.core.entity.wms.Forder;
 import com.chens.exam.core.utils.JsonUtils;
 import com.chens.exam.wms.service.IForderService;
@@ -25,19 +26,19 @@ public class ForderClientImpl implements IForderClient {
 	private IForderService forderService;
 
 	@Override
-	public Result save(@RequestBody Map<String, Object> map) {		
+	public Long save(@RequestBody Map<String, Object> map) {		
 		Forder forder = JsonUtils.conveterObject(map.get("forder"), Forder.class);  		
 		UserInfo userInfo = JsonUtils.conveterObject(map.get("userInfo"), UserInfo.class);  	
 		return forderService.save(forder, userInfo);
 	}
 
 	@Override
-	public Result loadForderTree(@RequestBody Forder forder) {
+	public List<ZTree> loadForderTree(@RequestBody Forder forder) {
 		return forderService.loadForderTree(forder);
 	}
 
 	@Override
-	public Result delete(@RequestBody Forder forder) {
+	public boolean delete(@RequestBody Forder forder) {
 		return forderService.delete(forder);
 	}
 	

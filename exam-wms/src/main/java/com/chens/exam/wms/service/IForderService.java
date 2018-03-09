@@ -1,8 +1,10 @@
 package com.chens.exam.wms.service;
 
+import java.util.List;
+
 import com.baomidou.mybatisplus.service.IService;
-import com.chens.core.entity.Result;
-import com.chens.core.entity.UserInfo;
+import com.chens.core.vo.UserInfo;
+import com.chens.core.vo.ZTree;
 import com.chens.exam.core.entity.wms.Forder;
 
 /**
@@ -21,20 +23,20 @@ public interface IForderService extends IService<Forder> {
 	 * @param userInfo
 	 * @return
 	 */
-	Result save(Forder forder, UserInfo userInfo);
+	Long save(Forder forder, UserInfo userInfo);
 	
 	/**
 	 * 获取我的资源目录树
 	 * @param forder
 	 * @return
 	 */
-	Result loadForderTree(Forder forder);
+	List<ZTree> loadForderTree(Forder forder);
 	
 	/**
 	 * 删除文件夹，逻辑删除
 	 * @param forder
 	 * @return
 	 */
-	Result delete(Forder forder);
+	boolean delete(Forder forder);
 
 }
