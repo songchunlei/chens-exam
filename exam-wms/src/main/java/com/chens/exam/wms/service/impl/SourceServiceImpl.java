@@ -66,7 +66,8 @@ public class SourceServiceImpl extends ServiceImpl<SourceMapper, Source> impleme
 			}
 			return true;
 		}else{
-			throw new BaseException(BaseExceptionEnum.NO_DELETE.getCode(), ErrorMsgContants.ID_NULL);
+			//throw new BaseException(BaseExceptionEnum.NO_DELETE.getCode(), ErrorMsgContants.ID_NULL);
+			throw new BaseException(BaseExceptionEnum.NO_DELETE);
 		}	
 	}
 
@@ -78,17 +79,20 @@ public class SourceServiceImpl extends ServiceImpl<SourceMapper, Source> impleme
 			List<Long> idList = StringUtil.string2List(idStr);
 			List<Source> sourceList = this.selectBatchIds(idList);
 			if(CollectionUtils.isEmpty(sourceList)){
-				throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.DATA_NULL);
+				//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.DATA_NULL);
+				throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 			}else{
 				sourceList = this.setSourceStatusBatch(sourceList, SourceStatusEnum.SUBMIT.getCode());
 				if(this.updateBatchById(sourceList)){
 					return true;
 				}else{
-					throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.SUBMIT_FAIL);
+					//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.SUBMIT_FAIL);
+					throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 				}
 			}
 		}else{
-			throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ID_NULL);
+			//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ID_NULL);
+			throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 		}	
 	}
 
@@ -100,17 +104,20 @@ public class SourceServiceImpl extends ServiceImpl<SourceMapper, Source> impleme
 			List<Long> idList = StringUtil.string2List(idStr);
 			List<Source> sourceList = this.selectBatchIds(idList);
 			if(CollectionUtils.isEmpty(sourceList)){
-				throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.DATA_NULL);
+				//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.DATA_NULL);
+				throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 			}else{
 				sourceList = this.setSourceStatusBatch(sourceList, SourceStatusEnum.ONLINE.getCode());
 				if(this.updateBatchById(sourceList)){
 					return true;
 				}else{
-					throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ONLINE_FAIL);
+					//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ONLINE_FAIL);
+					throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 				}
 			}
 		}else{
-			throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ID_NULL);
+			//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ID_NULL);
+			throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 		}	
 	}
 
@@ -122,17 +129,20 @@ public class SourceServiceImpl extends ServiceImpl<SourceMapper, Source> impleme
 			List<Long> idList = StringUtil.string2List(idStr);
 			List<Source> sourceList = this.selectBatchIds(idList);
 			if(CollectionUtils.isEmpty(sourceList)){
-				throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.DATA_NULL);
+				//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.DATA_NULL);
+				throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 			}else{
 				sourceList = this.setSourceStatusBatch(sourceList, SourceStatusEnum.OFFFLINE.getCode());
 				if(this.updateBatchById(sourceList)){
 					return true;
 				}else{
-					throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.OFFLINE_FAIL);
+					//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.OFFLINE_FAIL);
+					throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 				}
 			}
 		}else{
-			throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ID_NULL);
+			//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ID_NULL);
+			throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 		}	
 	}
 
@@ -144,17 +154,20 @@ public class SourceServiceImpl extends ServiceImpl<SourceMapper, Source> impleme
 			List<Long> idList = StringUtil.string2List(idStr);
 			List<Source> sourceList = this.selectBatchIds(idList);
 			if(CollectionUtils.isEmpty(sourceList)){
-				throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.DATA_NULL);
+				//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.DATA_NULL);
+				throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 			}else{
 				sourceList = this.setSourceStatusBatch(sourceList, SourceStatusEnum.ABANDON.getCode());
 				if(this.updateBatchById(sourceList)){
 					return true;
 				}else{
-					throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ABANDON_FAIL);
+					//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ABANDON_FAIL);
+					throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 				}
 			}
 		}else{
-			throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ID_NULL);
+			//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), ErrorMsgContants.ID_NULL);
+			throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 		}	
 	}
 	

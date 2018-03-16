@@ -48,7 +48,8 @@ public class ForderServiceImpl extends ServiceImpl<ForderMapper, Forder> impleme
 		Long id = forder.getId();
 		if(id == null){
 			if(CollectionUtils.isNotEmpty(forderList)){
-				throw new BaseException(BaseExceptionEnum.VALIDATE_NOPASS.getCode(), ErrorMsgContants.FORDER_NAME_VALIDATE_NOPASS);
+				//throw new BaseException(BaseExceptionEnum.VALIDATE_NOPASS.getCode(), ErrorMsgContants.FORDER_NAME_VALIDATE_NOPASS);
+				throw new BaseException(BaseExceptionEnum.VALIDATE_NOPASS);
 			}else{
 				if(this.insert(forder)){
 					return forder.getId();
@@ -58,12 +59,14 @@ public class ForderServiceImpl extends ServiceImpl<ForderMapper, Forder> impleme
 			}
 		}else{
 			if(CollectionUtils.isNotEmpty(forderList) && (forderList.size() > 1 || (forderList.size() == 1 && !forderList.get(0).getId().equals(id)))){
-				throw new BaseException(BaseExceptionEnum.VALIDATE_NOPASS.getCode(), ErrorMsgContants.FORDER_NAME_VALIDATE_NOPASS);
+				//throw new BaseException(BaseExceptionEnum.VALIDATE_NOPASS.getCode(), ErrorMsgContants.FORDER_NAME_VALIDATE_NOPASS);
+				throw new BaseException(BaseExceptionEnum.VALIDATE_NOPASS);
 			}else{
 				if(this.updateById(forder)){
 					return forder.getId();
 				}else{
-					throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), BaseExceptionEnum.NO_UPDATE.getMessage());
+					//throw new BaseException(BaseExceptionEnum.NO_UPDATE.getCode(), BaseExceptionEnum.NO_UPDATE.getMessage());
+					throw new BaseException(BaseExceptionEnum.NO_UPDATE);
 				}
 			}
 		}
@@ -99,13 +102,14 @@ public class ForderServiceImpl extends ServiceImpl<ForderMapper, Forder> impleme
 			List<Long> idList = StringUtil.string2List(idStr);
 			for(Long id : idList){
 				if(!this.deleteById(id)){
-					throw new BaseException(BaseExceptionEnum.NO_DELETE.getCode(), BaseExceptionEnum.NO_DELETE.getMessage());
+					throw new BaseException(BaseExceptionEnum.NO_DELETE);
 				}
 			}
 			return true;
 			
 		}else{
-			throw new BaseException(BaseExceptionEnum.NO_DELETE.getCode(), ErrorMsgContants.ID_NULL);
+			//throw new BaseException(BaseExceptionEnum.NO_DELETE.getCode(), ErrorMsgContants.ID_NULL);
+			throw new BaseException(BaseExceptionEnum.NO_DELETE);
 		}			
 	}
 
