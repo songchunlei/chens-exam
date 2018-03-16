@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chens.core.constants.SuccessMsgContants;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
@@ -50,9 +49,9 @@ public class ForderController extends BaseController {
 				map.put("forder", forder);
 				map.put("userInfo", userInfo);
 				Long id = forderService.save(map);
-				return doSuccess(SuccessMsgContants.SAVE_SUCCESS,id);
+				return doSuccess(id);
 			} else {
-				throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
+				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 			}
 
 	}
@@ -64,7 +63,7 @@ public class ForderController extends BaseController {
 	public ResponseEntity<Result> loadForderTree() {
 		//用户信息需要从缓存 中获取，待后续修改
 		List<ZTree> ztreeList = forderService.loadForderTree(new Forder());
-		return doSuccess(SuccessMsgContants.QUERY_SUCCESS,ztreeList);
+		return doSuccess(ztreeList);
 
 	}
 	
@@ -78,10 +77,9 @@ public class ForderController extends BaseController {
 	public ResponseEntity<Result> delete(Forder forder) {
 //		forder.setIdStr("972037445715595265,971995178036420610");
 		if(forder != null && StringUtils.isNotBlank(forder.getIdStr())){
-			forderService.delete(forder);
-			return doSuccess(SuccessMsgContants.DELETE_SUCCESS);				 
+			return doSuccess(forderService.delete(forder));
 		} else {
-			throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
+			throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 		}
 	}
 	

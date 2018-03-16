@@ -4,15 +4,11 @@ package com.chens.exam.controller.wms;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
-import com.chens.core.constants.SuccessMsgContants;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
@@ -50,9 +46,9 @@ public class SourceController extends BaseController {
 				map.put("source", source);
 				map.put("userInfo", userInfo);
 				Long id = sourceService.save(map);		
-				return doSuccess(SuccessMsgContants.SAVE_SUCCESS,id);
+				return doSuccess(id);
 			} else {
-				throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
+				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 			}
 
 	}
@@ -60,16 +56,16 @@ public class SourceController extends BaseController {
 	
 	/**
 	 * 删除资源, 逻辑删除
-	 * @param forder
+	 * @param source
 	 * @return
 	 */
 	@RequestMapping("/delete")
 	public ResponseEntity<Result> delete(Source source) {
 			if(source != null && source.getId() != null){		
-				sourceService.delete(source);
-				return doSuccess(SuccessMsgContants.DELETE_SUCCESS);				
+				;
+				return doSuccess(sourceService.delete(source));
 			} else {
-				throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
+				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 			}
 	}
 	
@@ -81,11 +77,10 @@ public class SourceController extends BaseController {
 	 */
 	@RequestMapping("/submit")
 	public ResponseEntity<Result> submit(Source source) {
-			if(source != null && source.getId() != null){		
-				sourceService.submit(source);
-				return doSuccess(SuccessMsgContants.SUBMIT_SUCCESS);				 
+			if(source != null && source.getId() != null){
+				return doSuccess(sourceService.submit(source));
 			} else {
-				throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
+				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 			}
 	}
 	
@@ -96,11 +91,10 @@ public class SourceController extends BaseController {
 	 */
 	@RequestMapping("/online")
 	public ResponseEntity<Result> online(Source source) {
-			if(source != null && source.getId() != null){		
-				sourceService.online(source);
-				return doSuccess(SuccessMsgContants.ONLINE_SUCCESS);
+			if(source != null && source.getId() != null){
+				return doSuccess(sourceService.online(source));
 			} else {
-				throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
+				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 			}
 
 	}
@@ -112,11 +106,10 @@ public class SourceController extends BaseController {
 	 */
 	@RequestMapping("/offline")
 	public ResponseEntity<Result> offline(Source source) {
-			if(source != null && source.getId() != null){		
-				sourceService.offline(source);
-				return doSuccess(SuccessMsgContants.OFFLINE_SUCCESS);
+			if(source != null && source.getId() != null){
+				return doSuccess(sourceService.offline(source));
 			} else {
-				throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
+				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 			}
 
 	}
@@ -128,11 +121,10 @@ public class SourceController extends BaseController {
 	 */
 	@RequestMapping("/abandon")
 	public ResponseEntity<Result> abandon(Source source) {
-			if(source != null && source.getId() != null){		
-				sourceService.abandon(source);
-				return doSuccess(SuccessMsgContants.ABANDON_SUCCESS);
+			if(source != null && source.getId() != null){
+				return doSuccess(sourceService.abandon(source));
 			} else {
-				throw new BaseException(BaseExceptionEnum.DATA_REQUEST_NULL.getCode(), BaseExceptionEnum.DATA_REQUEST_NULL.getMessage());
+				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 			}
 
 	}
@@ -143,6 +135,7 @@ public class SourceController extends BaseController {
 	 * @param source
 	 * @return
 	 */
+	/*
 	@RequestMapping("/page")
 	public ResponseEntity<Result> page(Source source) {
 		 Page<Source> page = this.createPage(request,10);		 
@@ -161,5 +154,6 @@ public class SourceController extends BaseController {
 		 resultMap.put("page", page);	 
 		 return doSuccess(SuccessMsgContants.QUERY_SUCCESS, resultMap);	 
 	}
+	*/
 }
 

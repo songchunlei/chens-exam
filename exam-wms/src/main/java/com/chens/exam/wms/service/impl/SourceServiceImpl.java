@@ -3,7 +3,7 @@ package com.chens.exam.wms.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.chens.core.constants.ErrorMsgContants;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.UserInfo;
@@ -20,6 +19,7 @@ import com.chens.exam.core.enums.SourceStatusEnum;
 import com.chens.exam.core.utils.StringUtil;
 import com.chens.exam.wms.mapper.SourceMapper;
 import com.chens.exam.wms.service.ISourceService;
+import org.springframework.util.CollectionUtils;
 
 /**
  * <p>
