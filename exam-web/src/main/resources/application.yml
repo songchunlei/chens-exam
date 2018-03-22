@@ -41,13 +41,12 @@ zuul:
 # 通过配置文件配置的静态路由
 routes:
   # 指定了一个路由，Id为uaa-token，在做验权的时候需要用到,back目前没发现实际意义，好像就是名字
-  back:
+  admin:
     # 指定这个路径会匹配到这个路由。
     path: /admin/**
     # 这里表示，这个路由的实例信息，是通过ribbon负载均衡器进行获取的。值就是对应服务名
     serviceId: chens-admin-web
-
-  auth:
+  exam:
     path: /exam-wms/**
     serviceId: exam-wms
 
