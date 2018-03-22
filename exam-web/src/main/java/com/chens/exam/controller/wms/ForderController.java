@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.chens.auth.client.vo.UserInfo;
+import com.chens.core.web.BaseWebController;
+import com.fasterxml.jackson.databind.deser.Deserializers;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
-import com.chens.core.vo.UserInfo;
 import com.chens.core.vo.ZTree;
 import com.chens.core.web.BaseController;
 import com.chens.exam.core.entity.wms.Forder;
@@ -42,7 +44,7 @@ public class ForderController extends BaseController {
 //				forder.setId(972037445715595265L);
 //				forder.setParentId(971338448474591233L);
 				//用户信息需要从缓存 中获取，待后续修改
-				UserInfo userInfo = new UserInfo();	
+				UserInfo userInfo = new UserInfo();
 				userInfo.setUsername("wudepeng");
 //				userInfo.setTenantId(1L);
 				Map<String, Object> map = new HashMap<String, Object>();

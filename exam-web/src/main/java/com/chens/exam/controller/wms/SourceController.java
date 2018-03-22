@@ -4,6 +4,7 @@ package com.chens.exam.controller.wms;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.chens.auth.client.vo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
-import com.chens.core.vo.UserInfo;
 import com.chens.core.web.BaseController;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.wms.remote.source.ISourceClient;
@@ -39,7 +39,7 @@ public class SourceController extends BaseController {
 				source.setName("英语");
 				source.setForderId(971583536198893569L);
 				//用户信息需要从缓存 中获取，待后续修改
-				UserInfo userInfo = new UserInfo();	
+				UserInfo userInfo = new UserInfo();
 //				userInfo.setUsername("wudepeng");
 				
 				Map<String, Object> map = new HashMap<String, Object>();
