@@ -5,6 +5,7 @@ import java.util.List;
 
 
 import com.baomidou.mybatisplus.toolkit.CollectionUtils;
+import com.chens.auth.client.vo.UserInfo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,6 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
-import com.chens.core.vo.UserInfo;
 import com.chens.core.vo.ZTree;
 import com.chens.exam.core.entity.wms.Forder;
 import com.chens.exam.core.enums.NodeTypeEnum;
@@ -36,13 +36,13 @@ public class ForderServiceImpl extends ServiceImpl<ForderMapper, Forder> impleme
 	@Override
 	@Transactional
 	public Long save(Forder forder, UserInfo userInfo) {
-		String userName = userInfo.getUsername();
+		Long userId = userInfo.getId();
 		//文件夹名称唯一性校验，同一个文件夹目录下是否重名
 		Forder query = new Forder();
 		query.setTenantId(userInfo.getTenantId());
 		query.setParentId(forder.getParentId());
 		query.setForderName(forder.getForderName());
-		query.setCreateBy(userName);
+		query.setCreateBy(userId);
 		EntityWrapper<Forder> ew = new EntityWrapper<Forder>(query);
 		List<Forder> forderList= this.selectList(ew);
 		Long id = forder.getId();

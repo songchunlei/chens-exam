@@ -2,6 +2,7 @@ package com.chens.exam.core.entity.wms;
 
 import java.util.Date;
 
+import com.chens.core.vo.BaseEntity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.baomidou.mybatisplus.annotations.TableField;
@@ -21,7 +22,7 @@ import java.io.Serializable;
  * @since 2018-03-06
  */
 @TableName("t_source")
-public class Source implements Serializable {
+public class Source extends BaseEntity<Forder> {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = -7496356762631622092L;
@@ -33,11 +34,6 @@ public class Source implements Serializable {
 	private String idStr;
 
     /**
-     * id
-     */
-    @TableId(value = "id", type = IdType.ID_WORKER)
-    private Long id;
-    /**
      * 机构id
      */
     @TableField("zone_id")
@@ -47,11 +43,7 @@ public class Source implements Serializable {
      */
     @TableField("forder_id")
     private Long forderId;
-    /**
-     * 租户Id
-     */
-    @TableField(value = "tenant_id", fill = FieldFill.INSERT)
-    private Long tenantId;
+
     /**
      * 资源类型
      */
@@ -96,43 +88,13 @@ public class Source implements Serializable {
      * 备注
      */
     private String remark;
-    /**
-     * 创建人
-     */
-    @TableField(value = "create_by", fill = FieldFill.INSERT)
-    private String createBy;
-    /**
-     * 创建时间
-     */
-    @TableField(value = "create_time", fill = FieldFill.INSERT)
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date createTime;
-    /**
-     * 修改人
-     */
-    @TableField(value = "update_by", fill = FieldFill.INSERT_UPDATE)
-    private String updateBy;
-    /**
-     * 修改时间
-     */
-    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date updateTime;
+
     /**
      * 是否删除
      */
     @TableField(value = "is_delete", fill = FieldFill.INSERT)
     @TableLogic
     private String isDelete;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getZoneId() {
         return zoneId;
@@ -149,14 +111,6 @@ public class Source implements Serializable {
     public void setForderId(Long forderId) {
         this.forderId = forderId;
     }
-
-    public Long getTenantId() {
-		return tenantId;
-	}
-
-	public void setTenantId(Long tenantId) {
-		this.tenantId = tenantId;
-	}
 
 	public String getType() {
         return type;
@@ -236,38 +190,6 @@ public class Source implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
-    }
-
-    public String getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public String getIsDelete() {

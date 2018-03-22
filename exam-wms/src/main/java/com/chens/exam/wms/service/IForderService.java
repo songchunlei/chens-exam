@@ -3,7 +3,7 @@ package com.chens.exam.wms.service;
 import java.util.List;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.chens.core.vo.UserInfo;
+import com.chens.auth.client.vo.UserInfo;
 import com.chens.core.vo.ZTree;
 import com.chens.exam.core.entity.wms.Forder;
 

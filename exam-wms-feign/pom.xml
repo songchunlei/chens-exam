@@ -12,28 +12,26 @@
     <artifactId>exam-wms-feign</artifactId>
 
 	<dependencies>
-       
-        <!--web-->
-         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-        </dependency>
 
-           <dependency>
-              <groupId>com.chens</groupId>
-              <artifactId>exam-core</artifactId>
-              <version>1.0-SNAPSHOT</version>
-          </dependency>
-          <dependency>
-              <groupId>com.chens</groupId>
-              <artifactId>chens-core</artifactId>
-              <version>1.0-SNAPSHOT</version>
-          </dependency>
-          <dependency>
+       <dependency>
+          <groupId>com.chens</groupId>
+          <artifactId>exam-core</artifactId>
+          <version>1.0-SNAPSHOT</version>
+      </dependency>
+
+        <!--spring-cloud-->
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-netflix-core</artifactId>
-          </dependency>
-
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-hystrix</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

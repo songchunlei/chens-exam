@@ -3,7 +3,7 @@ package com.chens.exam.wms.service;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
-import com.chens.core.vo.UserInfo;
+import com.chens.auth.client.vo.UserInfo;
 import com.chens.exam.core.entity.wms.Source;
 
 /**

@@ -23,12 +23,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
-    
+
     <dependencies>
-			 <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-            </dependency>
-   </dependencies>
+        <!--核心架包-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!--授权-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-auth-client</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

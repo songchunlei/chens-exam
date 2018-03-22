@@ -1,16 +1,11 @@
 package com.chens.exam.core.entity.wms;
 
-import java.io.Serializable;
-import java.util.Date;
-
-import org.springframework.format.annotation.DateTimeFormat;
+import com.chens.core.vo.BaseEntity;
 
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
-import com.baomidou.mybatisplus.enums.IdType;
 
 /**
  * <p>
@@ -21,7 +16,7 @@ import com.baomidou.mybatisplus.enums.IdType;
  * @since 2018-03-06
  */
 @TableName("t_forder")
-public class Forder implements Serializable {
+public class Forder extends BaseEntity<Forder> {
 
 
 	@TableField(exist = false)
@@ -33,11 +28,6 @@ public class Forder implements Serializable {
 	@TableField(exist = false)
 	private String idStr;
 
-    /**
-     * id
-     */
-    @TableId(value = "id", type = IdType.ID_WORKER)
-    private Long id;
     /**
      * 机构ID
      */
@@ -73,42 +63,11 @@ public class Forder implements Serializable {
      */
     private String remark;
     /**
-     * 创建时间
-     */
-    @TableField(value = "create_time", fill = FieldFill.INSERT)
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date createTime;
-    /**
-     * 创建人
-     */
-    @TableField(value = "create_by", fill = FieldFill.INSERT)
-    private String createBy;
-    /**
-     * 修改人
-     */
-    @TableField(value = "update_by", fill = FieldFill.INSERT_UPDATE)
-    private String updateBy;
-    /**
-     * 修改时间
-     */
-    @TableField(value = "update_time", fill = FieldFill.INSERT_UPDATE)
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
-    private Date updateTime;
-    /**
      * 是否删除
      */
     @TableField(value = "is_delete", fill = FieldFill.INSERT)
     @TableLogic
     private String isDelete;
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Long getZoneId() {
         return zoneId;
@@ -117,15 +76,6 @@ public class Forder implements Serializable {
     public void setZoneId(Long zoneId) {
         this.zoneId = zoneId;
     }
-
-
-    public Long getTenantId() {
-		return tenantId;
-	}
-
-	public void setTenantId(Long tenantId) {
-		this.tenantId = tenantId;
-	}
 
 	public String getForderType() {
         return forderType;
@@ -165,38 +115,6 @@ public class Forder implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(String createBy) {
-        this.createBy = createBy;
-    }
-
-    public String getUpdateBy() {
-        return updateBy;
-    }
-
-    public void setUpdateBy(String updateBy) {
-        this.updateBy = updateBy;
-    }
-
-    public Date getUpdateTime() {
-        return updateTime;
-    }
-
-    public void setUpdateTime(Date updateTime) {
-        this.updateTime = updateTime;
     }
 
     public String getIsDelete() {

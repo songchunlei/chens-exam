@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+import com.chens.auth.client.vo.UserInfo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,7 +14,6 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
-import com.chens.core.vo.UserInfo;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.enums.SourceStatusEnum;
 import com.chens.exam.core.utils.StringUtil;
