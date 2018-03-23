@@ -1,15 +1,10 @@
 package com.chens.exam.core.entity.book;
 
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.FieldFill;
-import com.baomidou.mybatisplus.enums.IdType;
 import com.chens.core.vo.BaseEntity;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -132,24 +127,4 @@ public class Training extends BaseEntity<Training> {
         this.isDelete = isDelete;
     }
 
-
-    @Override
-    public String toString() {
-        return "Training{" +
-        ", id=" + id +
-        ", trainingName=" + trainingName +
-        ", description=" + description +
-        ", isPrivate=" + isPrivate +
-        ", fieldId=" + fieldId +
-        ", status=" + status +
-        ", effectiveTime=" + effectiveTime +
-        ", expiryTime=" + expiryTime +
-        ", isDelete=" + isDelete +
-        ", createTime=" + createTime +
-        ", createBy=" + createBy +
-        ", updateTime=" + updateTime +
-        ", updateBy=" + updateBy +
-        ", tenantId=" + tenantId +
-        "}";
-    }
 }

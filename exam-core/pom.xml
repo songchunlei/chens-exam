@@ -10,21 +10,17 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>exam-core</artifactId>
     <dependencies>
-          <!--mybatis-plus插件-->
-          <dependency>
-              <groupId>com.baomidou</groupId>
-              <artifactId>mybatisplus-spring-boot-starter</artifactId>
-          </dependency>
-          <dependency>
-              <groupId>com.baomidou</groupId>
-              <artifactId>mybatis-plus</artifactId>
-          </dependency>
-          <!--mybatis-plus插件 end-->
-          
-          <dependency>
-			  <groupId>com.fasterxml.jackson.core</groupId>
-			  <artifactId>jackson-databind</artifactId>
-		  </dependency>
+        <!--mybatis-plus插件-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+        <!--mybatis-plus插件 end-->
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
 
         <!--database-->
         <dependency>

@@ -1,17 +1,11 @@
 package com.chens.exam.core.entity.wms;
 
-import java.util.Date;
-
 import com.chens.core.vo.BaseEntity;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.FieldFill;
-import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.annotations.TableLogic;
-import java.io.Serializable;
 
 /**
  * <p>
@@ -198,31 +192,6 @@ public class Source extends BaseEntity<Forder> {
 
     public void setIsDelete(String isDelete) {
         this.isDelete = isDelete;
-    }
-
-    @Override
-    public String toString() {
-        return "Source{" +
-        "id=" + id +
-        ", zoneId=" + zoneId +
-        ", forderId=" + forderId +
-        ", tenantId=" + tenantId +
-        ", type=" + type +
-        ", name=" + name +
-        ", content=" + content +
-        ", fileName=" + fileName +
-        ", fileType=" + fileType +
-        ", fileForder=" + fileForder +
-        ", path=" + path +
-        ", status=" + status +
-        ", qrCode=" + qrCode +
-        ", remark=" + remark +
-        ", createBy=" + createBy +
-        ", createTime=" + createTime +
-        ", updateBy=" + updateBy +
-        ", updateTime=" + updateTime +
-        ", isDelete=" + isDelete +
-        "}";
     }
 
 	public String getIdStr() {

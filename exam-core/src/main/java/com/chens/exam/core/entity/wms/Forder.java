@@ -125,25 +125,6 @@ public class Forder extends BaseEntity<Forder> {
         this.isDelete = isDelete;
     }
 
-    @Override
-    public String toString() {
-        return "Forder{" +
-        "id=" + id +
-        ", zoneId=" + zoneId +
-        ", tenantId=" + tenantId +
-        ", forderType=" + forderType +
-        ", forderName=" + forderName +
-        ", forderCascadeId=" + forderCascadeId +
-        ", parentId=" + parentId +
-        ", remark=" + remark +
-        ", createTime=" + createTime +
-        ", createBy=" + createBy +
-        ", updateBy=" + updateBy +
-        ", updateTime=" + updateTime +
-        ", isDelete=" + isDelete +
-        "}";
-    }
-
 	public String getIdStr() {
 		return idStr;
 	}
