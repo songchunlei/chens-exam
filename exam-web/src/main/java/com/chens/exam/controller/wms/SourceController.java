@@ -4,12 +4,12 @@ package com.chens.exam.controller.wms;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.chens.auth.client.vo.UserInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chens.auth.vo.UserInfo;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
@@ -37,7 +37,7 @@ public class SourceController extends BaseController {
 	public ResponseEntity<Result> save(Source source) {
 			if(source != null){
 				source.setName("英语");
-				source.setForderId(971583536198893569L);
+			//	source.setForderId(971583536198893569L);
 				//用户信息需要从缓存 中获取，待后续修改
 				UserInfo userInfo = new UserInfo();
 //				userInfo.setUsername("wudepeng");
@@ -45,7 +45,7 @@ public class SourceController extends BaseController {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("source", source);
 				map.put("userInfo", userInfo);
-				Long id = sourceService.save(map);		
+				String id = sourceService.save(map);		
 				return doSuccess(id);
 			} else {
 				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);

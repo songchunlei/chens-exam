@@ -1,12 +1,12 @@
 package com.chens.exam.core.enums;
 
 public enum TopIdEnum{
-	TOP_SOURCE("全部资源", 1000000000000000000L);
+	TOP_SOURCE("全部资源", "1000000000000000000L");
 	
 	private String display;
-	private Long code;
+	private String code;
 	
-	private TopIdEnum(String display, Long code) {
+	private TopIdEnum(String display, String code) {
 		this.display = display;
 		this.code = code;
 		
@@ -22,13 +22,13 @@ public enum TopIdEnum{
 
 
 
-	public Long getCode() {
+	public String getCode() {
 		return code;
 	}
 
 
 
-	public void setCode(Long code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 
@@ -43,7 +43,7 @@ public enum TopIdEnum{
 	 * 
 	 * @author sunm
 	 */
-    public static TopIdEnum getYesNoEnumBycode(Long code){           
+    public static TopIdEnum getYesNoEnumBycode(String code){           
     	TopIdEnum[] enums = TopIdEnum.values();
         for(TopIdEnum item: enums){          
             if(item.getCode().equals(code)){

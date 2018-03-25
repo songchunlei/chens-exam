@@ -2,6 +2,8 @@ package com.chens.exam.core.entity.wms;
 
 import com.chens.core.vo.BaseEntity;
 
+import javax.validation.constraints.NotNull;
+
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
@@ -32,12 +34,8 @@ public class Forder extends BaseEntity<Forder> {
      * 机构ID
      */
     @TableField("zone_id")
-    private Long zoneId;
-    /**
-     * 租户id
-     */
-    @TableField(value = "tenant_id", fill = FieldFill.INSERT)
-    private Long tenantId;
+    private String zoneId;
+
     /**
      * 文件夹类型
      */
@@ -47,6 +45,7 @@ public class Forder extends BaseEntity<Forder> {
      * 文件夹名称
      */
     @TableField("forder_name")
+    @NotNull(message = "{forder.forderName.null}")
     private String forderName;
     /**
      * 文件夹节点语意ID
@@ -57,7 +56,7 @@ public class Forder extends BaseEntity<Forder> {
      * 上级文件夹id
      */
     @TableField("parent_id")
-    private Long parentId;
+    private String parentId;
     /**
      * 备注
      */
@@ -68,70 +67,57 @@ public class Forder extends BaseEntity<Forder> {
     @TableField(value = "is_delete", fill = FieldFill.INSERT)
     @TableLogic
     private String isDelete;
-
-    public Long getZoneId() {
-        return zoneId;
-    }
-
-    public void setZoneId(Long zoneId) {
-        this.zoneId = zoneId;
-    }
-
-	public String getForderType() {
-        return forderType;
-    }
-
-    public void setForderType(String forderType) {
-        this.forderType = forderType;
-    }
-
-    public String getForderName() {
-        return forderName;
-    }
-
-    public void setForderName(String forderName) {
-        this.forderName = forderName;
-    }
-
-    public String getForderCascadeId() {
-        return forderCascadeId;
-    }
-
-    public void setForderCascadeId(String forderCascadeId) {
-        this.forderCascadeId = forderCascadeId;
-    }
-
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(String isDelete) {
-        this.isDelete = isDelete;
-    }
-
 	public String getIdStr() {
 		return idStr;
 	}
-
 	public void setIdStr(String idStr) {
 		this.idStr = idStr;
 	}
+	public String getZoneId() {
+		return zoneId;
+	}
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+	}
+
+	public String getForderType() {
+		return forderType;
+	}
+	public void setForderType(String forderType) {
+		this.forderType = forderType;
+	}
+	public String getForderName() {
+		return forderName;
+	}
+	public void setForderName(String forderName) {
+		this.forderName = forderName;
+	}
+	public String getForderCascadeId() {
+		return forderCascadeId;
+	}
+	public void setForderCascadeId(String forderCascadeId) {
+		this.forderCascadeId = forderCascadeId;
+	}
+	public String getParentId() {
+		return parentId;
+	}
+	public void setParentId(String parentId) {
+		this.parentId = parentId;
+	}
+	public String getRemark() {
+		return remark;
+	}
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	public String getIsDelete() {
+		return isDelete;
+	}
+	public void setIsDelete(String isDelete) {
+		this.isDelete = isDelete;
+	}
+
+  
     
     
 }

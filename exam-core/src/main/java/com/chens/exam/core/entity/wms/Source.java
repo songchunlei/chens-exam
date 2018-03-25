@@ -1,11 +1,10 @@
 package com.chens.exam.core.entity.wms;
 
-import com.chens.core.vo.BaseEntity;
-
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.enums.FieldFill;
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.annotations.TableLogic;
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.FieldFill;
+import com.chens.core.vo.BaseEntity;
 
 /**
  * <p>
@@ -16,7 +15,7 @@ import com.baomidou.mybatisplus.annotations.TableLogic;
  * @since 2018-03-06
  */
 @TableName("t_source")
-public class Source extends BaseEntity<Forder> {
+public class Source extends BaseEntity<Source> {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = -7496356762631622092L;
@@ -31,12 +30,12 @@ public class Source extends BaseEntity<Forder> {
      * 机构id
      */
     @TableField("zone_id")
-    private Long zoneId;
+    private String zoneId;
     /**
      * 文件夹id
      */
     @TableField("forder_id")
-    private Long forderId;
+    private String forderId;
 
     /**
      * 资源类型
@@ -90,19 +89,19 @@ public class Source extends BaseEntity<Forder> {
     @TableLogic
     private String isDelete;
 
-    public Long getZoneId() {
+    public String getZoneId() {
         return zoneId;
     }
 
-    public void setZoneId(Long zoneId) {
+    public void setZoneId(String zoneId) {
         this.zoneId = zoneId;
     }
 
-    public Long getForderId() {
+    public String getForderId() {
         return forderId;
     }
 
-    public void setForderId(Long forderId) {
+    public void setForderId(String forderId) {
         this.forderId = forderId;
     }
 

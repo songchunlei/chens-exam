@@ -1,9 +1,7 @@
 package com.chens.exam.wms.service;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
-import com.chens.auth.client.vo.UserInfo;
+import com.chens.auth.vo.UserInfo;
 import com.chens.exam.core.entity.wms.Source;
 
 /**
@@ -23,7 +21,7 @@ public interface ISourceService extends IService<Source> {
 	 * @param userInfo
 	 * @return
 	 */
-	Long save(Source source, UserInfo userInfo);
+	String save(Source source, UserInfo userInfo);
 
 	/**
 	 * 删除资源
@@ -62,12 +60,4 @@ public interface ISourceService extends IService<Source> {
 	 * @return
 	 */
 	boolean abandon(Source source);
-	
-	/**
-	 * 资源分页
-	 * @param page
-	 * @param entityWrapper
-	 * @return
-	 */
-	Page<Source> selectSourcePage(Page<Source> page, EntityWrapper<Source> entityWrapper);
 }

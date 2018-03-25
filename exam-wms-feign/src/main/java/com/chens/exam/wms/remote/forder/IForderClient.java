@@ -23,7 +23,7 @@ public interface IForderClient {
 	 * 将对象保存，返回该条记录的操作数量，保存成功之后，将主键填充到参数对象中
 	 */
 	@RequestMapping(value="/save")
-	Long save(@RequestBody Map<String, Object> map);
+	String save(@RequestBody Map<String, Object> map);
 
 	/**
 	 * 获取全部资源目录，同租户下目录树

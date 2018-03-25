@@ -9,12 +9,11 @@ public final class StringUtil {
 	 * @param idStr
 	 * @return
 	 */
-    public static List<Long> string2List(String idStr) {  
+    public static List<String> string2List(String idStr) {  
     	String[] idArray = idStr.split(",");
-		List<Long> idList = new ArrayList<Long>();
+		List<String> idList = new ArrayList<String>();
 		for(int i = 0; i < idArray.length; i++){
-			Long id = Long.valueOf(idArray[i]);
-			idList.add(id);
+			idList.add(idArray[i]);
 		}
         return idList;
     }

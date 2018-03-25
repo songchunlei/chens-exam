@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.baomidou.mybatisplus.plugins.Page;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.exam.core.entity.wms.Source;
@@ -16,7 +15,7 @@ public class SourceClientHystrix implements ISourceClient {
 	private static final Logger logger = LoggerFactory.getLogger(SourceClientHystrix.class);
 
 	@Override
-	public Long save(Map<String, Object> map) {
+	public String save(Map<String, Object> map) {
 		logger.error("----调用保存方法出错-----");
 		throw new BaseException(BaseExceptionEnum.REQUEST_NULL.getCode(),"调用保存方法出错");
 	}
@@ -49,12 +48,6 @@ public class SourceClientHystrix implements ISourceClient {
 	public boolean abandon(Source source) {
 		logger.error("----调用废弃方法出错-----");
 		throw new BaseException(BaseExceptionEnum.REQUEST_NULL.getCode(),"调用废弃方法出错");
-	}
-
-	@Override
-	public Page<Source> selectSourcePage(Map<String, Object> map) {
-		logger.error("----调用资源分页查询出错-----");
-		throw new BaseException(BaseExceptionEnum.REQUEST_NULL.getCode(),"调用资源分页查询出错");
 	}
 
 

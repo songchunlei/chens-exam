@@ -6,7 +6,6 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.baomidou.mybatisplus.plugins.Page;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.wms.remote.source.hystrix.SourceClientHystrix;
 /**
@@ -22,7 +21,7 @@ public interface ISourceClient {
 	 * 将对象保存，返回该条记录的操作数量，保存成功之后，将主键填充到参数对象中
 	 */
 	@RequestMapping(value="/save")
-	Long save(@RequestBody Map<String, Object> map);
+	String save(@RequestBody Map<String, Object> map);
 
 	
 	/**
@@ -68,13 +67,5 @@ public interface ISourceClient {
 	 */
 	@RequestMapping(value="/abandon")
 	boolean abandon(@RequestBody Source source);
-	
-	/**
-	 * 查询资源分页
-	 * @param map
-	 * @return
-	 */
-	@RequestMapping(value="/selectSourcePage")
-	Page<Source> selectSourcePage(@RequestBody Map<String, Object> map);
 
 }

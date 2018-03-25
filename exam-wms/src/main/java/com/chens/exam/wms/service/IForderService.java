@@ -3,7 +3,7 @@ package com.chens.exam.wms.service;
 import java.util.List;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.chens.auth.client.vo.UserInfo;
+import com.chens.auth.vo.UserInfo;
 import com.chens.core.vo.ZTree;
 import com.chens.exam.core.entity.wms.Forder;
 
@@ -23,7 +23,7 @@ public interface IForderService extends IService<Forder> {
 	 * @param userInfo
 	 * @return
 	 */
-	Long save(Forder forder, UserInfo userInfo);
+	String save(Forder forder, UserInfo userInfo);
 	
 	/**
 	 * 获取我的资源目录树

@@ -1,18 +1,12 @@
 package com.chens.exam.filters;
 
-import com.alibaba.fastjson.JSONObject;
-import com.chens.auth.client.jwt.IJwtInfo;
-import com.chens.auth.client.jwt.JwtTokenProvider;
-import com.chens.auth.client.util.UserAuthUtil;
-import com.netflix.zuul.ZuulFilter;
-import com.netflix.zuul.context.RequestContext;
-import com.netflix.zuul.exception.ZuulException;
-import io.jsonwebtoken.Claims;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
 
-import javax.servlet.http.HttpServletRequest;
+import com.netflix.zuul.ZuulFilter;
+import com.netflix.zuul.context.RequestContext;
+import com.netflix.zuul.exception.ZuulException;
 
 /**
  * Token鉴权
@@ -23,8 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class TokenValidateFilter extends ZuulFilter {
 
-    // token工具
-    private UserAuthUtil userAuthUtil;
+//    // token工具
+//    private UserAuthUtil userAuthUtil;
 
     @Override
     public String filterType() {
@@ -45,7 +39,7 @@ public class TokenValidateFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-        // zuul中，将当前请求的上下文信息存在线程变量中。取出来
+ /*       // zuul中，将当前请求的上下文信息存在线程变量中。取出来
         RequestContext ctx = RequestContext.getCurrentContext();
         // 从上下文中获取httprequest对象
         HttpServletRequest request = ctx.getRequest();
@@ -67,7 +61,7 @@ public class TokenValidateFilter extends ZuulFilter {
         if (jwtInfo == null) {
             forbidden();
             return null;
-        }
+        }*/
 
         return null;
     }

@@ -4,15 +4,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.chens.auth.client.vo.UserInfo;
-import com.chens.core.web.BaseWebController;
-import com.fasterxml.jackson.databind.deser.Deserializers;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chens.auth.vo.UserInfo;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
@@ -50,7 +48,7 @@ public class ForderController extends BaseController {
 				Map<String, Object> map = new HashMap<String, Object>();
 				map.put("forder", forder);
 				map.put("userInfo", userInfo);
-				Long id = forderService.save(map);
+				String id = forderService.save(map);
 				return doSuccess(id);
 			} else {
 				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);

@@ -17,7 +17,7 @@ public class ForderClientHystrix implements IForderClient {
 	private static final Logger logger = LoggerFactory.getLogger(ForderClientHystrix.class);
 
 	@Override
-	public Long save(Map<String, Object> map) {
+	public String save(Map<String, Object> map) {
 		logger.error("----调用保存方法出错-----");
 		throw new BaseException(BaseExceptionEnum.REQUEST_NULL.getCode(), "调用保存方法出错");
 	}
