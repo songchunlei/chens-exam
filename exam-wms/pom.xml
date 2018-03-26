@@ -70,7 +70,7 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-actuator</artifactId>
 		 </dependency>
-            <!-- feign依赖end -->
+         <!-- feign依赖end -->
          
 
     </dependencies>
