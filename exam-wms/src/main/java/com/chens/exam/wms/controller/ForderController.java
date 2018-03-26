@@ -22,9 +22,6 @@ public class ForderController extends BaseWebController<IForderService,Forder> {
 
     @GetMapping("/loadForderTree")
     public ResponseEntity<Result> loadForderTree(Forder forder) {
-    	//同一租户下的资源可见	
-   // 	forder.setTenantId(BaseContextHandler.getTenantId());
-    	forder.setTenantId("1");//暂时写死
         return doSuccess(service.loadForderTree(forder));
     }
 
