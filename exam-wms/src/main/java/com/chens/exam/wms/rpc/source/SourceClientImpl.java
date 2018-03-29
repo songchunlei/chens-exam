@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chens.auth.vo.UserInfo;
+import com.chens.core.vo.UserInfo;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.utils.JsonUtils;
 import com.chens.exam.wms.remote.source.ISourceClient;

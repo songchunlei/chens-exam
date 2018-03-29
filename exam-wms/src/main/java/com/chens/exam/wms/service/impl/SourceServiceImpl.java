@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.chens.auth.vo.UserInfo;
+import com.chens.core.vo.UserInfo;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.exam.core.entity.wms.Source;
