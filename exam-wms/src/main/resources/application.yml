@@ -7,8 +7,8 @@ server:
 mybatis-plus:
   mapper-locations: classpath:/mapper/*Mapper.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.chens.exam.core.entity
-  typeEnumsPackage: com.chens.exam.core.enums
+  typeAliasesPackage: com.chens.exam.core.entity; com.chens.bpm.entity
+  typeEnumsPackage: com.chens.exam.core.enums; com.chens.bpm.enums
   global-config:
     #刷新mapper 调试神器
     refresh-mapper: true
@@ -26,11 +26,14 @@ spring:
     name: exam-wms
   #数据库连接
   datasource:
-    url: jdbc:mysql://chens:3306/qyexam?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://chens:3306/qyexam?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
     username: root
     password: abc@123456
     type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver    
+    driver-class-name: com.mysql.jdbc.Driver
+  activiti:
+    check-process-definitions: false    #校验流程文件，默认校验resources下的processes文件夹里的流程文件 
+    database-schema-update: true  #没有时自动创建表。有时不创建   
 
 
 eureka:

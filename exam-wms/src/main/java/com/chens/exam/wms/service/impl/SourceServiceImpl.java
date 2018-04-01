@@ -3,16 +3,15 @@ package com.chens.exam.wms.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chens.bpm.service.impl.WfBaseServiceImpl;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.chens.core.vo.UserInfo;
+import com.chens.bpm.service.impl.WfBaseServiceImpl;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
+import com.chens.core.vo.UserInfo;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.enums.SourceStatusEnum;
 import com.chens.exam.core.utils.StringUtil;
@@ -36,7 +35,6 @@ public class SourceServiceImpl extends WfBaseServiceImpl<SourceMapper, Source> i
 	public String save(Source source, UserInfo userInfo) {
 		String id = source.getId();
 		if(id == null){
-			source.setStatus(SourceStatusEnum.DRAFT.getCode());
 			if(this.insert(source)){
 				return source.getId();
 			}else{
@@ -172,7 +170,6 @@ public class SourceServiceImpl extends WfBaseServiceImpl<SourceMapper, Source> i
 	public List<Source> setSourceStatusBatch(List<Source> sourceList, String status){
 		List<Source> list = new ArrayList<Source>();
 		for(Source source: sourceList){
-			source.setStatus(status);
 			list.add(source);
 		}	
 		return list;

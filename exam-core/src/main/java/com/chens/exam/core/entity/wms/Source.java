@@ -4,7 +4,6 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
-import com.chens.bpm.vo.WfBaseEntity;
 import com.chens.core.vo.BaseEntity;
 
 /**
@@ -16,7 +15,7 @@ import com.chens.core.vo.BaseEntity;
  * @since 2018-03-06
  */
 @TableName("t_source")
-public class Source extends WfBaseEntity<Source> {
+public class Source extends BaseEntity<Source> {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = -7496356762631622092L;
@@ -69,10 +68,7 @@ public class Source extends WfBaseEntity<Source> {
      * 资源地址
      */
     private String path;
-    /**
-     * 资源状态
-     */
-    private String status;
+
     /**
      * 资源二维码
      */
@@ -160,14 +156,6 @@ public class Source extends WfBaseEntity<Source> {
 
     public void setPath(String path) {
         this.path = path;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 
     public String getQrCode() {

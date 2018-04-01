@@ -1,6 +1,5 @@
 package com.chens.exam.wms.service;
 
-import com.baomidou.mybatisplus.service.IService;
 import com.chens.bpm.service.IWfBaseService;
 import com.chens.core.vo.UserInfo;
 import com.chens.exam.core.entity.wms.Source;

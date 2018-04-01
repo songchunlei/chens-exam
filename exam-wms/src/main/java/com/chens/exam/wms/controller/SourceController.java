@@ -1,7 +1,6 @@
 package com.chens.exam.wms.controller;
 
 
-import com.chens.bpm.controller.WfBaseController;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -9,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.chens.bpm.controller.WfBaseController;
+import com.chens.bpm.vo.WorkFlowRequestParam;
+import com.chens.core.context.BaseContextHandler;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
-import com.chens.core.web.BaseWebController;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.wms.service.ISourceService;
 
@@ -29,8 +30,22 @@ import com.chens.exam.wms.service.ISourceService;
 public class SourceController extends WfBaseController<ISourceService,Source> {
 
 	@Override
-	protected void init() {
-		WF_DEF_KEY = "11111";
+	protected void init(Source source) {
+		workFlowRequestParam = new WorkFlowRequestParam<Source>();
+		workFlowRequestParam.setProcessDefinitionKey("SOURCE_APPROVE");//流程定义Key
+		workFlowRequestParam.setVariableValue(source.getVariableValue());//前台传过来的下一环节选择
+		workFlowRequestParam.setTaskId(source.getTaskId());//任务id
+		workFlowRequestParam.setNextUserId(source.getNextUserId());//下一处理人
+		workFlowRequestParam.setStartUserId(BaseContextHandler.getUserId());//发起人
+		workFlowRequestParam.setStartUserName(BaseContextHandler.getName());//发起人姓名
+		workFlowRequestParam.setTenantId(BaseContextHandler.getTenantId());//租户
+		workFlowRequestParam.setTableName("t_source");//表名
+		workFlowRequestParam.setBpmReason(source.getBpmReason());//审批意见
+		workFlowRequestParam.setTaskName(source.getTaskName());
+		workFlowRequestParam.setCurrentTaskDefinitionKey(source.getCurrentTaskDefinitionKey());
+		workFlowRequestParam.setCurrentTaskDefinitionName(source.getCurrentTaskDefinitionName());
+		workFlowRequestParam.setT(source);
+		
 	}
 
 	/**

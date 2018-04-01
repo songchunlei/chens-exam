@@ -1,14 +1,15 @@
 package com.chens.exam.wms.config;
 
-import com.chens.auth.client.interceptor.UserAuthRestInterceptor;
+import java.util.ArrayList;
+import java.util.Collections;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import com.chens.auth.client.interceptor.UserAuthRestInterceptor;
 
 /**
  * 拦截器配置
@@ -26,6 +27,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
 
         //增加用户权限拦截器
         registry.addInterceptor(getUserAuthRestInterceptor()).addPathPatterns("/**").excludePathPatterns(commonPathPatterns.toArray(new String[]{}));
+        //存入缓存
         super.addInterceptors(registry);
     }
 
