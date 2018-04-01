@@ -38,7 +38,7 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!--核心架包-->
+        <!--核心流程架包-->
         <dependency>
             <groupId>com.chens</groupId>
             <artifactId>chens-bpm-core</artifactId>
