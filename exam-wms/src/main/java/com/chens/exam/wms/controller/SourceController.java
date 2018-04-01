@@ -1,6 +1,7 @@
 package com.chens.exam.wms.controller;
 
 
+import com.chens.bpm.controller.WfBaseController;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,8 +26,13 @@ import com.chens.exam.wms.service.ISourceService;
  */
 @RestController
 @RequestMapping("/sourceController")
-public class SourceController extends BaseWebController<ISourceService,Source>  {
-		
+public class SourceController extends WfBaseController<ISourceService,Source> {
+
+	@Override
+	protected void init() {
+		WF_DEF_KEY = "11111";
+	}
+
 	/**
 	 * 提交资源
 	 * @param source
@@ -49,7 +55,7 @@ public class SourceController extends BaseWebController<ISourceService,Source>  
 	@PutMapping("/online")
 	public ResponseEntity<Result> online(@RequestBody Source source) {
 			if(source != null && StringUtils.isNotBlank(source.getIdStr())){
-				return doSuccess("上架成功",service.online(source));
+				return doSuccess("上架成功",service.publish(source));
 			} else {
 				throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 			}
@@ -85,5 +91,6 @@ public class SourceController extends BaseWebController<ISourceService,Source>  
 			}
 
 	}
+
 }
 

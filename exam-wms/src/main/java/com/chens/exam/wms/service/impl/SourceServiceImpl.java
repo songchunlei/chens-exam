@@ -3,6 +3,7 @@ package com.chens.exam.wms.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.chens.bpm.service.impl.WfBaseServiceImpl;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,7 +28,7 @@ import com.chens.exam.wms.service.ISourceService;
  * @since 2018-03-06
  */
 @Service
-public class SourceServiceImpl extends ServiceImpl<SourceMapper, Source> implements ISourceService {
+public class SourceServiceImpl extends WfBaseServiceImpl<SourceMapper, Source> implements ISourceService {
 
 	
 	@Override

@@ -1,6 +1,7 @@
 package com.chens.exam.wms.service;
 
 import com.baomidou.mybatisplus.service.IService;
+import com.chens.bpm.service.IWfBaseService;
 import com.chens.core.vo.UserInfo;
 import com.chens.exam.core.entity.wms.Source;
 
@@ -12,7 +13,7 @@ import com.chens.exam.core.entity.wms.Source;
  * @author wdp123
  * @since 2018-03-06
  */
-public interface ISourceService extends IService<Source> {
+public interface ISourceService extends IWfBaseService<Source> {
 
 	
 	/**

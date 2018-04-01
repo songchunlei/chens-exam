@@ -38,6 +38,18 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
+        <!--核心架包-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-bpm-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-bpm-activiti</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
     </dependencies>
 
 </project>
