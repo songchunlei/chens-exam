@@ -1,21 +1,17 @@
-package com.chens.exam.core.entity.wms;
+package com.chens.exam.core.vo;
 
-import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.core.vo.BaseEntity;
 
 /**
  *
- *  实体
+ *  抽象实体
  *
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-@TableName("t_tag")
-public class Tag extends BaseEntity<Tag> {
+public abstract class Tag extends BaseEntity<Tag> {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,6 +1,6 @@
 package com.chens.exam.wms.service.impl;
 
-import com.chens.exam.core.entity.wms.Tag;
+import com.chens.exam.core.vo.Tag;
 import com.chens.exam.wms.mapper.TagMapper;
 import com.chens.exam.wms.service.ITagService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;

@@ -1,6 +1,6 @@
 package com.chens.exam.wms.mapper;
 
-import com.chens.exam.core.entity.wms.Tag;
+import com.chens.exam.core.vo.Tag;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**

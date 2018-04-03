@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,7 +28,7 @@ import com.chens.exam.wms.service.ISourceService;
  * @author wdp123
  * @since 2018-03-06
  */
-@RestController
+@Controller
 @RequestMapping("/sourceController")
 public class SourceController extends WfBaseController<ISourceService,Source> {
 
