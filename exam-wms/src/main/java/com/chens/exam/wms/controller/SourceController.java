@@ -1,6 +1,8 @@
 package com.chens.exam.wms.controller;
 
 
+import com.baomidou.mybatisplus.annotations.TableName;
+import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -31,6 +33,10 @@ public class SourceController extends WfBaseController<ISourceService,Source> {
 
 	@Override
 	protected void init(Source source) {
+		source.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.SOURCE_APPROVE.getCode());
+	}
+
+		/*
 		workFlowRequestParam = new WorkFlowRequestParam<Source>();
 		workFlowRequestParam.setProcessDefinitionKey("SOURCE_APPROVE");//流程定义Key
 		workFlowRequestParam.setVariableValue(source.getVariableValue());//前台传过来的下一环节选择
@@ -39,14 +45,18 @@ public class SourceController extends WfBaseController<ISourceService,Source> {
 		workFlowRequestParam.setStartUserId(BaseContextHandler.getUserId());//发起人
 		workFlowRequestParam.setStartUserName(BaseContextHandler.getName());//发起人姓名
 		workFlowRequestParam.setTenantId(BaseContextHandler.getTenantId());//租户
-		workFlowRequestParam.setTableName("t_source");//表名
+		//workFlowRequestParam.setTableName("t_source");//表名
+		TableName tableName = Source.class.getAnnotation(TableName.class);
+		if(tableName!=null)
+		{
+			workFlowRequestParam.setTableName(tableName.value());//从注解获取类名
+		}
 		workFlowRequestParam.setBpmReason(source.getBpmReason());//审批意见
 		workFlowRequestParam.setTaskName(source.getTaskName());
 		workFlowRequestParam.setCurrentTaskDefinitionKey(source.getCurrentTaskDefinitionKey());
 		workFlowRequestParam.setCurrentTaskDefinitionName(source.getCurrentTaskDefinitionName());
 		workFlowRequestParam.setT(source);
-		
-	}
+		*/
 
 	/**
 	 * 提交资源
