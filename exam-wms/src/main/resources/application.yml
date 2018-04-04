@@ -26,7 +26,7 @@ spring:
     name: exam-wms
   #数据库连接
   datasource:
-    url: jdbc:mysql://chens:3306/qyexam?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
+    url: jdbc:mysql://${chens_mysql_url:chens}:3306/qyexam?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
     username: root
     password: abc@123456
     type: com.alibaba.druid.pool.DruidDataSource
@@ -39,7 +39,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://${eureka.host:localhost}:${eureka.port:8761}/eureka/ #注册中心地址
+      defaultZone: ${chens_eureka_serviceUrl:http://127.0.0.1:8761/eureka/}
   instance:
     prefer-ip-address: true
     lease-renewal-interval-in-seconds: 10      # 心跳时间，即服务续约间隔时间（缺省为30s）
