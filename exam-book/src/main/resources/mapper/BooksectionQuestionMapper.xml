@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chens.exam.book.mapper.BooksectionQuestionMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, create_by AS createBy, update_by AS updateBy, create_time AS createTime, update_time AS updateTime, tenant_id AS tenantId, book_section_id AS bookSectionId, question_id AS questionId
+    </sql>
+
+</mapper>

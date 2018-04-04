@@ -1,5 +1,6 @@
 package com.chens.exam.book.config;
 
+import com.chens.core.config.BaseMybatisPlusConfig;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.mybatis.spring.annotation.MapperScan;
@@ -14,21 +15,7 @@ import com.baomidou.mybatisplus.spring.boot.starter.MybatisPlusProperties;
 
 @Configuration
 @EnableConfigurationProperties(MybatisPlusProperties.class)
-@MapperScan("com.chens.exam.book.mapper*")
-public class MybatisPlusConfig {
-	
-	 private Logger logger = LogManager.getLogger(MybatisPlusConfig.class);
-	
-	 /*
-	    * 分页插件，自动识别数据库类型
-	    */
-	   @Bean
-	   public PaginationInterceptor paginationInterceptor() {
-		   logger.info("******开始加载分页********");		   
-		   PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
-	       paginationInterceptor.setDialectType(DBType.MYSQL.getDb());
-	       logger.info("******结束加载分页********");
-	       return paginationInterceptor;
-	   }
+@MapperScan(basePackages = {"com.chens.exam.book.mapper*","com.chens.bpm.mapper*"})
+public class MybatisPlusConfig extends BaseMybatisPlusConfig {
 	   
 }
