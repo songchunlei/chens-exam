@@ -3,6 +3,7 @@ package com.chens.exam.wms.config;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.chens.core.handler.FeignErrorDecoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -38,6 +39,15 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     @Bean
     UserAuthRestInterceptor getUserAuthRestInterceptor() {
         return new UserAuthRestInterceptor();
+    }
+
+    /**
+     * Feign异常再编码
+     * @return
+     */
+    @Bean
+    FeignErrorDecoder getFeignErrorDecoder(){
+        return new FeignErrorDecoder();
     }
 
     private ArrayList<String> getExcludeCommonPathPatterns() {
