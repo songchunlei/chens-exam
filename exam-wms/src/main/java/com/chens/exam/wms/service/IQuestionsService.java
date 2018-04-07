@@ -26,4 +26,12 @@ public interface IQuestionsService extends IWfBaseService<Questions> {
 	  * @return
 	  */
 	 boolean submitQuestions(WorkFlowRequestParam<Questions> workFlowRequestParam);
+	 
+	 /**
+	  * 查询题目详细信息
+	  * @param questions
+	  * @return
+	  */
+	 Questions selectQuestionDetail(Questions questions);
+	 
 }

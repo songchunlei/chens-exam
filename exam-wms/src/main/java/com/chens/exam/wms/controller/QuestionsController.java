@@ -1,5 +1,6 @@
 package com.chens.exam.wms.controller;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -61,6 +62,21 @@ public class QuestionsController extends WfBaseController<IQuestionsService,Ques
         if(questions != null){
         	this.doInit(questions);
             return doSuccess("提交成功",questionsService.submitQuestions(workFlowRequestParam));
+        } else {
+            throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
+        }
+    }
+	
+	
+	/**
+	 * 获取题目详情
+	 * @param questions
+	 * @return
+	 */
+	@PostMapping("/selectQuestionDetail")
+    public ResponseEntity<Result> selectQuestionDetail(@RequestBody Questions questions) {
+        if(questions != null && StringUtils.isNotBlank(questions.getId())){
+            return doSuccess("查询成功",questionsService.selectQuestionDetail(questions));
         } else {
             throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
         }

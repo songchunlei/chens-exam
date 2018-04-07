@@ -12,4 +12,5 @@ import com.chens.exam.core.entity.wms.Questions;
  */
 public interface QuestionsMapper extends BaseMapper<Questions> {
 
+	Questions selectQuestionDetail(Questions questions);
 }

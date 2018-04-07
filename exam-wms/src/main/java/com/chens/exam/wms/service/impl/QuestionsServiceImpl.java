@@ -47,6 +47,8 @@ public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Que
 	private IQuestionsQuoteService questionsQuoteService;
 	@Autowired
 	private IWfEngineService wfEngineService;
+	@Autowired
+	private QuestionsMapper questionMapper;
 	
 	@Override
 	@Transactional
@@ -174,6 +176,11 @@ public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Que
         }
         
     }
+
+	@Override
+	public Questions selectQuestionDetail(Questions questions) {
+		return questionMapper.selectQuestionDetail(questions);
+	}
 	
 	
 }
