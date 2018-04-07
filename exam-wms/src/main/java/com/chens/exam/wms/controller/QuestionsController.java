@@ -57,6 +57,7 @@ public class QuestionsController extends WfBaseController<IQuestionsService,Ques
 	 * @param questions
 	 * @return
 	 */
+	/* 走框架
 	@PostMapping("/submitQuestions")
     public ResponseEntity<Result> submitQuestions(@RequestBody @Validated Questions questions) {
         if(questions != null){
@@ -66,6 +67,7 @@ public class QuestionsController extends WfBaseController<IQuestionsService,Ques
             throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
         }
     }
+    */
 	
 	
 	/**

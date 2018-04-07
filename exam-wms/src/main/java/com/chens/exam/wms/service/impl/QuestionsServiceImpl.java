@@ -3,7 +3,7 @@ package com.chens.exam.wms.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -119,6 +119,7 @@ public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Que
 		}
 	}
 
+	/* 采用提交前方法和提交后方法替换
 	@Override
 	@Transactional
 	public boolean submitQuestions(WorkFlowRequestParam<Questions> workFlowRequestParam) {
@@ -176,11 +177,32 @@ public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Que
         }
         
     }
+    */
 
 	@Override
 	public Questions selectQuestionDetail(Questions questions) {
 		return questionMapper.selectQuestionDetail(questions);
 	}
-	
-	
+
+
+	@Override
+	@Transactional
+	public boolean beforeSubmit(WorkFlowRequestParam<Questions> workFlowRequestParam) {
+		Questions questions = workFlowRequestParam.getT();
+		if(StringUtils.isNotBlank(questions.getId())){
+			this.deleteRelationShip(questions);
+			this.buildRelationShip(questions);
+			this.updateById(questions);
+		}else{
+			this.insert(questions);
+			this.buildRelationShip(questions);
+		}
+		return true;
+	}
+
+	@Override
+	@Transactional
+	public boolean afterSubmit(WorkFlowRequestParam<Questions> workFlowRequestParam) {
+		return true;
+	}
 }

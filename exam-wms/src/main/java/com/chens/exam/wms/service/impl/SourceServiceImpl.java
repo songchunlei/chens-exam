@@ -3,6 +3,7 @@ package com.chens.exam.wms.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.chens.bpm.vo.WorkFlowRequestParam;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -175,6 +176,19 @@ public class SourceServiceImpl extends WfBaseServiceImpl<SourceMapper, Source> i
 		return list;
 	}
 
-	
 
+	@Override
+	public boolean beforeSubmit(WorkFlowRequestParam<Source> workFlowRequestParam) {
+		Source source = workFlowRequestParam.getT();
+		if(source!=null)
+		{
+			this.insertOrUpdate(source);
+		}
+		return true;
+	}
+
+	@Override
+	public boolean afterSubmit(WorkFlowRequestParam<Source> workFlowRequestParam) {
+		return true;
+	}
 }

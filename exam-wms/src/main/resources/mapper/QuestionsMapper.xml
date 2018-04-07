@@ -21,6 +21,7 @@
         <collection property="questionsOptionList" select="selectQuestionsOptionList" column="id" ofType="com.chens.exam.core.entity.wms.QuestionsOption"></collection>  
     	<collection property="questionsQuoteList" select="selectQuestionsQuoteList" column="id" ofType="com.chens.exam.core.entity.wms.QuestionsQuote"></collection>      	
     </resultMap>
+
 	<select id="selectQuestionDetail" parameterType="com.chens.exam.core.entity.wms.Questions" resultMap="questionDetail">
 		select <include refid="Base_Column_List"></include>
 		from t_questions where id = #{id}
