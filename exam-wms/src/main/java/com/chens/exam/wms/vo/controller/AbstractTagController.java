@@ -1,9 +1,9 @@
-package com.chens.exam.wms.controller.vo;
+package com.chens.exam.wms.vo.controller;
 
 import com.chens.core.vo.Result;
 import com.chens.core.web.BaseWebController;
 import com.chens.exam.core.vo.Tag;
-import com.chens.exam.wms.service.ITagService;
+import com.chens.exam.wms.vo.service.ITagService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @auther songchunlei@qq.com
  * @create 2018/4/3
  */
-public abstract class AbstractTagController<T extends Tag> extends BaseWebController<ITagService,Tag> {
+public abstract class AbstractTagController<S extends ITagService<T>, T extends Tag<T>> extends BaseWebController<S,T> {
 
     /**
      * 新增标签

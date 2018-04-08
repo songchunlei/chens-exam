@@ -12,18 +12,18 @@ import com.chens.exam.core.vo.Tag;
  * @create 2018-04-01
  */
 @TableName("t_tag")
-public abstract class ExamTag extends Tag {
+public class ExamTag extends Tag<ExamTag> {
 
     private static final long serialVersionUID = 1L;
 
-    private Enum type = TagTypeEnum.EXAM;
+    private String type = TagTypeEnum.EXAM.getCode();
 
 
-	public Enum getType() {
+	public String getType() {
 		return type;
 	}
 
-	public void setType(Enum type) {
+	public void setType(String type) {
 		this.type = type;
 	}
 }

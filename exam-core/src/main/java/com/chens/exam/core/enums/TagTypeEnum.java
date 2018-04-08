@@ -6,7 +6,7 @@ package com.chens.exam.core.enums;
  * @create 2018/4/1
  */
 public enum TagTypeEnum {
-    RESOURCE("素材", "RESOURCE"),
+    SOURCE("素材", "SOURCE"),
     QUESTIONS("题目","QUESTIONS"),
     EXAM("试卷","EXAM"),
     COURSE("课程","COURSE"),

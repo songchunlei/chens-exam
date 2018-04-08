@@ -1,7 +1,8 @@
 package com.chens.exam.wms.controller;
 
-import com.chens.exam.core.entity.wms.ResourceTag;
-import com.chens.exam.wms.controller.vo.AbstractTagController;
+import com.chens.exam.core.entity.wms.SourceTag;
+import com.chens.exam.wms.vo.controller.AbstractTagController;
+import com.chens.exam.wms.service.ISourceTagService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/sourceTagController")
-public class ResourceTagController extends AbstractTagController<ResourceTag> {
+public class SourceTagController extends AbstractTagController<ISourceTagService,SourceTag> {
 
 
 }

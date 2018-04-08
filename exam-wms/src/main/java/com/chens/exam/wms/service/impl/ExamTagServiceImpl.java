@@ -1,9 +1,9 @@
 package com.chens.exam.wms.service.impl;
 
-import com.chens.exam.core.vo.Tag;
-import com.chens.exam.wms.mapper.TagMapper;
-import com.chens.exam.wms.service.ITagService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.chens.exam.core.entity.wms.ExamTag;
+import com.chens.exam.wms.mapper.ExamTagMapper;
+import com.chens.exam.wms.service.IExamTagService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Service;
  * @create 2018-04-01
  */
 @Service
-public class TagServiceImpl extends ServiceImpl<TagMapper, Tag> implements ITagService {
+public class ExamTagServiceImpl extends ServiceImpl<ExamTagMapper, ExamTag> implements IExamTagService {
 	
 }

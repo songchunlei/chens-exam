@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.core.vo.BaseEntity;
 
+import javax.validation.constraints.NotNull;
+
 /**
  *
  *  抽象实体
@@ -11,7 +13,7 @@ import com.chens.core.vo.BaseEntity;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public abstract class Tag extends BaseEntity<Tag> {
+public abstract class Tag<T extends Tag> extends BaseEntity<T> {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,6 +24,7 @@ public abstract class Tag extends BaseEntity<Tag> {
     /**
      * 标签名称
      */
+	@NotNull
 	@TableField("tag_name")
 	private String tagName;
 
