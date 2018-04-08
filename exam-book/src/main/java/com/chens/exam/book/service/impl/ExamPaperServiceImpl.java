@@ -1,10 +1,17 @@
 package com.chens.exam.book.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.chens.core.util.StringUtils;
 import com.chens.exam.core.entity.book.ExamPaper;
 import com.chens.exam.book.mapper.ExamPaperMapper;
 import com.chens.exam.book.service.IExamPaperService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.chens.exam.core.entity.book.ExampaperQuestion;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -15,5 +22,10 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ExamPaperServiceImpl extends ServiceImpl<ExamPaperMapper, ExamPaper> implements IExamPaperService {
-	
+
+
+    @Override
+    public List<ExamPaper> getPapperListByQuestionId(String questionId) {
+        return baseMapper.getPapperListByQuestionId(questionId);
+    }
 }

@@ -7,4 +7,13 @@
         id, create_by AS createBy, update_by AS updateBy, create_time AS createTime, update_time AS updateTime, tenant_id AS tenantId, name, content, duration, total_point AS totalPoint, pass_point AS passPoint, summary, answer_sheet AS answerSheet, paper_type AS paperType
     </sql>
 
+
+    <!-- 通过题目ID找试卷 -->
+    <select id="getPapperListByQuestionId" parameterType="java.lang.String"  resultType="com.chens.exam.core.entity.book.ExamPaper">
+        select tep.*
+        from t_exam_paper tep,t_exampaper_question tepq
+        where tep.id = tepq.exam_paper_id
+        and tepq.question_id=#{questionId}
+    </select>
+
 </mapper>
