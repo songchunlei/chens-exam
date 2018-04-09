@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
-import com.chens.bpm.vo.WfBaseEntity;
+import com.chens.exam.core.vo.ForderFile;
 
 /**
  * <p>
@@ -15,7 +15,7 @@ import com.chens.bpm.vo.WfBaseEntity;
  * @since 2018-03-06
  */
 @TableName("t_source")
-public class Source extends WfBaseEntity<Source> {
+public class Source extends ForderFile<Source> {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = -7496356762631622092L;
