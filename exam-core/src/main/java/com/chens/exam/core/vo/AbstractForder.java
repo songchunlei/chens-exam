@@ -60,7 +60,7 @@ public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
     /**
      * 是否删除
      */
-    @TableLogic
+	@TableField("is_delete")
     private String isDelete;
 
 	/**
@@ -72,6 +72,7 @@ public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
 	/**
 	 * 父文件夹
 	 */
+	@TableField(exist = false)
 	private T parentForder;
 
 	/**

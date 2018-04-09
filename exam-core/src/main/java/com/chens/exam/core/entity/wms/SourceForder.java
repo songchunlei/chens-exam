@@ -17,9 +17,6 @@ public class SourceForder extends AbstractForder<SourceForder> {
 
     private static final long serialVersionUID = 1L;
 
-    @TableField(exist = false)
-    private String zoneId;
-
 	public SourceForder() {
 		this.forderType = TagTypeEnum.SOURCE.getCode();
 	}
@@ -32,13 +29,5 @@ public class SourceForder extends AbstractForder<SourceForder> {
 	@Override
 	public void setForderType(String forderType) {
 		this.forderType = TagTypeEnum.SOURCE.getCode();
-	}
-
-	public String getZoneId() {
-		return zoneId;
-	}
-
-	public void setZoneId(String zoneId) {
-		this.zoneId = zoneId;
 	}
 }

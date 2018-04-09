@@ -3,6 +3,8 @@ package com.chens.exam.wms.vo.service.impl;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.chens.core.exception.BaseException;
+import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.exam.core.constants.ExamConstants;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.enums.ForderTypeEnum;
@@ -32,7 +34,10 @@ public abstract class AbstractForderServiceImpl<M extends ForderMapper<T>, T ext
     @Override
     public T selectForderById(String id) {
         T t = this.selectById(id);
-
+        if(t==null)
+        {
+            throw new BaseException(BaseExceptionEnum.QUERY_ERROR);
+        }
         //1. 寻找父文件夹
         if(t.getLvl()!=1)
         {
@@ -51,8 +56,7 @@ public abstract class AbstractForderServiceImpl<M extends ForderMapper<T>, T ext
         {
             Source source = new Source();
             source.setForderId(t.getId());
-            EntityWrapper<Source> wrapperE = new EntityWrapper<>();
-            wrapperE.eq(ExamConstants.FORDER_FILE_COLUMN_FORDER_ID,t.getId());
+            EntityWrapper<Source> wrapperE = new EntityWrapper<>(source);
             List<Source> sourceList = sourceService.selectList(wrapperE);
             for (Source temp:sourceList) {
                 forderInfos.add(temp.getForderInfo());

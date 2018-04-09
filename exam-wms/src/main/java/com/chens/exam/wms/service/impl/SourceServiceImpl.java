@@ -135,7 +135,7 @@ public class SourceServiceImpl extends BaseWfServiceImpl<SourceMapper, Source> i
 	}
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public boolean abandon(Source source) {
 		String idStr = source.getIdStr();
 		if(StringUtils.isNotBlank(idStr)){
