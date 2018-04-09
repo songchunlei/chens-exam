@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.chens.bpm.controller.WfBaseController;
+import com.chens.bpm.controller.BaseWfWebController;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
@@ -26,7 +26,7 @@ import com.chens.exam.wms.service.IQuestionsService;
  */
 @Controller
 @RequestMapping("/questionsController")
-public class QuestionsController extends WfBaseController<IQuestionsService,Questions> {
+public class QuestionsController extends BaseWfWebController<IQuestionsService,Questions> {
 
 	@Autowired
 	private IQuestionsService questionsService;

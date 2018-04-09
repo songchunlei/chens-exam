@@ -62,7 +62,7 @@ public class ExamPaperController extends BaseWebController<IExamPaperService,Exa
      * @return
      */
     @DeleteMapping("/deleteQuestions")
-    public ResponseEntity<Result> DeleteQuestionsInPapper(@NotNull(message = "{papper.id.null}") String papperId,@NotNull(message = "{papper.questions.null}") String questionIds) {
+    public ResponseEntity<Result> deleteQuestionsInPapper(@NotNull(message = "{papper.id.null}") String papperId,@NotNull(message = "{papper.questions.null}") String questionIds) {
         return doSuccess(exampaperQuestionService.deleteQuestionsInPapper(papperId,questionIds));
     }
 

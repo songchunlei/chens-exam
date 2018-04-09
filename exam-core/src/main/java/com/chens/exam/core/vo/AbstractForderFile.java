@@ -9,7 +9,7 @@ import com.chens.bpm.vo.WfBaseEntity;
  * @auther songchunlei@qq.com
  * @create 2018/4/9
  */
-public abstract class ForderFile<T extends ForderFile> extends WfBaseEntity<T> {
+public abstract class AbstractForderFile<T extends AbstractForderFile> extends WfBaseEntity<T> {
     /**
      * 文件夹id
      */

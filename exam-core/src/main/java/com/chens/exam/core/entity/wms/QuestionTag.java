@@ -2,7 +2,7 @@ package com.chens.exam.core.entity.wms;
 
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.exam.core.enums.TagTypeEnum;
-import com.chens.exam.core.vo.Tag;
+import com.chens.exam.core.vo.AbstractTag;
 
 /**
  *
@@ -12,7 +12,7 @@ import com.chens.exam.core.vo.Tag;
  * @create 2018-04-01
  */
 @TableName("t_tag")
-public class QuestionTag extends Tag<QuestionTag> {
+public class QuestionTag extends AbstractTag<QuestionTag> {
 
     private static final long serialVersionUID = 1L;
 

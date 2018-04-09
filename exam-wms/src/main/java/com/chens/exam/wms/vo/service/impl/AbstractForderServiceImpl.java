@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.service.IService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.chens.exam.core.constants.ExamConstants;
 import com.chens.exam.core.enums.ForderTypeEnum;
-import com.chens.exam.core.vo.Forder;
+import com.chens.exam.core.vo.AbstractForder;
 import com.chens.exam.wms.vo.mapper.ForderMapper;
 import com.chens.exam.wms.vo.service.IForderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author wdp123
  * @since 2018-03-06
  */
-public class ForderServiceImpl<FILE,FILESERVICE extends IService,M extends ForderMapper<FILE,T>, T extends Forder<FILE,T>>  extends ServiceImpl<M, T> implements IForderService<FILE,T> {
+public abstract class AbstractForderServiceImpl<FILE,FILESERVICE extends IService,M extends ForderMapper<FILE,T>, T extends AbstractForder<FILE,T>>  extends ServiceImpl<M, T> implements IForderService<FILE,T> {
 
     @Autowired
     private FILESERVICE filService;

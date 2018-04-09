@@ -1,7 +1,6 @@
 package com.chens.exam.core.vo;
 
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.core.vo.BaseEntity;
 
 import javax.validation.constraints.NotNull;
@@ -13,7 +12,7 @@ import javax.validation.constraints.NotNull;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public abstract class Tag<T extends Tag> extends BaseEntity<T> {
+public abstract class AbstractTag<T extends AbstractTag> extends BaseEntity<T> {
 
     private static final long serialVersionUID = 1L;
 

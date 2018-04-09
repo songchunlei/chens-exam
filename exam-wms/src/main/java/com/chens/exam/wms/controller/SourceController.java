@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.chens.bpm.controller.WfBaseController;
+import com.chens.bpm.controller.BaseWfWebController;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
@@ -26,7 +26,7 @@ import com.chens.exam.wms.service.ISourceService;
  */
 @Controller
 @RequestMapping("/sourceController")
-public class SourceController extends WfBaseController<ISourceService,Source> {
+public class SourceController extends BaseWfWebController<ISourceService,Source> {
 
 	@Override
 	protected void init(Source source) {

@@ -1,7 +1,7 @@
 package com.chens.exam.wms.vo.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.chens.exam.core.vo.Forder;
+import com.chens.exam.core.vo.AbstractForder;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.chens.exam.core.vo.Forder;
  * @author wdp123
  * @since 2018-03-06
  */
-public interface ForderMapper<FILE,T extends Forder<FILE,T>> extends BaseMapper<T> {
+public interface ForderMapper<FILE,T extends AbstractForder<FILE,T>> extends BaseMapper<T> {
 
 }

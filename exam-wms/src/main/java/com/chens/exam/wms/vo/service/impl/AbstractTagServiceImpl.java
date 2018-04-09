@@ -1,6 +1,6 @@
 package com.chens.exam.wms.vo.service.impl;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.chens.exam.core.vo.Tag;
+import com.chens.exam.core.vo.AbstractTag;
 import com.chens.exam.wms.vo.mapper.TagMapper;
 import com.chens.exam.wms.vo.service.ITagService;
 
@@ -11,6 +11,6 @@ import com.chens.exam.wms.vo.service.ITagService;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public abstract class TagServiceImpl<M extends TagMapper<T>, T extends Tag<T>> extends ServiceImpl<M, T> implements ITagService<T> {
+public abstract class AbstractTagServiceImpl<M extends TagMapper<T>, T extends AbstractTag<T>> extends ServiceImpl<M, T> implements ITagService<T> {
 	
 }

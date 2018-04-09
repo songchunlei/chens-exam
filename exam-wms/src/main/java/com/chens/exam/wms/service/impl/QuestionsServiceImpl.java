@@ -9,18 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.chens.bpm.entity.ProcessBussinessRel;
 import com.chens.bpm.enums.WfStatus;
 import com.chens.bpm.service.IProcessBussinessRelService;
 import com.chens.bpm.service.IWfEngineService;
-import com.chens.bpm.service.impl.WfBaseServiceImpl;
+import com.chens.bpm.service.impl.BaseWfServiceImpl;
 import com.chens.bpm.vo.WorkFlowRequestParam;
-import com.chens.bpm.vo.WorkFlowReturn;
 import com.chens.core.enums.YesNoEnum;
-import com.chens.core.exception.BaseException;
-import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.exam.core.entity.wms.Questions;
 import com.chens.exam.core.entity.wms.QuestionsOption;
 import com.chens.exam.core.entity.wms.QuestionsQuote;
@@ -37,7 +33,7 @@ import com.chens.exam.wms.service.IQuestionsService;
  * @create 2018-04-06
  */
 @Service
-public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Questions> implements IQuestionsService {
+public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Questions> implements IQuestionsService {
 
 	@Autowired
 	private IProcessBussinessRelService processBussinessRelService;	
@@ -51,7 +47,7 @@ public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Que
 	private QuestionsMapper questionMapper;
 	
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public String saveQuestions(WorkFlowRequestParam<Questions> workFlowRequestParam) {
 		Questions questions = workFlowRequestParam.getT();
 		if(StringUtils.isNotBlank(questions.getId())){
@@ -61,14 +57,22 @@ public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Que
 		}else{
 			this.insert(questions);
 			buildRelationShip(questions);
-			//保存业务数据        
-	        ProcessBussinessRel processBussinessRel = new ProcessBussinessRel();//保存流程业务关联关系表
-	        processBussinessRel.setTaskName(workFlowRequestParam.getTaskName());//任务名称
-	        processBussinessRel.setStatus(WfStatus.WAITING.getCode());//草稿状态
+			/**
+			 * 保存业务数据
+			 */
+			//保存流程业务关联关系表
+	        ProcessBussinessRel processBussinessRel = new ProcessBussinessRel();
+			//任务名称
+	        processBussinessRel.setTaskName(workFlowRequestParam.getTaskName());
+			//草稿状态
+	        processBussinessRel.setStatus(WfStatus.WAITING.getCode());
 	        processBussinessRel.setProcessDefinitionKey(workFlowRequestParam.getProcessDefinitionKey());
-	        processBussinessRel.setBusinessKey(questions.getId());//业务数据id
-	        processBussinessRel.setIsDelete(YesNoEnum.NO.getCode());//逻辑删除
-	        processBussinessRel.setTableName(workFlowRequestParam.getTableName());//业务表名
+			//业务数据id
+	        processBussinessRel.setBusinessKey(questions.getId());
+			//逻辑删除
+	        processBussinessRel.setIsDelete(YesNoEnum.NO.getCode());
+			//业务表名
+	        processBussinessRel.setTableName(workFlowRequestParam.getTableName());
 	        processBussinessRelService.insert(processBussinessRel);  
 		}
                      
@@ -119,66 +123,6 @@ public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Que
 		}
 	}
 
-	/* 采用提交前方法和提交后方法替换
-	@Override
-	@Transactional
-	public boolean submitQuestions(WorkFlowRequestParam<Questions> workFlowRequestParam) {
-		Questions questions = workFlowRequestParam.getT();
-    	if(StringUtils.isNotBlank(questions.getId())){
-    		this.deleteRelationShip(questions);
-			this.buildRelationShip(questions);
-    		this.updateById(questions);
-    	}else{
-    		this.insert(questions);
-    		this.buildRelationShip(questions);
-    	}      
-        workFlowRequestParam.setBusinessKey(questions.getId());
-        WorkFlowReturn workFlowReturn = wfEngineService.startWorkflow(workFlowRequestParam);
-        if(!workFlowReturn.isStartSuccess()){
-        	throw new BaseException(BaseExceptionEnum.WORKFLOW_START_FAIL);
-        }else{
-        	JSONObject obj = (JSONObject)workFlowReturn.getData();
-        	ProcessBussinessRel query = new ProcessBussinessRel();
-        	query.setBusinessKey(questions.getId());
-        	query.setIsDelete(YesNoEnum.NO.getCode());
-        	EntityWrapper<ProcessBussinessRel> ew = new EntityWrapper<ProcessBussinessRel>(query);
-        	List<ProcessBussinessRel> processBussinessRelList = processBussinessRelService.selectList(ew);
-        	if(CollectionUtils.isNotEmpty(processBussinessRelList)){
-        		ProcessBussinessRel processBussinessRel = processBussinessRelList.get(0);
-        		processBussinessRel.setStatus(WfStatus.CHECKING.getCode());//审批中
-        		processBussinessRel.setProcessDefinitionId(obj.getString("processDefinitionId"));//流程定义id
-        		processBussinessRel.setProcessDefinitionName(obj.getString("processDefinitionName"));//流程定义名称
-        		processBussinessRel.setProcessDefinitionVersion(obj.getString("processDefinitionVersion"));//流程定义版本
-        		processBussinessRel.setProcessInstanceId(obj.getString("processInstanceId"));//流程实例id
-        		processBussinessRel.setStartBy(workFlowRequestParam.getStartUserId());//发起人id
-        		processBussinessRel.setStartByName(workFlowRequestParam.getStartUserName());//发起人姓名
-//        		processBussinessRel.setCurrentTaskDefinitionKey(currentTaskDefinitionKey);//当前任务节点key
-//        		processBussinessRel.setCurrentTaskDefinitionName(currentTaskDefinitionName);//当前任务节点名称
-        		processBussinessRelService.updateById(processBussinessRel);
-        	}else{
-        		ProcessBussinessRel processBussinessRel = new ProcessBussinessRel();
-        		processBussinessRel.setStatus(WfStatus.CHECKING.getCode());//审批中
-        		processBussinessRel.setProcessDefinitionId(obj.getString("processDefinitionId"));//流程定义id
-        		processBussinessRel.setProcessDefinitionName(obj.getString("processDefinitionName"));//流程定义名称
-        		processBussinessRel.setProcessDefinitionVersion(obj.getString("processDefinitionVersion"));//流程定义版本
-        		processBussinessRel.setProcessInstanceId(obj.getString("processInstanceId"));//流程实例id
-        		processBussinessRel.setStartBy(workFlowRequestParam.getStartUserId());//发起人id
-        		processBussinessRel.setStartByName(workFlowRequestParam.getStartUserName());//发起人姓名
-//        		processBussinessRel.setCurrentTaskDefinitionKey(currentTaskDefinitionKey);//当前任务节点key
-//        		processBussinessRel.setCurrentTaskDefinitionName(currentTaskDefinitionName);//当前任务节点名称        		
-        		processBussinessRel.setTaskName(workFlowRequestParam.getTaskName());//任务名称
-    	        processBussinessRel.setProcessDefinitionKey(workFlowRequestParam.getProcessDefinitionKey());//流程定义key
-    	        processBussinessRel.setBusinessKey(questions.getId());//业务数据id
-    	        processBussinessRel.setIsDelete(YesNoEnum.NO.getCode());//逻辑删除
-    	        processBussinessRel.setTableName(workFlowRequestParam.getTableName());//业务表名
-    	        processBussinessRelService.insert(processBussinessRel);
-        	}
-        	return true;
-        }
-        
-    }
-    */
-
 	@Override
 	public Questions selectQuestionDetail(Questions questions) {
 		return questionMapper.selectQuestionDetail(questions);
@@ -186,7 +130,7 @@ public class QuestionsServiceImpl extends WfBaseServiceImpl<QuestionsMapper, Que
 
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public boolean beforeSubmit(WorkFlowRequestParam<Questions> workFlowRequestParam) {
 		Questions questions = workFlowRequestParam.getT();
 		if(StringUtils.isNotBlank(questions.getId())){

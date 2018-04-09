@@ -1,7 +1,7 @@
 package com.chens.exam.wms.vo.mapper;
 
 import com.baomidou.mybatisplus.mapper.BaseMapper;
-import com.chens.exam.core.vo.Tag;
+import com.chens.exam.core.vo.AbstractTag;
 
 /**
  *
@@ -10,6 +10,6 @@ import com.chens.exam.core.vo.Tag;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public interface TagMapper<T extends Tag<T>> extends BaseMapper<T> {
+public interface TagMapper<T extends AbstractTag<T>> extends BaseMapper<T> {
 
 }

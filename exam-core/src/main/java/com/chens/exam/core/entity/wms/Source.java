@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
-import com.chens.exam.core.vo.ForderFile;
+import com.chens.exam.core.vo.AbstractForderFile;
 
 /**
  * <p>
@@ -15,7 +15,7 @@ import com.chens.exam.core.vo.ForderFile;
  * @since 2018-03-06
  */
 @TableName("t_source")
-public class Source extends ForderFile<Source> {
+public class Source extends AbstractForderFile<Source> {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = -7496356762631622092L;

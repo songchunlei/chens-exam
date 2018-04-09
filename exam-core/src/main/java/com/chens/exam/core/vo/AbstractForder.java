@@ -16,7 +16,7 @@ import java.util.List;
  * @author wdp123
  * @since 2018-03-06
  */
-public class Forder<File,T extends Forder> extends BaseEntity<T> {
+public class AbstractForder<File,T extends AbstractForder> extends BaseEntity<T> {
 
 
 	@TableField(exist = false)

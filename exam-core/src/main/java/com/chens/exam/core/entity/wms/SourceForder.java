@@ -2,7 +2,7 @@ package com.chens.exam.core.entity.wms;
 
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.exam.core.enums.TagTypeEnum;
-import com.chens.exam.core.vo.Forder;
+import com.chens.exam.core.vo.AbstractForder;
 
 /**
  *
@@ -12,7 +12,7 @@ import com.chens.exam.core.vo.Forder;
  * @create 2018-04-01
  */
 @TableName("t_forder")
-public class SourceForder extends Forder<Source,SourceForder> {
+public class SourceForder extends AbstractForder<Source,SourceForder> {
 
     private static final long serialVersionUID = 1L;
 

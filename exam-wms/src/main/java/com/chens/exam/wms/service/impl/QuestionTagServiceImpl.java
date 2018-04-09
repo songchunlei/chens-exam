@@ -3,7 +3,7 @@ package com.chens.exam.wms.service.impl;
 import com.chens.exam.core.entity.wms.QuestionTag;
 import com.chens.exam.wms.mapper.QuestionTagMapper;
 import com.chens.exam.wms.service.IQuestionTagService;
-import com.chens.exam.wms.vo.service.impl.TagServiceImpl;
+import com.chens.exam.wms.vo.service.impl.AbstractTagServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +14,6 @@ import org.springframework.stereotype.Service;
  * @create 2018-04-01
  */
 @Service
-public class QuestionTagServiceImpl extends TagServiceImpl<QuestionTagMapper, QuestionTag> implements IQuestionTagService {
+public class QuestionTagServiceImpl extends AbstractTagServiceImpl<QuestionTagMapper, QuestionTag> implements IQuestionTagService {
 	
 }
