@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @auther songchunlei@qq.com
  * @create 2018/4/3
  */
-public abstract class AbstractForderController<FILE,S extends IForderService<FILE,T>, T extends AbstractForder<FILE,T>> extends BaseWebController<S,T> {
+public abstract class AbstractForderController<S extends IForderService<T>, T extends AbstractForder<T>> extends BaseWebController<S,T> {
 
     /**
      * 根据id获取实体对象
@@ -28,7 +28,7 @@ public abstract class AbstractForderController<FILE,S extends IForderService<FIL
     public ResponseEntity<Result> getInfo(@PathVariable String id) {
         if(id!=null)
         {
-            return doSuccess(CommonConstants.QUERY_SUCCESS,service.selectById(id));
+            return doSuccess(CommonConstants.QUERY_SUCCESS,service.selectForderById(id));
         }
         else{
             throw new BaseException(BaseExceptionEnum.REQUEST_NULL);

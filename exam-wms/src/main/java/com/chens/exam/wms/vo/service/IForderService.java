@@ -12,7 +12,7 @@ import com.chens.exam.core.vo.AbstractForder;
  * @author wdp123
  * @since 2018-03-06
  */
-public interface IForderService<File,T extends AbstractForder<File,T>> extends IService<T> {
+public interface IForderService<T extends AbstractForder<T>> extends IService<T> {
 
     T selectForderById(String id);
 }

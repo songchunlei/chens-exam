@@ -1,5 +1,6 @@
 package com.chens.exam.core.entity.wms;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.exam.core.enums.TagTypeEnum;
 import com.chens.exam.core.vo.AbstractForder;
@@ -12,9 +13,12 @@ import com.chens.exam.core.vo.AbstractForder;
  * @create 2018-04-01
  */
 @TableName("t_forder")
-public class SourceForder extends AbstractForder<Source,SourceForder> {
+public class SourceForder extends AbstractForder<SourceForder> {
 
     private static final long serialVersionUID = 1L;
+
+    @TableField(exist = false)
+    private String zoneId;
 
 	public SourceForder() {
 		this.forderType = TagTypeEnum.SOURCE.getCode();
@@ -28,5 +32,13 @@ public class SourceForder extends AbstractForder<Source,SourceForder> {
 	@Override
 	public void setForderType(String forderType) {
 		this.forderType = TagTypeEnum.SOURCE.getCode();
+	}
+
+	public String getZoneId() {
+		return zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
 	}
 }

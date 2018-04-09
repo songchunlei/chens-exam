@@ -2,6 +2,8 @@ package com.chens.exam.core.vo;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
+import com.chens.core.annotation.InsertValid;
+import com.chens.core.annotation.UpdateValid;
 import com.chens.core.vo.BaseEntity;
 import com.chens.exam.core.enums.TagTypeEnum;
 
@@ -16,7 +18,7 @@ import java.util.List;
  * @author wdp123
  * @since 2018-03-06
  */
-public class AbstractForder<File,T extends AbstractForder> extends BaseEntity<T> {
+public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
 
 
 	@TableField(exist = false)
@@ -33,19 +35,21 @@ public class AbstractForder<File,T extends AbstractForder> extends BaseEntity<T>
     /**
      * 等级
      */
+    @NotNull(message = "{forder.lvl.null}",groups = {InsertValid.class, UpdateValid.class})
     private Integer lvl;
 
     /**
      * 文件夹名称
      */
     @TableField("forder_name")
-    @NotNull(message = "{forder.forderName.null}")
+    @NotNull(message = "{forder.forderName.null}",groups = {InsertValid.class, UpdateValid.class})
     private String forderName;
 
     /**
      * 上级文件夹id
      */
     @TableField("parent_id")
+	@NotNull(message = "{forder.parentId.null}",groups = {InsertValid.class, UpdateValid.class})
     private String parentId;
 
     /**
@@ -74,7 +78,7 @@ public class AbstractForder<File,T extends AbstractForder> extends BaseEntity<T>
 	 * 文件夹下的文件
 	 */
 	@TableField(exist = false)
-	private List<File> files;
+	private List<ForderInfo> files;
 
 	/**
 	 * 文件夹下的子文件夹
@@ -139,11 +143,11 @@ public class AbstractForder<File,T extends AbstractForder> extends BaseEntity<T>
 		this.parentForder = parentForder;
 	}
 
-	public List<File> getFiles() {
+	public List<ForderInfo> getFiles() {
 		return files;
 	}
 
-	public void setFiles(List<File> files) {
+	public void setFiles(List<ForderInfo> files) {
 		this.files = files;
 	}
 

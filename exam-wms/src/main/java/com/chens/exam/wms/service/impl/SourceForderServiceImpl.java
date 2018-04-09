@@ -16,6 +16,6 @@ import org.springframework.stereotype.Service;
  * @create 2018-04-01
  */
 @Service
-public class SourceForderServiceImpl extends AbstractForderServiceImpl<Source,ISourceService,SourceForderMapper, SourceForder> implements ISourceForderService {
+public class SourceForderServiceImpl extends AbstractForderServiceImpl<SourceForderMapper, SourceForder> implements ISourceForderService {
 	
 }

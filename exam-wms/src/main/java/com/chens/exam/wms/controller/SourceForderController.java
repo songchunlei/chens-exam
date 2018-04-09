@@ -15,6 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/sourceForderController")
-public class SourceForderController extends AbstractForderController<Source,ISourceForderService,SourceForder> {
+public class SourceForderController extends AbstractForderController<ISourceForderService,SourceForder> {
 
 }

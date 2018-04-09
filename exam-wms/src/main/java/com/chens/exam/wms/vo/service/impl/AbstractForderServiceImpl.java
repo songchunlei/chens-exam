@@ -4,11 +4,17 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.IService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.chens.exam.core.constants.ExamConstants;
+import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.enums.ForderTypeEnum;
 import com.chens.exam.core.vo.AbstractForder;
+import com.chens.exam.core.vo.ForderInfo;
+import com.chens.exam.wms.service.ISourceService;
 import com.chens.exam.wms.vo.mapper.ForderMapper;
 import com.chens.exam.wms.vo.service.IForderService;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <p>
@@ -18,10 +24,10 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author wdp123
  * @since 2018-03-06
  */
-public abstract class AbstractForderServiceImpl<FILE,FILESERVICE extends IService,M extends ForderMapper<FILE,T>, T extends AbstractForder<FILE,T>>  extends ServiceImpl<M, T> implements IForderService<FILE,T> {
+public abstract class AbstractForderServiceImpl<M extends ForderMapper<T>, T extends AbstractForder<T>>  extends ServiceImpl<M, T> implements IForderService<T> {
 
     @Autowired
-    private FILESERVICE filService;
+    private ISourceService sourceService;
 
     @Override
     public T selectForderById(String id) {
@@ -40,12 +46,19 @@ public abstract class AbstractForderServiceImpl<FILE,FILESERVICE extends IServic
         t.setChildForders(this.selectList(wrapper));
 
         //3. 获取当前文件夹下的文件
+        List<ForderInfo> forderInfos = new ArrayList<>();
         if(ForderTypeEnum.SOURCE.getCode().equals(t.getForderType()))
         {
-            EntityWrapper<FILE> wrapperE = new EntityWrapper<FILE>();
+            Source source = new Source();
+            source.setForderId(t.getId());
+            EntityWrapper<Source> wrapperE = new EntityWrapper<>();
             wrapperE.eq(ExamConstants.FORDER_FILE_COLUMN_FORDER_ID,t.getId());
-            t.setFiles(filService.selectList(wrapperE));
+            List<Source> sourceList = sourceService.selectList(wrapperE);
+            for (Source temp:sourceList) {
+                forderInfos.add(temp.getForderInfo());
+            }
+            t.setFiles(forderInfos);
         }
-        return this.selectById(id);
+        return t;
     }
 }

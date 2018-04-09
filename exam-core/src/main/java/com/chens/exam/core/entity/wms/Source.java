@@ -4,7 +4,8 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
-import com.chens.exam.core.vo.AbstractForderFile;
+import com.chens.bpm.vo.WfBaseEntity;
+import com.chens.exam.core.vo.ForderInfo;
 
 /**
  * <p>
@@ -15,7 +16,7 @@ import com.chens.exam.core.vo.AbstractForderFile;
  * @since 2018-03-06
  */
 @TableName("t_source")
-public class Source extends AbstractForderFile<Source> {
+public class Source extends WfBaseEntity<Source> {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = -7496356762631622092L;
@@ -189,4 +190,9 @@ public class Source extends AbstractForderFile<Source> {
 	public void setIdStr(String idStr) {
 		this.idStr = idStr;
 	}
+
+	public ForderInfo getForderInfo()
+    {
+        return new ForderInfo(id,name,updateTime);
+    }
 }

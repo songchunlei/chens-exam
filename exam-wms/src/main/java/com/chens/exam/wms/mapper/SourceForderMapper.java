@@ -11,6 +11,6 @@ import com.chens.exam.wms.vo.mapper.ForderMapper;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public interface SourceForderMapper extends ForderMapper<Source,SourceForder> {
+public interface SourceForderMapper extends ForderMapper<SourceForder> {
 
 }

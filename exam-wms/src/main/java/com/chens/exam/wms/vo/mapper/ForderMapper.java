@@ -11,6 +11,6 @@ import com.chens.exam.core.vo.AbstractForder;
  * @author wdp123
  * @since 2018-03-06
  */
-public interface ForderMapper<FILE,T extends AbstractForder<FILE,T>> extends BaseMapper<T> {
+public interface ForderMapper<T extends AbstractForder<T>> extends BaseMapper<T> {
 
 }
