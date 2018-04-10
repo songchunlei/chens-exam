@@ -52,6 +52,12 @@ public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
 	@NotNull(message = "{forder.parentId.null}",groups = {InsertValid.class, UpdateValid.class})
     private String parentId;
 
+	/**
+	 * 语意id，默认启始1000000
+	 */
+	@TableField("cascade_id")
+	private String cascadeId;
+
     /**
      * 备注
      */
@@ -158,5 +164,13 @@ public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
 
 	public void setChildForders(List<T> childForders) {
 		this.childForders = childForders;
+	}
+
+	public String getCascadeId() {
+		return cascadeId;
+	}
+
+	public void setCascadeId(String cascadeId) {
+		this.cascadeId = cascadeId;
 	}
 }
