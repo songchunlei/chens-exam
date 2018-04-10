@@ -8,8 +8,11 @@ package com.chens.exam.core.enums;
  */
 public enum  WfProcessDefinitionKeyEnum {
 
-    SOURCE_APPROVE("资源审批","SOURCE_APPROVE"),
-    QUESTION_APPROVE("题目审批","QUESTION_APPROVE");
+    SOURCE_APPROVE("资源审批流程","SOURCE_APPROVE"),
+    QUESTION_APPROVE("题目审批流程","QUESTION_APPROVE"),
+    EXAM_PAPER_APPROVE("试卷审批流程","EXAM_PAPER_APPROVE"),
+    COURSE_APPROVE("课程审批流程","COURSE_APPROVE"),
+    BOOK_APPROVE("书本审批流程","BOOK_APPROVE");
 
     private String display;
     private String code;
