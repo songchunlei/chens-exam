@@ -16,14 +16,17 @@ public class QuestionTag extends AbstractTag<QuestionTag> {
 
     private static final long serialVersionUID = 1L;
 
-    private String type = TagTypeEnum.QUESTIONS.getCode();
-
-
-	public String getType() {
-		return type;
+	public QuestionTag() {
+		this.type = TagTypeEnum.QUESTIONS.getCode();
 	}
 
+	@Override
+	public String getType() {
+		return TagTypeEnum.QUESTIONS.getCode();
+	}
+
+	@Override
 	public void setType(String type) {
-		this.type = type;
+		this.type = TagTypeEnum.QUESTIONS.getCode();
 	}
 }

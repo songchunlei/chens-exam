@@ -2,6 +2,7 @@ package com.chens.exam.core.vo;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.chens.core.vo.BaseEntity;
+import com.chens.exam.core.enums.TagTypeEnum;
 
 import javax.validation.constraints.NotNull;
 
@@ -16,16 +17,21 @@ public abstract class AbstractTag<T extends AbstractTag> extends BaseEntity<T> {
 
     private static final long serialVersionUID = 1L;
 
+	/**
+	 * 类型
+	 */
+	protected String type ;
+
     /**
      * 描述
      */
-	private String comment;
+	protected String comment;
     /**
      * 标签名称
      */
 	@NotNull
 	@TableField("tag_name")
-	private String tagName;
+	protected String tagName;
 
 
 	public String getComment() {
@@ -44,4 +50,11 @@ public abstract class AbstractTag<T extends AbstractTag> extends BaseEntity<T> {
 		this.tagName = tagName;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 }

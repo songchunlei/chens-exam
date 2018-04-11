@@ -16,14 +16,17 @@ public class BookTag extends AbstractTag<BookTag> {
 
     private static final long serialVersionUID = 1L;
 
-    private String type = TagTypeEnum.BOOK.getCode();
-
-
-	public String getType() {
-		return type;
+	public BookTag() {
+		this.type = TagTypeEnum.BOOK.getCode();
 	}
 
+	@Override
+	public String getType() {
+		return TagTypeEnum.BOOK.getCode();
+	}
+
+	@Override
 	public void setType(String type) {
-		this.type = type;
+		this.type = TagTypeEnum.BOOK.getCode();
 	}
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /**
  * 资源标签控制器
  *
- * @auther songchunlei@qq.com
+ * @author songchunlei@qq.com
  * @create 2018/4/3
  */
 @Controller

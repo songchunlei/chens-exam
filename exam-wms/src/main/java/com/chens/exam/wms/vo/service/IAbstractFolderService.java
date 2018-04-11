@@ -13,7 +13,7 @@ import com.chens.exam.core.vo.AbstractFolder;
  * @author wdp123
  * @since 2018-03-06
  */
-public interface IForderService<T extends AbstractFolder<T>> extends IService<T> {
+public interface IAbstractFolderService<T extends AbstractFolder<T>> extends IService<T> {
 
     FolderFileInfo selectForderById(String id);
 }

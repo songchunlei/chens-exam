@@ -6,7 +6,7 @@ import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
 import com.chens.core.web.BaseWebController;
 import com.chens.exam.core.vo.AbstractFolder;
-import com.chens.exam.wms.vo.service.IForderService;
+import com.chens.exam.wms.vo.service.IAbstractFolderService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @auther songchunlei@qq.com
  * @create 2018/4/3
  */
-public abstract class AbstractForderController<S extends IForderService<T>, T extends AbstractFolder<T>> extends BaseWebController<S,T> {
+public abstract class AbstractForderController<S extends IAbstractFolderService<T>, T extends AbstractFolder<T>> extends BaseWebController<S,T> {
 
     /**
      * 根据id获取实体对象

@@ -18,7 +18,7 @@ public class SourceFolder extends AbstractFolder<SourceFolder> {
     private static final long serialVersionUID = 1L;
 
 	public SourceFolder() {
-		this.type = TagTypeEnum.SOURCE.getCode();
+		this.type = FolderTypeEnum.SOURCE.getCode();
 	}
 
 	@Override

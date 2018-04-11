@@ -11,6 +11,6 @@ import com.chens.exam.core.vo.AbstractFolder;
  * @author wdp123
  * @since 2018-03-06
  */
-public interface ForderMapper<T extends AbstractFolder<T>> extends BaseMapper<T> {
+public interface AbstractFolderMapper<T extends AbstractFolder<T>> extends BaseMapper<T> {
 
 }

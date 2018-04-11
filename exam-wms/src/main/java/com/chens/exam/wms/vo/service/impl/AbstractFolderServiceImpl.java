@@ -12,8 +12,8 @@ import com.chens.exam.core.enums.FolderTypeEnum;
 import com.chens.exam.core.vo.AbstractFolder;
 import com.chens.core.vo.FolderFileInfo;
 import com.chens.exam.wms.service.ISourceService;
-import com.chens.exam.wms.vo.mapper.ForderMapper;
-import com.chens.exam.wms.vo.service.IForderService;
+import com.chens.exam.wms.vo.mapper.AbstractFolderMapper;
+import com.chens.exam.wms.vo.service.IAbstractFolderService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import java.util.List;
  * @author wdp123
  * @since 2018-03-06
  */
-public abstract class AbstractForderServiceImpl<M extends ForderMapper<T>, T extends AbstractFolder<T>>  extends ServiceImpl<M, T> implements IForderService<T> {
+public abstract class AbstractFolderServiceImpl<M extends AbstractFolderMapper<T>, T extends AbstractFolder<T>>  extends ServiceImpl<M, T> implements IAbstractFolderService<T> {
 
     /**
      *默认为资源文件夹

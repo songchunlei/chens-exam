@@ -1,7 +1,7 @@
 package com.chens.exam.wms.mapper;
 
 import com.chens.exam.core.entity.wms.SourceTag;
-import com.chens.exam.wms.vo.mapper.TagMapper;
+import com.chens.exam.wms.vo.mapper.AbstractTagMapper;
 
 /**
  *
@@ -10,6 +10,6 @@ import com.chens.exam.wms.vo.mapper.TagMapper;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public interface SourceTagMapper extends TagMapper<SourceTag> {
+public interface SourceTagMapper extends AbstractTagMapper<SourceTag> {
 
 }

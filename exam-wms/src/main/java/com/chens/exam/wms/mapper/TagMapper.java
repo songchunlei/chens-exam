@@ -1,6 +1,6 @@
 package com.chens.exam.wms.mapper;
 
-import com.chens.exam.core.entity.wms.ExamTag;
+import com.chens.exam.core.entity.wms.Tag;
 import com.chens.exam.wms.vo.mapper.AbstractTagMapper;
 
 /**
@@ -10,6 +10,6 @@ import com.chens.exam.wms.vo.mapper.AbstractTagMapper;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public interface ExamTagMapper extends AbstractTagMapper<ExamTag> {
+public interface TagMapper extends AbstractTagMapper<Tag> {
 
 }

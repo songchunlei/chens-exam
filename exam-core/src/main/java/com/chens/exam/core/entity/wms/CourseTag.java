@@ -16,14 +16,17 @@ public class CourseTag extends AbstractTag<CourseTag> {
 
     private static final long serialVersionUID = 1L;
 
-    private String type = TagTypeEnum.COURSE.getCode();
-
-
-	public String getType() {
-		return type;
+	public CourseTag() {
+		this.type = TagTypeEnum.COURSE.getCode();
 	}
 
+	@Override
+	public String getType() {
+		return TagTypeEnum.COURSE.getCode();
+	}
+
+	@Override
 	public void setType(String type) {
-		this.type = type;
+		this.type = TagTypeEnum.COURSE.getCode();
 	}
 }

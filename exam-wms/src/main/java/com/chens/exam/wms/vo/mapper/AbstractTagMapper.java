@@ -10,6 +10,6 @@ import com.chens.exam.core.vo.AbstractTag;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public interface TagMapper<T extends AbstractTag<T>> extends BaseMapper<T> {
+public interface AbstractTagMapper<T extends AbstractTag<T>> extends BaseMapper<T> {
 
 }

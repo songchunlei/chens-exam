@@ -3,8 +3,8 @@ package com.chens.exam.wms.service.impl;
 import com.chens.exam.core.entity.wms.SourceFolder;
 import com.chens.exam.core.enums.FolderTypeEnum;
 import com.chens.exam.wms.mapper.SourceForderMapper;
-import com.chens.exam.wms.service.ISourceForderService;
-import com.chens.exam.wms.vo.service.impl.AbstractForderServiceImpl;
+import com.chens.exam.wms.service.ISourceFolderService;
+import com.chens.exam.wms.vo.service.impl.AbstractFolderServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
  * @create 2018-04-01
  */
 @Service
-public class SourceForderServiceImpl extends AbstractForderServiceImpl<SourceForderMapper, SourceFolder> implements ISourceForderService {
+public class SourceFolderServiceImpl extends AbstractFolderServiceImpl<SourceForderMapper, SourceFolder> implements ISourceFolderService {
 
     @Override
     protected void init() {

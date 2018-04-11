@@ -1,10 +1,10 @@
-package com.chens.exam.wms.rpc.forder;
+package com.chens.exam.wms.rpc.folder;
 
 import java.util.List;
 import java.util.Map;
 
 import com.chens.exam.core.entity.wms.SourceFolder;
-import com.chens.exam.wms.service.ISourceForderService;
+import com.chens.exam.wms.service.ISourceFolderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +20,10 @@ import com.chens.exam.wms.remote.forder.ISourceForderClient;
  */
 @RestController
 @RequestMapping(value="/forder")
-public class SourceForderClientImpl implements ISourceForderClient {
+public class SourceFolderClientImpl implements ISourceForderClient {
 
 	@Autowired
-	private ISourceForderService sourceForderService;
+	private ISourceFolderService sourceForderService;
 
 	@Override
 	public String save(@RequestBody Map<String, Object> map) {

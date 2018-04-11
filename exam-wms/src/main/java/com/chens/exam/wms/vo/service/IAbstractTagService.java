@@ -10,6 +10,6 @@ import com.chens.exam.core.vo.AbstractTag;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public interface ITagService<T extends AbstractTag<T>> extends IService<T> {
+public interface IAbstractTagService<T extends AbstractTag<T>> extends IService<T> {
 	
 }

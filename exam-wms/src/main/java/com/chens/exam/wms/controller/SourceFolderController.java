@@ -1,7 +1,7 @@
 package com.chens.exam.wms.controller;
 
 import com.chens.exam.core.entity.wms.SourceFolder;
-import com.chens.exam.wms.service.ISourceForderService;
+import com.chens.exam.wms.service.ISourceFolderService;
 import com.chens.exam.wms.vo.controller.AbstractForderController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/sourceFolderController")
-public class SourceFolderController extends AbstractForderController<ISourceForderService,SourceFolder> {
+public class SourceFolderController extends AbstractForderController<ISourceFolderService,SourceFolder> {
 
 }
