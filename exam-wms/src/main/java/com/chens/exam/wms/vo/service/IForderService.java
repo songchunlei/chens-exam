@@ -1,7 +1,8 @@
 package com.chens.exam.wms.vo.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import com.chens.exam.core.vo.AbstractForder;
+import com.chens.core.vo.FolderFileInfo;
+import com.chens.exam.core.vo.AbstractFolder;
 
 
 /**
@@ -12,7 +13,7 @@ import com.chens.exam.core.vo.AbstractForder;
  * @author wdp123
  * @since 2018-03-06
  */
-public interface IForderService<T extends AbstractForder<T>> extends IService<T> {
+public interface IForderService<T extends AbstractFolder<T>> extends IService<T> {
 
-    T selectForderById(String id);
+    FolderFileInfo selectForderById(String id);
 }

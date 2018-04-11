@@ -3,7 +3,7 @@ package com.chens.exam.wms.remote.forder;
 import java.util.List;
 import java.util.Map;
 
-import com.chens.exam.core.entity.wms.SourceForder;
+import com.chens.exam.core.entity.wms.SourceFolder;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +31,7 @@ public interface ISourceForderClient {
 	 * @return
 	 */
 	@RequestMapping(value="/loadForderTree")
-	List<ZTree> loadForderTree(@RequestBody SourceForder sourceForder);
+	List<ZTree> loadForderTree(@RequestBody SourceFolder sourceForder);
 	
 	/**
 	 * 删除文件夹
@@ -39,6 +39,6 @@ public interface ISourceForderClient {
 	 * @return
 	 */
 	@RequestMapping(value="/delete")
-	boolean delete(@RequestBody SourceForder sourceForder);
+	boolean delete(@RequestBody SourceFolder sourceForder);
 
 }

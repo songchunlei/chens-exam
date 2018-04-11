@@ -15,7 +15,7 @@ import java.util.Collections;
 /**
  * 拦截器配置
  *
- * @auther songchunlei@qq.com
+ * @author songchunlei@qq.com
  * @create 2018/3/20
  */
 @Configuration

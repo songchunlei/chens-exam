@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
 import com.chens.bpm.vo.WfBaseEntity;
-import com.chens.exam.core.vo.ForderInfo;
+import com.chens.core.vo.FolderFileInfo;
 
 /**
  * <p>
@@ -65,6 +65,7 @@ public class Source extends WfBaseEntity<Source> {
      */
     @TableField("file_forder")
     private String fileForder;
+
     /**
      * 资源地址
      */
@@ -191,8 +192,8 @@ public class Source extends WfBaseEntity<Source> {
 		this.idStr = idStr;
 	}
 
-	public ForderInfo getForderInfo()
+	public FolderFileInfo getForderInfo()
     {
-        return new ForderInfo(id,name,updateTime);
+        return new FolderFileInfo(id,fileType,name,updateTime);
     }
 }

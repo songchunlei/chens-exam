@@ -21,6 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <chens.framework.version>1.0-SNAPSHOT</chens.framework.version>
     </properties>
 
     <dependencies>
@@ -28,26 +29,26 @@
         <dependency>
             <groupId>com.chens</groupId>
             <artifactId>chens-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${chens.framework.version}</version>
         </dependency>
 
         <!--授权-->
         <dependency>
             <groupId>com.chens</groupId>
             <artifactId>chens-auth-client</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${chens.framework.version}</version>
         </dependency>
 
         <!--核心流程架包-->
         <dependency>
             <groupId>com.chens</groupId>
             <artifactId>chens-bpm-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${chens.framework.version}</version>
         </dependency>
         <dependency>
             <groupId>com.chens</groupId>
             <artifactId>chens-bpm-activiti</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${chens.framework.version}</version>
         </dependency>
 
     </dependencies>

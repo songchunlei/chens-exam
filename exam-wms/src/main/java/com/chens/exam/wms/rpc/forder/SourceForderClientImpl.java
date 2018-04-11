@@ -3,16 +3,14 @@ package com.chens.exam.wms.rpc.forder;
 import java.util.List;
 import java.util.Map;
 
-import com.chens.exam.core.entity.wms.SourceForder;
+import com.chens.exam.core.entity.wms.SourceFolder;
 import com.chens.exam.wms.service.ISourceForderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chens.core.vo.UserInfo;
 import com.chens.core.vo.ZTree;
-import com.chens.exam.core.utils.JsonUtils;
 import com.chens.exam.wms.remote.forder.ISourceForderClient;
 
 /**
@@ -33,12 +31,12 @@ public class SourceForderClientImpl implements ISourceForderClient {
 	}
 
 	@Override
-	public List<ZTree> loadForderTree(@RequestBody SourceForder sourceForder) {
+	public List<ZTree> loadForderTree(@RequestBody SourceFolder sourceForder) {
 		return null;
 	}
 
 	@Override
-	public boolean delete(@RequestBody SourceForder sourceForder) {
+	public boolean delete(@RequestBody SourceFolder sourceForder) {
 		return true;
 	}
 	

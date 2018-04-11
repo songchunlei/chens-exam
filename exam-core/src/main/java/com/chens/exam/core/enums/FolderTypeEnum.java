@@ -5,7 +5,7 @@ package com.chens.exam.core.enums;
  * @auther songchunlei
  * @create 2018/4/1
  */
-public enum ForderTypeEnum {
+public enum FolderTypeEnum {
     SOURCE("素材", "SOURCE"),
     QUESTIONS("题目","QUESTIONS"),
     EXAM("试卷","EXAM"),
@@ -15,7 +15,7 @@ public enum ForderTypeEnum {
     private String display;
     private String code;
 
-    private ForderTypeEnum(String display, String code) {
+    private FolderTypeEnum(String display, String code) {
         this.display = display;
         this.code = code;
 

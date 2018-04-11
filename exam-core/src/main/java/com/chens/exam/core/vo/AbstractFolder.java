@@ -1,14 +1,13 @@
 package com.chens.exam.core.vo;
 
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.chens.core.annotation.InsertValid;
 import com.chens.core.annotation.UpdateValid;
 import com.chens.core.vo.BaseEntity;
-import com.chens.exam.core.enums.TagTypeEnum;
+import com.chens.core.vo.FolderFileInfo;
+import com.chens.core.enums.FileType;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 /**
  * <p>
@@ -18,19 +17,17 @@ import java.util.List;
  * @author wdp123
  * @since 2018-03-06
  */
-public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
+public abstract class AbstractFolder<T extends AbstractFolder> extends BaseEntity<T> {
 
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = 1815815883025805854L;
 
-
-
 	/**
 	 * 文件夹类型
 	 */
-	@TableField("forder_type")
-	protected String forderType ;
+	@TableField("type")
+	protected String type ;
 
     /**
      * 等级
@@ -41,9 +38,9 @@ public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
     /**
      * 文件夹名称
      */
-    @TableField("forder_name")
+    @TableField("name")
     @NotNull(message = "{forder.forderName.null}",groups = {InsertValid.class, UpdateValid.class})
-    private String forderName;
+    private String name;
 
     /**
      * 上级文件夹id
@@ -75,32 +72,13 @@ public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
 	@TableField(exist = false)
 	private String idStr;
 
-	/**
-	 * 父文件夹
-	 */
-	@TableField(exist = false)
-	private T parentForder;
-
-	/**
-	 * 文件夹下的文件
-	 */
-	@TableField(exist = false)
-	private List<ForderInfo> files;
-
-	/**
-	 * 文件夹下的子文件夹
-	 */
-	@TableField(exist = false)
-	private List<T> childForders;
-
-	public String getForderType() {
-		return forderType;
+	public String getType() {
+		return type;
 	}
 
-	public void setForderType(String forderType) {
-		this.forderType = TagTypeEnum.SOURCE.getCode();
+	public void setType(String type) {
+		this.type = type;
 	}
-
 
 	public String getIdStr() {
 		return idStr;
@@ -109,12 +87,14 @@ public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
 		this.idStr = idStr;
 	}
 
-	public String getForderName() {
-		return forderName;
+	public String getName() {
+		return name;
 	}
-	public void setForderName(String forderName) {
-		this.forderName = forderName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
 	public String getParentId() {
 		return parentId;
 	}
@@ -142,35 +122,16 @@ public class AbstractForder<T extends AbstractForder> extends BaseEntity<T> {
 		this.lvl = lvl;
 	}
 
-	public T getParentForder() {
-		return parentForder;
-	}
-
-	public void setParentForder(T parentForder) {
-		this.parentForder = parentForder;
-	}
-
-	public List<ForderInfo> getFiles() {
-		return files;
-	}
-
-	public void setFiles(List<ForderInfo> files) {
-		this.files = files;
-	}
-
-	public List<T> getChildForders() {
-		return childForders;
-	}
-
-	public void setChildForders(List<T> childForders) {
-		this.childForders = childForders;
-	}
-
 	public String getCascadeId() {
 		return cascadeId;
 	}
 
 	public void setCascadeId(String cascadeId) {
 		this.cascadeId = cascadeId;
+	}
+
+	public FolderFileInfo getForderFileInfo()
+	{
+		return new FolderFileInfo(this.getId(), FileType.FOLDER.getCode(),this.getName(), this.getUpdateTime());
 	}
 }

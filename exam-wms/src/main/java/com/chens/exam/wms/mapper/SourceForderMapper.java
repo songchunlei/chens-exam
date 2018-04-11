@@ -1,7 +1,6 @@
 package com.chens.exam.wms.mapper;
 
-import com.chens.exam.core.entity.wms.Source;
-import com.chens.exam.core.entity.wms.SourceForder;
+import com.chens.exam.core.entity.wms.SourceFolder;
 import com.chens.exam.wms.vo.mapper.ForderMapper;
 
 /**
@@ -11,6 +10,6 @@ import com.chens.exam.wms.vo.mapper.ForderMapper;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public interface SourceForderMapper extends ForderMapper<SourceForder> {
+public interface SourceForderMapper extends ForderMapper<SourceFolder> {
 
 }
