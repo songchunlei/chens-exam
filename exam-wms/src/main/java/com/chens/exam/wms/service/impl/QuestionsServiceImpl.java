@@ -10,11 +10,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.chens.bpm.entity.ProcessBussinessRel;
 import com.chens.bpm.enums.WfStatus;
 import com.chens.bpm.service.IProcessBussinessRelService;
-import com.chens.bpm.service.IWfEngineService;
 import com.chens.bpm.service.impl.BaseWfServiceImpl;
+import com.chens.bpm.vo.MyDoneTask;
+import com.chens.bpm.vo.MyStartProcessInstance;
+import com.chens.bpm.vo.MyTodoTask;
 import com.chens.bpm.vo.WorkFlowRequestParam;
 import com.chens.core.enums.YesNoEnum;
 import com.chens.exam.core.entity.wms.Questions;
@@ -41,8 +44,6 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 	private IQuestionsOptionService questionsOptionService;	
 	@Autowired
 	private IQuestionsQuoteService questionsQuoteService;
-	@Autowired
-	private IWfEngineService wfEngineService;
 	@Autowired
 	private QuestionsMapper questionMapper;
 	
@@ -148,5 +149,24 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 	@Transactional
 	public boolean afterSubmit(WorkFlowRequestParam<Questions> workFlowRequestParam) {
 		return true;
+	}
+	
+	@Override
+	public Page<MyTodoTask> getMyTodoTaskPage(Page<MyTodoTask> page, MyTodoTask myTodoTask) {
+		page.setRecords(questionMapper.getMyTodoTaskPage(page, myTodoTask));
+		return page;
+	}
+
+	@Override
+	public Page<MyDoneTask> getMyDoneTaskPage(Page<MyDoneTask> page, MyDoneTask myDoneTask) {
+		page.setRecords(questionMapper.getMyDoneTaskPage(page, myDoneTask));
+		return page;
+	}
+
+	@Override
+	public Page<MyStartProcessInstance> getMyStartProcessInstancePage(Page<MyStartProcessInstance> page,
+			MyStartProcessInstance myStartProcessInstance) {
+		page.setRecords(questionMapper.getMyStartProcessInstancePage(page, myStartProcessInstance));
+		return page;
 	}
 }

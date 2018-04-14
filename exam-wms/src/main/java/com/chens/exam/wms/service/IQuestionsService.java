@@ -1,6 +1,10 @@
 package com.chens.exam.wms.service;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.chens.bpm.service.IWfBaseService;
+import com.chens.bpm.vo.MyDoneTask;
+import com.chens.bpm.vo.MyStartProcessInstance;
+import com.chens.bpm.vo.MyTodoTask;
 import com.chens.bpm.vo.WorkFlowRequestParam;
 import com.chens.exam.core.entity.wms.Questions;
 
@@ -33,5 +37,30 @@ public interface IQuestionsService extends IWfBaseService<Questions> {
 	  * @return
 	  */
 	 Questions selectQuestionDetail(Questions questions);
+	 
+	 /**
+	     * 我的待办分页
+	     * @param page
+	     * @param myTodoTask
+	     * @return
+	     */
+	 Page<MyTodoTask> getMyTodoTaskPage(Page<MyTodoTask> page, MyTodoTask myTodoTask);
+	 
+	 /**
+	     * 我的待办分页
+	     * @param page
+	     * @param myTodoTask
+	     * @return
+	     */
+	 Page<MyDoneTask> getMyDoneTaskPage(Page<MyDoneTask> page, MyDoneTask myDoneTask);
+	 
+	 
+	 /**
+	     * 我的申请/我发起的流程分页
+	     * @param page
+	     * @param myTodoTask
+	     * @return
+	     */
+	 Page<MyStartProcessInstance> getMyStartProcessInstancePage(Page<MyStartProcessInstance> page, MyStartProcessInstance myStartProcessInstance);
 	 
 }
