@@ -38,14 +38,14 @@ public abstract class AbstractFolder<T extends AbstractFolder> extends BaseEntit
      * 文件夹名称
      */
     @TableField("name")
-    @NotNull(message = "{forder.forderName.null}",groups = {InsertValid.class, UpdateValid.class})
+    @NotNull(message = "{folder.folderName.null}",groups = {InsertValid.class, UpdateValid.class})
     private String name;
 
     /**
      * 上级文件夹id
      */
     @TableField("parent_id")
-	@NotNull(message = "{forder.parentId.null}",groups = {InsertValid.class, UpdateValid.class})
+	@NotNull(message = "{folder.parentId.null}",groups = {InsertValid.class, UpdateValid.class})
     private String parentId;
 
 	/**
