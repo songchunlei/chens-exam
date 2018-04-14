@@ -15,5 +15,17 @@ import com.chens.exam.core.vo.AbstractFolder;
  */
 public interface IAbstractFolderService<T extends AbstractFolder<T>> extends IService<T> {
 
-    FolderFileInfo selectForderById(String id);
+    /**
+     * 根据id查询文件夹以及文件信息
+     * @param id
+     * @return
+     */
+    FolderFileInfo selectFolderById(String id);
+
+    /**
+     * 创建文件夹
+     * @param entity
+     * @return
+     */
+    boolean insertFolder(T entity);
 }

@@ -6,11 +6,13 @@ import com.chens.core.constants.CommonConstants;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.util.FolderUtil;
+import com.chens.core.util.StringUtils;
 import com.chens.exam.core.constants.ExamConstants;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.enums.FolderTypeEnum;
 import com.chens.exam.core.vo.AbstractFolder;
 import com.chens.core.vo.FolderFileInfo;
+import com.chens.exam.wms.exception.WmsExceptionEnum;
 import com.chens.exam.wms.service.ISourceService;
 import com.chens.exam.wms.vo.mapper.AbstractFolderMapper;
 import com.chens.exam.wms.vo.service.IAbstractFolderService;
@@ -41,7 +43,7 @@ public abstract class AbstractFolderServiceImpl<M extends AbstractFolderMapper<T
     protected abstract void init();
 
     @Override
-    public FolderFileInfo selectForderById(String id) {
+    public FolderFileInfo selectFolderById(String id) {
 
         FolderFileInfo forderFileInfo;
 
@@ -101,4 +103,35 @@ public abstract class AbstractFolderServiceImpl<M extends AbstractFolderMapper<T
         }
         return forderFileInfo;
     }
+
+    @Override
+    public boolean insertFolder(T entity)
+    {
+        int lvl = 2;
+        if(entity==null)
+        {
+            throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
+        }
+        String parentId = entity.getParentId();
+
+        if(StringUtils.isNotEmpty(parentId))
+        {
+            if(CommonConstants.BASE_TREE_ROOT.equals(parentId))
+            {
+                lvl = 2;
+            }
+            else
+            {
+                T parentFolder = this.selectById(parentId);
+                lvl = Integer.sum(parentFolder.getLvl(),1);
+            }
+            entity.setLvl(lvl);
+            return insert(entity);
+        }
+        else
+        {
+            throw new BaseException(WmsExceptionEnum.FILE_PARENT_ID_IS_NULL);
+        }
+    }
+
 }

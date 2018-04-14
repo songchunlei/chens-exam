@@ -32,7 +32,6 @@ public abstract class AbstractFolder<T extends AbstractFolder> extends BaseEntit
     /**
      * 等级
      */
-    @NotNull(message = "{forder.lvl.null}",groups = {InsertValid.class, UpdateValid.class})
     private Integer lvl;
 
     /**
