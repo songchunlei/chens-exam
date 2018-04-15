@@ -32,25 +32,47 @@
             <version>${chens.framework.version}</version>
         </dependency>
 
-        <!--授权-->
-        <dependency>
-            <groupId>com.chens</groupId>
-            <artifactId>chens-auth-client</artifactId>
-            <version>${chens.framework.version}</version>
-        </dependency>
 
-        <!--核心流程架包-->
-        <dependency>
-            <groupId>com.chens</groupId>
-            <artifactId>chens-bpm-core</artifactId>
-            <version>${chens.framework.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.chens</groupId>
-            <artifactId>chens-bpm-activiti</artifactId>
-            <version>${chens.framework.version}</version>
-        </dependency>
+
+
+
+
 
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--核心流程架包-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-bpm-core</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
+            <!--activiti流程实现-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-bpm-activiti</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
+            <!--授权-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-auth-client</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
+            <!--文件服务-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-file-server</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
+
+
+        </dependencies>
+    </dependencyManagement>
 
 </project>
