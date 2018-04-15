@@ -6,6 +6,8 @@ import java.util.List;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.WfBaseEntity;
+import com.chens.core.vo.FolderFileInfo;
+import com.chens.exam.core.enums.ExamFileTypeEnum;
 
 /**
  *
@@ -24,8 +26,8 @@ public class Questions extends WfBaseEntity<Questions> {
 	/**
      * 所在文件夹id
      */
-	@TableField("forder_id")
-	private String forderId;
+	@TableField("folder_id")
+	private String folderId;
     /**
      * 所属学科
      */
@@ -97,13 +99,12 @@ public class Questions extends WfBaseEntity<Questions> {
 	@TableField(exist = false)
 	private List<QuestionsQuote> questionsQuoteList;
 
-
-	public String getForderId() {
-		return forderId;
+	public String getFolderId() {
+		return folderId;
 	}
 
-	public void setForderId(String forderId) {
-		this.forderId = forderId;
+	public void setFolderId(String folderId) {
+		this.folderId = folderId;
 	}
 
 	public String getBelongSubject() {
@@ -232,5 +233,9 @@ public class Questions extends WfBaseEntity<Questions> {
 
 	public void setQuestionsQuoteList(List<QuestionsQuote> questionsQuoteList) {
 		this.questionsQuoteList = questionsQuoteList;
+	}
+	public FolderFileInfo getForderInfo()
+	{
+		return new FolderFileInfo(id, ExamFileTypeEnum.QUESTIONS.getCode(),name,updateTime);
 	}
 }

@@ -8,7 +8,7 @@ package com.chens.exam.core.enums;
 public enum TagTypeEnum {
     SOURCE("素材", "SOURCE"),
     QUESTIONS("题目","QUESTIONS"),
-    EXAM("试卷","EXAM"),
+    EXAM_PAPER("试卷","EXAM_PAPER"),
     COURSE("课程","COURSE"),
     BOOK("书本","BOOK");
 

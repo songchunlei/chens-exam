@@ -7,6 +7,8 @@ import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.chens.core.vo.BaseEntity;
+import com.chens.core.vo.FolderFileInfo;
+import com.chens.exam.core.enums.ExamFileTypeEnum;
 
 /**
  *
@@ -48,6 +50,12 @@ public class Book extends BaseEntity<Book> {
      */
 	@TableField("is_delete")
 	private String isDelete;
+
+	/**
+	 * 文件夹id
+	 */
+	@TableField("folder_id")
+	private String folderId;
 
 
 	public String getName() {
@@ -98,4 +106,16 @@ public class Book extends BaseEntity<Book> {
 		this.isDelete = isDelete;
 	}
 
+	public String getFolderId() {
+		return folderId;
+	}
+
+	public void setFolderId(String folderId) {
+		this.folderId = folderId;
+	}
+
+	public FolderFileInfo getForderInfo()
+	{
+		return new FolderFileInfo(id, ExamFileTypeEnum.BOOK.getCode(),name,updateTime);
+	}
 }

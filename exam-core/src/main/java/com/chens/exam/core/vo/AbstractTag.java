@@ -33,6 +33,12 @@ public abstract class AbstractTag<T extends AbstractTag> extends BaseEntity<T> {
 	@TableField("tag_name")
 	protected String tagName;
 
+	/**
+	 * 分类id
+	 */
+	@TableField("class_id")
+	protected String classId;
+
 
 	public String getComment() {
 		return comment;
@@ -56,5 +62,13 @@ public abstract class AbstractTag<T extends AbstractTag> extends BaseEntity<T> {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getClassId() {
+		return classId;
+	}
+
+	public void setClassId(String classId) {
+		this.classId = classId;
 	}
 }

@@ -17,16 +17,16 @@ public class ExamTag extends AbstractTag<ExamTag> {
     private static final long serialVersionUID = 1L;
 
 	public ExamTag() {
-		this.type = TagTypeEnum.EXAM.getCode();
+		this.type = TagTypeEnum.EXAM_PAPER.getCode();
 	}
 
 	@Override
 	public String getType() {
-		return TagTypeEnum.EXAM.getCode();
+		return TagTypeEnum.EXAM_PAPER.getCode();
 	}
 
 	@Override
 	public void setType(String type) {
-		this.type = TagTypeEnum.EXAM.getCode();
+		this.type = TagTypeEnum.EXAM_PAPER.getCode();
 	}
 }

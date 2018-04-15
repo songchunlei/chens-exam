@@ -13,21 +13,21 @@ import com.chens.file.vo.AbstractFolder;
  * @create 2018-04-01
  */
 @TableName("t_folder")
-public class SourceFolder extends AbstractFolder<SourceFolder> {
+public class QuestionsFolder extends AbstractFolder<QuestionsFolder> {
 
     private static final long serialVersionUID = 1L;
 
-	public SourceFolder() {
-		this.type = ExamFileTypeEnum.SOURCE.getCode();
+	public QuestionsFolder() {
+		this.type = ExamFileTypeEnum.QUESTIONS.getCode();
 	}
 
 	@Override
 	public String getType() {
-		return ExamFileTypeEnum.SOURCE.getCode();
+		return ExamFileTypeEnum.QUESTIONS.getCode();
 	}
 
 	@Override
 	public void setType(String type) {
-		this.type = ExamFileTypeEnum.SOURCE.getCode();
+		this.type = ExamFileTypeEnum.QUESTIONS.getCode();
 	}
 }
