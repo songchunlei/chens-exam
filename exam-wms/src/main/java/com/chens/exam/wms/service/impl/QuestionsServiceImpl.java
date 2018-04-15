@@ -151,22 +151,5 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 		return true;
 	}
 	
-	@Override
-	public Page<MyTodoTask> getMyTodoTaskPage(Page<MyTodoTask> page, MyTodoTask myTodoTask) {
-		page.setRecords(questionMapper.getMyTodoTaskPage(page, myTodoTask));
-		return page;
-	}
 
-	@Override
-	public Page<MyDoneTask> getMyDoneTaskPage(Page<MyDoneTask> page, MyDoneTask myDoneTask) {
-		page.setRecords(questionMapper.getMyDoneTaskPage(page, myDoneTask));
-		return page;
-	}
-
-	@Override
-	public Page<MyStartProcessInstance> getMyStartProcessInstancePage(Page<MyStartProcessInstance> page,
-			MyStartProcessInstance myStartProcessInstance) {
-		page.setRecords(questionMapper.getMyStartProcessInstancePage(page, myStartProcessInstance));
-		return page;
-	}
 }

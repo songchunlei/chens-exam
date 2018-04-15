@@ -93,11 +93,7 @@ public class QuestionsController extends BaseWfWebController<IQuestionsService,Q
     }
 	
 	
-	/**
-     * 我的待办
-     * @param spage
-     * @return
-     */
+    /*
     @PostMapping("/getMyTodoTaskPage")
     public ResponseEntity<Result> getMyTodTaskPage(@RequestBody QueryPageEntity<MyTodoTask> spage){
         PageVo pageVo = spage.getPage();
@@ -106,12 +102,7 @@ public class QuestionsController extends BaseWfWebController<IQuestionsService,Q
         myTodoTask.setAssignee(BaseContextHandler.getUserId());
         return doSuccess(CommonConstants.QUERY_SUCCESS,questionsService.getMyTodoTaskPage(page, myTodoTask));
     }
-    
-    /**
-     * 我的待办
-     * @param spage
-     * @return
-     */
+
     @PostMapping("/getMyDoneTaskPage")
     public ResponseEntity<Result> getMyDoneTaskPage(@RequestBody QueryPageEntity<MyDoneTask> spage){
         PageVo pageVo = spage.getPage();
@@ -120,13 +111,7 @@ public class QuestionsController extends BaseWfWebController<IQuestionsService,Q
         myDoneTask.setAssignee(BaseContextHandler.getUserId());
         return doSuccess(CommonConstants.QUERY_SUCCESS,questionsService.getMyDoneTaskPage(page, myDoneTask));
     }
-    
-    
-    /**
-     * 我的待办
-     * @param spage
-     * @return
-     */
+
     @PostMapping("/getMyStartProcessInstancePage")
     public ResponseEntity<Result> getMyStartProcessInstancePage(@RequestBody QueryPageEntity<MyStartProcessInstance> spage){
         PageVo pageVo = spage.getPage();
@@ -135,5 +120,6 @@ public class QuestionsController extends BaseWfWebController<IQuestionsService,Q
         myStartProcessInstance.setStartBy(BaseContextHandler.getUserId());
         return doSuccess(CommonConstants.QUERY_SUCCESS,questionsService.getMyStartProcessInstancePage(page, myStartProcessInstance));
     }
+    */
 	
 }

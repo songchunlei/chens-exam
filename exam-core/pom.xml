@@ -10,12 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>exam-core</artifactId>
     <dependencies>
-        <!--mybatis-plus插件-->
+
+        <!--流程-->
         <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-bpm-core</artifactId>
         </dependency>
-        <!--mybatis-plus插件 end-->
 
         <dependency>
             <groupId>com.alibaba</groupId>

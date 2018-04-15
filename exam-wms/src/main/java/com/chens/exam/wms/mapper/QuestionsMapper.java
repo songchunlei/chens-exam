@@ -19,31 +19,4 @@ import com.chens.exam.core.entity.wms.Questions;
 public interface QuestionsMapper extends BaseMapper<Questions> {
 
 	Questions selectQuestionDetail(Questions questions);
-	
-	/**
-	 * 我的待办
-	 * @param page
-	 * @param myTodoTask
-	 * @return
-	 */
-	List<MyTodoTask> getMyTodoTaskPage(Pagination page, MyTodoTask myTodoTask);
-	
-	
-	/**
-	 * 我的待办
-	 * @param page
-	 * @param myTodoTask
-	 * @return
-	 */
-	List<MyDoneTask> getMyDoneTaskPage(Pagination page, MyDoneTask myDoneTask);
-	
-	
-	 
-	 /**
-     * 我的申请/我发起的流程分页
-     * @param page
-     * @param myTodoTask
-     * @return
-     */
-	List<MyStartProcessInstance> getMyStartProcessInstancePage(Pagination page, MyStartProcessInstance myStartProcessInstance);
 }

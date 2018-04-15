@@ -38,29 +38,8 @@ public interface IQuestionsService extends IWfBaseService<Questions> {
 	  */
 	 Questions selectQuestionDetail(Questions questions);
 	 
-	 /**
-	     * 我的待办分页
-	     * @param page
-	     * @param myTodoTask
-	     * @return
-	     */
-	 Page<MyTodoTask> getMyTodoTaskPage(Page<MyTodoTask> page, MyTodoTask myTodoTask);
+
 	 
-	 /**
-	     * 我的待办分页
-	     * @param page
-	     * @param myTodoTask
-	     * @return
-	     */
-	 Page<MyDoneTask> getMyDoneTaskPage(Page<MyDoneTask> page, MyDoneTask myDoneTask);
-	 
-	 
-	 /**
-	     * 我的申请/我发起的流程分页
-	     * @param page
-	     * @param myTodoTask
-	     * @return
-	     */
-	 Page<MyStartProcessInstance> getMyStartProcessInstancePage(Page<MyStartProcessInstance> page, MyStartProcessInstance myStartProcessInstance);
+
 	 
 }

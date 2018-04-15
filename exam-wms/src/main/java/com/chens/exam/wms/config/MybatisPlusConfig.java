@@ -7,8 +7,7 @@ import com.chens.core.config.BaseMybatisPlusConfig;
 
 
 @Configuration
-@MapperScan(basePackages = {"com.chens.exam.wms.mapper*","com.chens.bpm.mapper*"})
+@MapperScan(basePackages = {"com.chens.**.mapper"})
 public class MybatisPlusConfig extends BaseMybatisPlusConfig{
 
-	   
 }

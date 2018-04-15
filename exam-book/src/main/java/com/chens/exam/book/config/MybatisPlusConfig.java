@@ -14,8 +14,7 @@ import com.baomidou.mybatisplus.spring.boot.starter.MybatisPlusProperties;
 
 
 @Configuration
-@EnableConfigurationProperties(MybatisPlusProperties.class)
-@MapperScan(basePackages = {"com.chens.exam.book.mapper*","com.chens.bpm.mapper*"})
+@MapperScan(basePackages = {"com.chens.**.mapper"})
 public class MybatisPlusConfig extends BaseMybatisPlusConfig {
 	   
 }
