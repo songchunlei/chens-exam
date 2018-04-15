@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @create 2018/4/9
  */
 @Controller
-@RequestMapping("/questionsFolderController")
+@RequestMapping("/bookFolderController")
 public class BookFolderController extends AbstractForderController<IBookFolderService,BookFolder> {
 
 }
