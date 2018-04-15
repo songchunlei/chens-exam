@@ -1,5 +1,6 @@
 package com.chens.exam.book.service;
 
+import com.chens.bpm.service.IWfBaseService;
 import com.chens.exam.core.entity.book.Book;
 import com.baomidou.mybatisplus.service.IService;
 
@@ -10,6 +11,6 @@ import com.baomidou.mybatisplus.service.IService;
  * @author chunlei.song@live.com
  * @create 2018-04-04
  */
-public interface IBookService extends IService<Book> {
+public interface IBookService extends IWfBaseService<Book> {
 	
 }

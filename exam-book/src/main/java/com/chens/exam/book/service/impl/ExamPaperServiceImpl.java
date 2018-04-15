@@ -1,6 +1,8 @@
 package com.chens.exam.book.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.chens.bpm.service.impl.BaseWfServiceImpl;
+import com.chens.bpm.vo.WorkFlowRequestParam;
 import com.chens.core.util.StringUtils;
 import com.chens.exam.core.entity.book.ExamPaper;
 import com.chens.exam.book.mapper.ExamPaperMapper;
@@ -21,11 +23,21 @@ import java.util.List;
  * @create 2018-04-04
  */
 @Service
-public class ExamPaperServiceImpl extends ServiceImpl<ExamPaperMapper, ExamPaper> implements IExamPaperService {
+public class ExamPaperServiceImpl extends BaseWfServiceImpl<ExamPaperMapper, ExamPaper> implements IExamPaperService {
 
 
     @Override
     public List<ExamPaper> getPapperListByQuestionId(String questionId) {
         return baseMapper.getPapperListByQuestionId(questionId);
+    }
+
+    @Override
+    public boolean beforeSubmit(WorkFlowRequestParam<ExamPaper> workFlowRequestParam) {
+        return false;
+    }
+
+    @Override
+    public boolean afterSubmit(WorkFlowRequestParam<ExamPaper> workFlowRequestParam) {
+        return false;
     }
 }

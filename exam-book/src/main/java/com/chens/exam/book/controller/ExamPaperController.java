@@ -1,9 +1,11 @@
 package com.chens.exam.book.controller;
 
+import com.chens.bpm.controller.BaseWfWebController;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
 import com.chens.exam.book.service.IExampaperQuestionService;
+import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,10 +27,16 @@ import javax.validation.constraints.NotNull;
  */
 @Controller
 @RequestMapping("/examPaperController")
-public class ExamPaperController extends BaseWebController<IExamPaperService,ExamPaper> {
+public class ExamPaperController extends BaseWfWebController<IExamPaperService,ExamPaper> {
 
     @Autowired
     private IExampaperQuestionService exampaperQuestionService;
+
+
+    @Override
+    protected void init(ExamPaper examPaper) {
+        examPaper.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.EXAM_PAPER_APPROVE.getCode());
+    }
 
     /**
      * 获取根据题目id试卷列表
@@ -65,5 +73,4 @@ public class ExamPaperController extends BaseWebController<IExamPaperService,Exa
     public ResponseEntity<Result> deleteQuestionsInPapper(@NotNull(message = "{papper.id.null}") String papperId,@NotNull(message = "{papper.questions.null}") String questionIds) {
         return doSuccess(exampaperQuestionService.deleteQuestionsInPapper(papperId,questionIds));
     }
-
 }

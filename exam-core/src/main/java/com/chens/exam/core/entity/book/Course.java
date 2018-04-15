@@ -2,11 +2,8 @@ package com.chens.exam.core.entity.book;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.annotations.TableLogic;
-import com.chens.core.vo.BaseEntity;
+import com.chens.bpm.vo.BaseWfEntity;
 import com.chens.core.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
 
@@ -18,7 +15,7 @@ import com.chens.exam.core.enums.ExamFileTypeEnum;
  * @create 2018-04-04
  */
 @TableName("t_course")
-public class Course extends BaseEntity<Course> {
+public class Course extends BaseWfEntity<Course> {
 
     private static final long serialVersionUID = 1L;
 

@@ -1,5 +1,7 @@
 package com.chens.exam.book.controller;
 
+import com.chens.bpm.controller.BaseWfWebController;
+import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +22,13 @@ import com.chens.core.web.BaseWebController;
  */
 @Controller
 @RequestMapping("/bookController")
-public class BookController extends BaseWebController<IBookService,Book> {
+public class BookController extends BaseWfWebController<IBookService,Book> {
 
 
+    @Override
+    protected void init(Book book) {
+        book.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.BOOK_APPROVE.getCode());
+    }
+
+    
 }

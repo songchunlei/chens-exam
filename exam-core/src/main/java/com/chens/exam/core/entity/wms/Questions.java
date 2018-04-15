@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.chens.bpm.vo.WfBaseEntity;
+import com.chens.bpm.vo.BaseWfEntity;
 import com.chens.core.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
 
@@ -17,7 +17,7 @@ import com.chens.exam.core.enums.ExamFileTypeEnum;
  * @create 2018-04-06
  */
 @TableName("t_questions")
-public class Questions extends WfBaseEntity<Questions> {
+public class Questions extends BaseWfEntity<Questions> {
 
     /**
 	 * 
