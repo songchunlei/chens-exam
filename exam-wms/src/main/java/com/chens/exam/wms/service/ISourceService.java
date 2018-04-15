@@ -14,23 +14,6 @@ import com.chens.exam.core.entity.wms.Source;
  */
 public interface ISourceService extends IWfBaseService<Source> {
 
-	
-	/**
-	 * 保存资源
-	 * @param source
-	 * @param userInfo
-	 * @return
-	 */
-	String save(Source source, UserInfo userInfo);
-
-	/**
-	 * 删除资源
-	 * @param source
-	 * @return
-	 */
-	boolean delete(Source source);
-	
-	
 	/**
 	 * 提交资源
 	 * @param source

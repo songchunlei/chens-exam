@@ -2,7 +2,7 @@ package com.chens.exam.wms.service;
 
 
 import com.chens.exam.core.entity.wms.SourceFolder;
-import com.chens.exam.wms.vo.service.IAbstractFolderService;
+import com.chens.file.vo.service.IAbstractFolderService;
 
 /**
  *

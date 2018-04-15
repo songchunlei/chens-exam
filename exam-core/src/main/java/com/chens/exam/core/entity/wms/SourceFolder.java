@@ -3,7 +3,7 @@ package com.chens.exam.core.entity.wms;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.exam.core.enums.FolderTypeEnum;
 import com.chens.exam.core.enums.TagTypeEnum;
-import com.chens.exam.core.vo.AbstractFolder;
+import com.chens.file.vo.AbstractFolder;
 
 /**
  *

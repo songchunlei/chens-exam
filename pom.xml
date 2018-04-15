@@ -42,14 +42,14 @@
 
     <dependencyManagement>
         <dependencies>
-            <!--核心流程架包-->
+            <!--流程服务基础架包-->
             <dependency>
                 <groupId>com.chens</groupId>
                 <artifactId>chens-bpm-core</artifactId>
                 <version>${chens.framework.version}</version>
             </dependency>
 
-            <!--activiti流程实现-->
+            <!--流程服务activiti实现-->
             <dependency>
                 <groupId>com.chens</groupId>
                 <artifactId>chens-bpm-activiti</artifactId>
@@ -60,6 +60,13 @@
             <dependency>
                 <groupId>com.chens</groupId>
                 <artifactId>chens-auth-client</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
+            <!--文件服务基础架包-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-file-core</artifactId>
                 <version>${chens.framework.version}</version>
             </dependency>
 

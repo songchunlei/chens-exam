@@ -2,7 +2,7 @@ package com.chens.exam.wms.controller;
 
 import com.chens.exam.core.entity.wms.SourceFolder;
 import com.chens.exam.wms.service.ISourceFolderService;
-import com.chens.exam.wms.vo.controller.AbstractForderController;
+import com.chens.file.vo.controller.AbstractForderController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

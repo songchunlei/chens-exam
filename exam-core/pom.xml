@@ -11,6 +11,11 @@
     <artifactId>exam-core</artifactId>
     <dependencies>
 
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-file-core</artifactId>
+        </dependency>
+
         <!--流程-->
         <dependency>
             <groupId>com.chens</groupId>
@@ -33,6 +38,10 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-          
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-file-server</artifactId>
+        </dependency>
+
     </dependencies>
 </project>
