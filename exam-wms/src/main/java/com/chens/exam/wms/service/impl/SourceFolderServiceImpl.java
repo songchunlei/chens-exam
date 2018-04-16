@@ -31,7 +31,7 @@ public class SourceFolderServiceImpl extends AbstractFolderServiceImpl<SourceFol
     protected List<FolderFileInfo> getFileInfoListByFolderId(String folderId) {
         List<FolderFileInfo> folderFileInfoList = new ArrayList<>();
         Source source = new Source();
-        source.setForderId(folderId);
+        source.setFolderId(folderId);
         EntityWrapper<Source> sourceEntityWrapper = new EntityWrapper<>(source);
         List<Source> sourceList = sourceService.selectList(sourceEntityWrapper);
         for (Source file:sourceList)

@@ -35,8 +35,8 @@ public class Source extends BaseWfEntity<Source> {
     /**
      * 文件夹id
      */
-    @TableField("forder_id")
-    private String forderId;
+    @TableField("folder_id")
+    private String folderId;
 
     /**
      * 资源类型
@@ -96,15 +96,15 @@ public class Source extends BaseWfEntity<Source> {
         this.zoneId = zoneId;
     }
 
-    public String getForderId() {
-        return forderId;
+    public String getFolderId() {
+        return folderId;
     }
 
-    public void setForderId(String forderId) {
-        this.forderId = forderId;
+    public void setFolderId(String folderId) {
+        this.folderId = folderId;
     }
 
-	public String getType() {
+    public String getType() {
         return type;
     }
 
