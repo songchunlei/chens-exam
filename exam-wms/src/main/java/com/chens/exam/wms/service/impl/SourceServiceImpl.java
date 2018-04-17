@@ -52,7 +52,7 @@ public class SourceServiceImpl extends BaseWfServiceImpl<SourceMapper, Source> i
 		}
 		else {
 			source = new Source(sysFile.getName(),sysFile.getOriginalName(),fileData.getType(),sysFile.getUrl(),folderId);
-			this.createDraft(source);
+			super.createDraft(source);
 		}
 		return source;
 	}
