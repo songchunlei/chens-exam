@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
+import com.chens.bpm.enums.WfStatus;
 import com.chens.bpm.vo.BaseWfEntity;
-import com.chens.core.vo.FolderFileInfo;
+import com.chens.exam.core.enums.SourceTypeEnum;
+import com.chens.file.vo.FolderFileInfo;
 
 /**
  * <p>
@@ -20,18 +22,7 @@ public class Source extends BaseWfEntity<Source> {
 
 	@TableField(exist = false)
 	private static final long serialVersionUID = -7496356762631622092L;
-	
-	/**
-	 * 多个id用英文逗号拼接，用于批量操作场景
-	 */
-	@TableField(exist = false)
-	private String idStr;
 
-    /**
-     * 机构id
-     */
-    @TableField("zone_id")
-    private String zoneId;
     /**
      * 文件夹id
      */
@@ -46,28 +37,26 @@ public class Source extends BaseWfEntity<Source> {
      * 资源名称
      */
     private String name;
+
     /**
      * 资源内容
      */
     private String content;
+
     /**
      * 资源文件名
      */
     @TableField("file_name")
     private String fileName;
+
     /**
      * 资源文件类型
      */
     @TableField("file_type")
     private String fileType;
-    /**
-     * 资源文件保存目录
-     */
-    @TableField("file_forder")
-    private String fileForder;
 
     /**
-     * 资源地址
+     * url链接/文件地址
      */
     private String path;
 
@@ -76,6 +65,7 @@ public class Source extends BaseWfEntity<Source> {
      */
     @TableField("qr_code")
     private String qrCode;
+
     /**
      * 备注
      */
@@ -84,16 +74,52 @@ public class Source extends BaseWfEntity<Source> {
     /**
      * 是否删除
      */
-    @TableField(value = "is_delete", fill = FieldFill.INSERT)
-    @TableLogic
+    @TableField(value = "is_delete")
     private String isDelete;
 
-    public String getZoneId() {
-        return zoneId;
+
+    public Source() {
     }
 
-    public void setZoneId(String zoneId) {
-        this.zoneId = zoneId;
+    /**
+     * 链接类
+     * @param name
+     * @param path
+     */
+    public Source(String name,String path) {
+        this.name = name;
+        this.path = path;
+        this.type = SourceTypeEnum.LINK.getCode();
+    }
+
+    /**
+     * 图文类
+     * @param name
+     * @param content
+     * @param folderId
+     */
+    public Source(String name,String content,String folderId) {
+        this.content = content;
+        this.content = content;
+        this.folderId = folderId;
+        this.type = SourceTypeEnum.IMAGE_TEXT.getCode();
+    }
+
+    /**
+     * 文件类
+     * @param name
+     * @param fileName
+     * @param fileType
+     * @param path
+     * @param folderId
+     */
+    public Source(String name,String fileName,String fileType,String path,String folderId) {
+        this.name = name;
+        this.fileName = fileName;
+        this.fileType = fileType;
+        this.path = path;
+        this.folderId = folderId;
+        this.type = SourceTypeEnum.IMAGE_TEXT.getCode();
     }
 
     public String getFolderId() {
@@ -144,14 +170,6 @@ public class Source extends BaseWfEntity<Source> {
         this.fileType = fileType;
     }
 
-    public String getFileForder() {
-        return fileForder;
-    }
-
-    public void setFileForder(String fileForder) {
-        this.fileForder = fileForder;
-    }
-
     public String getPath() {
         return path;
     }
@@ -183,14 +201,6 @@ public class Source extends BaseWfEntity<Source> {
     public void setIsDelete(String isDelete) {
         this.isDelete = isDelete;
     }
-
-	public String getIdStr() {
-		return idStr;
-	}
-
-	public void setIdStr(String idStr) {
-		this.idStr = idStr;
-	}
 
 	public FolderFileInfo getForderInfo()
     {

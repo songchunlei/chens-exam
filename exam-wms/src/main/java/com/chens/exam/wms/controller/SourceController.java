@@ -1,12 +1,11 @@
 package com.chens.exam.wms.controller;
 
 
+import com.chens.file.util.FileUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.chens.bpm.controller.BaseWfWebController;
 import com.chens.core.exception.BaseException;
@@ -15,6 +14,9 @@ import com.chens.core.vo.Result;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
 import com.chens.exam.wms.service.ISourceService;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  * <p>
@@ -28,32 +30,27 @@ import com.chens.exam.wms.service.ISourceService;
 @RequestMapping("/sourceController")
 public class SourceController extends BaseWfWebController<ISourceService,Source> {
 
+	final String WfProcessDefinitionKey = WfProcessDefinitionKeyEnum.SOURCE_APPROVE.getCode();
+
 	@Override
 	protected void init(Source source) {
-		source.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.SOURCE_APPROVE.getCode());
+		source.setProcessDefinitionKey(WfProcessDefinitionKey);
 	}
 
-		/*
-		workFlowRequestParam = new WorkFlowRequestParam<Source>();
-		workFlowRequestParam.setProcessDefinitionKey("SOURCE_APPROVE");//流程定义Key
-		workFlowRequestParam.setVariableValue(source.getVariableValue());//前台传过来的下一环节选择
-		workFlowRequestParam.setTaskId(source.getTaskId());//任务id
-		workFlowRequestParam.setNextUserId(source.getNextUserId());//下一处理人
-		workFlowRequestParam.setStartUserId(BaseContextHandler.getUserId());//发起人
-		workFlowRequestParam.setStartUserName(BaseContextHandler.getName());//发起人姓名
-		workFlowRequestParam.setTenantId(BaseContextHandler.getTenantId());//租户
-		//workFlowRequestParam.setTableName("t_source");//表名
-		TableName tableName = Source.class.getAnnotation(TableName.class);
-		if(tableName!=null)
-		{
-			workFlowRequestParam.setTableName(tableName.value());//从注解获取类名
+	/**
+	 * 新建【文件】资源
+	 * @param file 文件
+	 * @param folderId 目录id
+	 * @return
+	 */
+	@PostMapping("/uploadFile")
+	public ResponseEntity<Result> uploadFile(@RequestParam("file") MultipartFile file,String folderId) {
+		if(StringUtils.isNotBlank(folderId)){
+			return doSuccess("提交成功",service.uploadFile(FileUtil.getFileData(file,null),folderId));
+		} else {
+			throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 		}
-		workFlowRequestParam.setBpmReason(source.getBpmReason());//审批意见
-		workFlowRequestParam.setTaskName(source.getTaskName());
-		workFlowRequestParam.setCurrentTaskDefinitionKey(source.getCurrentTaskDefinitionKey());
-		workFlowRequestParam.setCurrentTaskDefinitionName(source.getCurrentTaskDefinitionName());
-		workFlowRequestParam.setT(source);
-		*/
+	}
 
 	/**
 	 * 提交资源

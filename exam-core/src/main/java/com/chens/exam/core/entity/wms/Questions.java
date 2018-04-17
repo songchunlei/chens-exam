@@ -6,7 +6,7 @@ import java.util.List;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
-import com.chens.core.vo.FolderFileInfo;
+import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
 
 /**

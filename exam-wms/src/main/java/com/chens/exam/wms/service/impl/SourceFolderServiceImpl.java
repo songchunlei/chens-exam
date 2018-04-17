@@ -1,7 +1,7 @@
 package com.chens.exam.wms.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.chens.core.vo.FolderFileInfo;
+import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.entity.wms.SourceFolder;
 import com.chens.exam.wms.mapper.SourceFolderMapper;

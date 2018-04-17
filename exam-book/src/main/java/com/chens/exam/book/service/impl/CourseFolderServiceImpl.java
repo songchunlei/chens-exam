@@ -1,7 +1,7 @@
 package com.chens.exam.book.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.chens.core.vo.FolderFileInfo;
+import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.entity.book.Course;
 import com.chens.exam.core.entity.book.CourseFolder;
 import com.chens.exam.book.mapper.CourseFolderMapper;
