@@ -9,17 +9,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.baomidou.mybatisplus.plugins.Page;
 import com.chens.bpm.controller.BaseWfWebController;
-import com.chens.bpm.vo.MyDoneTask;
-import com.chens.bpm.vo.MyStartProcessInstance;
-import com.chens.bpm.vo.MyTodoTask;
-import com.chens.core.constants.CommonConstants;
-import com.chens.core.context.BaseContextHandler;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
-import com.chens.core.vo.PageVo;
-import com.chens.core.vo.QueryPageEntity;
 import com.chens.core.vo.Result;
 import com.chens.exam.core.entity.wms.Questions;
 import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
@@ -86,7 +78,7 @@ public class QuestionsController extends BaseWfWebController<IQuestionsService,Q
 	@PostMapping("/selectQuestionDetail")
     public ResponseEntity<Result> selectQuestionDetail(@RequestBody Questions questions) {
         if(questions != null && StringUtils.isNotBlank(questions.getId())){
-            return doSuccess("查询成功",questionsService.selectQuestionDetail(questions));
+            return doSuccess("查询成功",questionsService.selectById(questions.getId()));
         } else {
             throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
         }

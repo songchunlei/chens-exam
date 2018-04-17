@@ -1,10 +1,6 @@
 package com.chens.exam.wms.service;
 
-import com.baomidou.mybatisplus.plugins.Page;
 import com.chens.bpm.service.IWfBaseService;
-import com.chens.bpm.vo.MyDoneTask;
-import com.chens.bpm.vo.MyStartProcessInstance;
-import com.chens.bpm.vo.MyTodoTask;
 import com.chens.bpm.vo.WorkFlowRequestParam;
 import com.chens.exam.core.entity.wms.Questions;
 
@@ -30,16 +26,5 @@ public interface IQuestionsService extends IWfBaseService<Questions> {
 	  * @return
 	  */
 	 //boolean submitQuestions(WorkFlowRequestParam<Questions> workFlowRequestParam);
-	 
-	 /**
-	  * 查询题目详细信息
-	  * @param questions
-	  * @return
-	  */
-	 Questions selectQuestionDetail(Questions questions);
-	 
-
-	 
-
 	 
 }
