@@ -1,5 +1,6 @@
 package com.chens.exam.wms.service.impl;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,14 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
 import com.chens.bpm.entity.ProcessBussinessRel;
 import com.chens.bpm.enums.WfStatus;
 import com.chens.bpm.service.IProcessBussinessRelService;
 import com.chens.bpm.service.impl.BaseWfServiceImpl;
-import com.chens.bpm.vo.MyDoneTask;
-import com.chens.bpm.vo.MyStartProcessInstance;
-import com.chens.bpm.vo.MyTodoTask;
 import com.chens.bpm.vo.WorkFlowRequestParam;
 import com.chens.core.enums.YesNoEnum;
 import com.chens.exam.core.entity.wms.Questions;
@@ -124,11 +121,6 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 		}
 	}
 
-	@Override
-	public Questions selectQuestionDetail(Questions questions) {
-		return questionMapper.selectQuestionDetail(questions);
-	}
-
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -151,5 +143,12 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 		return true;
 	}
 	
-
+	@Override
+	public Questions selectById(Serializable id) {
+		Questions questions = new Questions();
+		questions.setId((String)id);
+		return questionMapper.selectQuestionDetail(questions);
+	}
+	
+	
 }
