@@ -81,6 +81,7 @@ public class Questions extends BaseWfEntity<Questions> {
      * 备注
      */
 	private String remark;
+
     /**
      * 逻辑删除
      */
