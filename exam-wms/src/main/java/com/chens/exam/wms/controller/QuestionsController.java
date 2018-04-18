@@ -35,39 +35,6 @@ public class QuestionsController extends BaseWfWebController<IQuestionsService,Q
 	protected void init(Questions questions) {
 		questions.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.QUESTION_APPROVE.getCode());
 	}
-
-	/**
-	 * 保存题目  包含新增和修改
-	 * @param questions
-	 * @return
-	 */
-	@PostMapping("/saveQuestions")
-    public ResponseEntity<Result> saveQuestions(@RequestBody @Validated Questions questions) {
-        if(questions != null){
-        	this.doInit(questions);
-            return doSuccess("保存成功",questionsService.saveQuestions(workFlowRequestParam));
-        } else {
-            throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
-        }
-    }
-	
-	
-	/**
-	 * 提交题目审批，包含新增提交和修改后提交
-	 * @param questions
-	 * @return
-	 */
-	/* 走框架
-	@PostMapping("/submitQuestions")
-    public ResponseEntity<Result> submitQuestions(@RequestBody @Validated Questions questions) {
-        if(questions != null){
-        	this.doInit(questions);
-            return doSuccess("提交成功",questionsService.submitQuestions(workFlowRequestParam));
-        } else {
-            throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
-        }
-    }
-    */
 	
 	
 	/**
@@ -83,35 +50,5 @@ public class QuestionsController extends BaseWfWebController<IQuestionsService,Q
             throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
         }
     }
-	
-	
-    /*
-    @PostMapping("/getMyTodoTaskPage")
-    public ResponseEntity<Result> getMyTodTaskPage(@RequestBody QueryPageEntity<MyTodoTask> spage){
-        PageVo pageVo = spage.getPage();
-        Page<MyTodoTask> page = new Page<MyTodoTask>(pageVo.getCurrent(), pageVo.getSize());
-        MyTodoTask myTodoTask = spage.getSearch();
-        myTodoTask.setAssignee(BaseContextHandler.getUserId());
-        return doSuccess(CommonConstants.QUERY_SUCCESS,questionsService.getMyTodoTaskPage(page, myTodoTask));
-    }
-
-    @PostMapping("/getMyDoneTaskPage")
-    public ResponseEntity<Result> getMyDoneTaskPage(@RequestBody QueryPageEntity<MyDoneTask> spage){
-        PageVo pageVo = spage.getPage();
-        Page<MyDoneTask> page = new Page<MyDoneTask>(pageVo.getCurrent(), pageVo.getSize());
-        MyDoneTask myDoneTask = spage.getSearch();
-        myDoneTask.setAssignee(BaseContextHandler.getUserId());
-        return doSuccess(CommonConstants.QUERY_SUCCESS,questionsService.getMyDoneTaskPage(page, myDoneTask));
-    }
-
-    @PostMapping("/getMyStartProcessInstancePage")
-    public ResponseEntity<Result> getMyStartProcessInstancePage(@RequestBody QueryPageEntity<MyStartProcessInstance> spage){
-        PageVo pageVo = spage.getPage();
-        Page<MyStartProcessInstance> page = new Page<MyStartProcessInstance>(pageVo.getCurrent(), pageVo.getSize());
-        MyStartProcessInstance myStartProcessInstance = spage.getSearch();
-        myStartProcessInstance.setStartBy(BaseContextHandler.getUserId());
-        return doSuccess(CommonConstants.QUERY_SUCCESS,questionsService.getMyStartProcessInstancePage(page, myStartProcessInstance));
-    }
-    */
 	
 }
