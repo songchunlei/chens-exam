@@ -1,6 +1,8 @@
 package com.chens.exam.core.entity.book;
 
 import java.util.Date;
+import java.util.List;
+
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
@@ -29,6 +31,12 @@ public class CourseSection extends BaseEntity<CourseSection> {
 	@TableField("course_id")
 	private String courseId;
 
+	/**
+	 * 课程章节-资源关系
+	 */
+	@TableField(exist = false)
+	private List<CourseSectionQuote> courseSectionQuoteList;
+
 
 	public String getName() {
 		return name;
@@ -46,4 +54,12 @@ public class CourseSection extends BaseEntity<CourseSection> {
 		this.courseId = courseId;
 	}
 
+
+	public List<CourseSectionQuote> getCourseSectionQuoteList() {
+		return courseSectionQuoteList;
+	}
+
+	public void setCourseSectionQuoteList(List<CourseSectionQuote> courseSectionQuoteList) {
+		this.courseSectionQuoteList = courseSectionQuoteList;
+	}
 }

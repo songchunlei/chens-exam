@@ -1,4 +1,4 @@
-package com.chens.exam.core.entity.wms;
+package com.chens.exam.core.entity.book;
 
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.exam.core.enums.ExamDataTypeEnum;
@@ -6,27 +6,27 @@ import com.chens.file.vo.AbstractFileQuote;
 
 /**
  *
- *  题目资源管来拿实体
+ *  课程章节-资源关系实体
  *
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
 @TableName("sys_file_quote")
-public class QuestionsQuote extends AbstractFileQuote<QuestionsQuote> {
+public class CourseSectionQuote extends AbstractFileQuote<CourseSectionQuote> {
 
     private static final long serialVersionUID = 1L;
 
-	public QuestionsQuote() {
-		this.type = ExamDataTypeEnum.QUESTIONS.getCode();
+	public CourseSectionQuote() {
+		this.type = ExamDataTypeEnum.COURSE_SECTION.getCode();
 	}
 
 	@Override
 	public String getType() {
-		return ExamDataTypeEnum.QUESTIONS.getCode();
+		return ExamDataTypeEnum.COURSE_SECTION.getCode();
 	}
 
 	@Override
 	public void setType(String type) {
-		this.type = ExamDataTypeEnum.QUESTIONS.getCode();
+		this.type = ExamDataTypeEnum.COURSE_SECTION.getCode();
 	}
 }

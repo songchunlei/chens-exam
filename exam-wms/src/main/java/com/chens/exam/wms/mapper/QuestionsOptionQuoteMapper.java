@@ -1,8 +1,9 @@
 package com.chens.exam.wms.mapper;
 
 
-import com.chens.exam.core.entity.wms.QuestionsQuote;
+import com.chens.exam.core.entity.wms.QuestionsOptionQuote;
 import com.chens.file.vo.mapper.AbstractFileQuoteMapper;
+
 
 /**
  *
@@ -11,6 +12,6 @@ import com.chens.file.vo.mapper.AbstractFileQuoteMapper;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-public interface QuestionsQuoteMapper extends AbstractFileQuoteMapper<QuestionsQuote> {
+public interface QuestionsOptionQuoteMapper extends AbstractFileQuoteMapper<QuestionsOptionQuote> {
 
 }

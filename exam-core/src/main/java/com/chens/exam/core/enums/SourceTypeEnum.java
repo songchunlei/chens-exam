@@ -32,13 +32,12 @@ public enum SourceTypeEnum{
 	public void setCode(String code) {
 		this.code = code;
 	}
+
 	/**
 	 * @Description: 通过编码获取枚举值
 	 * @param @param code
 	 * @param @return 参数描述
 	 * @return YesNoEnum 返回类型
-	 * @throws 异常说明
-	 * 
 	 * @author sunm
 	 */
     public static SourceTypeEnum getYesNoEnumByCode(String code){           

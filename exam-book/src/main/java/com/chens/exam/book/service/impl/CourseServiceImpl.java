@@ -19,6 +19,12 @@ import org.springframework.stereotype.Service;
 public class CourseServiceImpl extends BaseWfServiceImpl<CourseMapper, Course> implements ICourseService {
 
     @Override
+    public Course saveEntity(Course course) {
+        this.insertOrUpdate(course);
+        return course;
+    }
+
+    @Override
     public boolean beforeSubmit(WorkFlowRequestParam<Course> workFlowRequestParam) {
         return false;
     }

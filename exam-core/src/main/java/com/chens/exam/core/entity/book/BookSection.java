@@ -5,10 +5,11 @@ import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.core.vo.BaseEntity;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  *
- *  实体
+ *  书本章节实体
  *
  * @author chunlei.song@live.com
  * @create 2018-04-04
@@ -30,6 +31,12 @@ public class BookSection extends BaseEntity<BookSection> {
 	@TableField("book_id")
 	private String bookId;
 
+	/**
+	 * 书本章节-资源关系
+	 */
+	@TableField(exist = false)
+	private List<BookSectionQuote> bookSectionQuoteList;
+
 
 	public String getName() {
 		return name;
@@ -47,4 +54,11 @@ public class BookSection extends BaseEntity<BookSection> {
 		this.bookId = bookId;
 	}
 
+	public List<BookSectionQuote> getBookSectionQuoteList() {
+		return bookSectionQuoteList;
+	}
+
+	public void setBookSectionQuoteList(List<BookSectionQuote> bookSectionQuoteList) {
+		this.bookSectionQuoteList = bookSectionQuoteList;
+	}
 }

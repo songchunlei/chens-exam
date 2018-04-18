@@ -12,21 +12,21 @@ import com.chens.file.vo.AbstractFileQuote;
  * @create 2018-04-01
  */
 @TableName("sys_file_quote")
-public class QuestionsQuote extends AbstractFileQuote<QuestionsQuote> {
+public class QuestionsOptionQuote extends AbstractFileQuote<QuestionsOptionQuote> {
 
     private static final long serialVersionUID = 1L;
 
-	public QuestionsQuote() {
-		this.type = ExamDataTypeEnum.QUESTIONS.getCode();
+	public QuestionsOptionQuote() {
+		this.type = ExamDataTypeEnum.QUESTIONS_OPTION.getCode();
 	}
 
 	@Override
 	public String getType() {
-		return ExamDataTypeEnum.QUESTIONS.getCode();
+		return ExamDataTypeEnum.QUESTIONS_OPTION.getCode();
 	}
 
 	@Override
 	public void setType(String type) {
-		this.type = ExamDataTypeEnum.QUESTIONS.getCode();
+		this.type = ExamDataTypeEnum.QUESTIONS_OPTION.getCode();
 	}
 }

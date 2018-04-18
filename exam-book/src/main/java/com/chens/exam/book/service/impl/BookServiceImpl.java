@@ -19,6 +19,12 @@ import org.springframework.stereotype.Service;
 public class BookServiceImpl extends BaseWfServiceImpl<BookMapper, Book> implements IBookService {
 
     @Override
+    public Book saveEntity(Book book) {
+        this.insertOrUpdate(book);
+        return book;
+    }
+
+    @Override
     public boolean beforeSubmit(WorkFlowRequestParam<Book> workFlowRequestParam) {
         return false;
     }

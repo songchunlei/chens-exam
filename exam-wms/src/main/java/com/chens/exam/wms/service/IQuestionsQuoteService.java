@@ -1,15 +1,17 @@
 package com.chens.exam.wms.service;
 
+
+import com.chens.exam.core.entity.wms.QuestionsFolder;
 import com.chens.exam.core.entity.wms.QuestionsQuote;
-import com.baomidou.mybatisplus.service.IService;
+import com.chens.file.vo.service.IAbstractFileQuoteService;
 
 /**
  *
- * 题目资源关系表 服务接口
+ *  服务接口
  *
- * @author wdp
- * @create 2018-04-06
+ * @author chunlei.song@live.com
+ * @create 2018-04-01
  */
-public interface IQuestionsQuoteService extends IService<QuestionsQuote> {
+public interface IQuestionsQuoteService extends IAbstractFileQuoteService<QuestionsQuote> {
 	
 }

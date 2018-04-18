@@ -48,7 +48,8 @@ public class QuestionsOption extends BaseEntity<QuestionsOption> {
      */
 	@TableField("is_right")
 	private String isRight;
-	
+
+
 	
 
 

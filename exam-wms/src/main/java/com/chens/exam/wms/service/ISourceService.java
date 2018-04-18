@@ -21,34 +21,4 @@ public interface ISourceService extends IWfBaseService<Source> {
 	 * @return
 	 */
 	Source uploadFile(FileData fileData,String folderId);
-
-	/**
-	 * 提交资源
-	 * @param source
-	 * @return
-	 */
-	boolean submit(Source source);
-	
-	
-	/**
-	 * 上架资源
-	 * @param source
-	 * @return
-	 */
-	boolean online(Source source);
-	
-	
-	/**
-	 * 下架资源
-	 * @param source
-	 * @return
-	 */
-	boolean offline(Source source);
-	
-	/**
-	 * 废除资源
-	 * @param source
-	 * @return
-	 */
-	boolean abandon(Source source);
 }

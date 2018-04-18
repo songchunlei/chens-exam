@@ -32,6 +32,12 @@ public class ExamPaperServiceImpl extends BaseWfServiceImpl<ExamPaperMapper, Exa
     }
 
     @Override
+    public ExamPaper saveEntity(ExamPaper examPaper) {
+        this.insertOrUpdate(examPaper);
+        return examPaper;
+    }
+
+    @Override
     public boolean beforeSubmit(WorkFlowRequestParam<ExamPaper> workFlowRequestParam) {
         return false;
     }
