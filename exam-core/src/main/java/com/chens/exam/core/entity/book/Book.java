@@ -113,6 +113,6 @@ public class Book extends BaseWfEntity<Book> {
 
 	public FolderFileInfo getFolderInfo()
 	{
-		return new FolderFileInfo(id, ExamFileTypeEnum.BOOK.getCode(),name,updateTime);
+		return new FolderFileInfo(id, ExamFileTypeEnum.BOOK.getCode(),name,null,updateTime);
 	}
 }

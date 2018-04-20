@@ -205,6 +205,7 @@ public class Source extends BaseWfEntity<Source> {
 
 	public FolderFileInfo getFolderInfo()
     {
-        return new FolderFileInfo(id,FileTypeEnum.getEnumByExt(fileType).getCode(),name,updateTime);
+        //这里不放入下载链接，直接放原始文件名称(name)，方便加密传输
+        return new FolderFileInfo(id,FileTypeEnum.getEnumByExt(fileType).getCode(),fileName,name,updateTime);
     }
 }

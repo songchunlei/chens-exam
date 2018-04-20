@@ -125,7 +125,7 @@ public class Course extends BaseWfEntity<Course> {
 
 	public FolderFileInfo getFolderInfo()
 	{
-		return new FolderFileInfo(id, ExamFileTypeEnum.COURSE.getCode(),name,updateTime);
+		return new FolderFileInfo(id, ExamFileTypeEnum.COURSE.getCode(),name,null,updateTime);
 	}
 
 }
