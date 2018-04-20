@@ -235,7 +235,7 @@ public class Questions extends BaseWfEntity<Questions> {
 	public void setQuestionsQuoteList(List<QuestionsQuote> questionsQuoteList) {
 		this.questionsQuoteList = questionsQuoteList;
 	}
-	public FolderFileInfo getForderInfo()
+	public FolderFileInfo getFolderInfo()
 	{
 		return new FolderFileInfo(id, ExamFileTypeEnum.QUESTIONS.getCode(),name,updateTime);
 	}

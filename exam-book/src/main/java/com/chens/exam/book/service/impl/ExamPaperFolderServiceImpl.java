@@ -36,7 +36,7 @@ public class ExamPaperFolderServiceImpl extends AbstractFolderServiceImpl<ExamPa
         List<ExamPaper> examPaperList = examPaperService.selectList(examPaperEntityWrapper);
         for (ExamPaper file:examPaperList)
         {
-            folderFileInfoList.add(file.getForderInfo());
+            folderFileInfoList.add(file.getFolderInfo());
         }
         return folderFileInfoList;
     }

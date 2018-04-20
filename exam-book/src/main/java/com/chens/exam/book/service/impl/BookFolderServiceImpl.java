@@ -36,7 +36,7 @@ public class BookFolderServiceImpl extends AbstractFolderServiceImpl<BookFolderM
         List<Book> bookList = bookService.selectList(bookEntityWrapper);
         for (Book file:bookList)
         {
-            folderFileInfoList.add(file.getForderInfo());
+            folderFileInfoList.add(file.getFolderInfo());
         }
         return folderFileInfoList;
     }

@@ -145,7 +145,7 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
 		this.folderId = folderId;
 	}
 
-	public FolderFileInfo getForderInfo()
+	public FolderFileInfo getFolderInfo()
 	{
 		return new FolderFileInfo(id, ExamFileTypeEnum.EXAM_PAPER.getCode(),name,updateTime);
 	}

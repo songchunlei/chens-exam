@@ -2,7 +2,7 @@ package com.chens.exam.book.controller;
 
 import com.chens.exam.core.entity.book.BookFolder;
 import com.chens.exam.book.service.IBookFolderService;
-import com.chens.file.vo.controller.AbstractForderController;
+import com.chens.file.vo.controller.AbstractFolderController;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,6 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 @RequestMapping("/bookFolderController")
-public class BookFolderController extends AbstractForderController<IBookFolderService,BookFolder> {
+public class BookFolderController extends AbstractFolderController<IBookFolderService,BookFolder> {
 
 }

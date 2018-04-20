@@ -36,7 +36,7 @@ public class CourseFolderServiceImpl extends AbstractFolderServiceImpl<CourseFol
         List<Course> courseList = courseService.selectList(courseEntityWrapper);
         for (Course file:courseList)
         {
-            folderFileInfoList.add(file.getForderInfo());
+            folderFileInfoList.add(file.getFolderInfo());
         }
         return folderFileInfoList;
     }

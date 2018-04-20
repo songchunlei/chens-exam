@@ -111,7 +111,7 @@ public class Book extends BaseWfEntity<Book> {
 		this.folderId = folderId;
 	}
 
-	public FolderFileInfo getForderInfo()
+	public FolderFileInfo getFolderInfo()
 	{
 		return new FolderFileInfo(id, ExamFileTypeEnum.BOOK.getCode(),name,updateTime);
 	}

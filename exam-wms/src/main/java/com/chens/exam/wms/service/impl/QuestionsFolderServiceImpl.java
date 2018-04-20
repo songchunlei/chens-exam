@@ -36,7 +36,7 @@ public class QuestionsFolderServiceImpl extends AbstractFolderServiceImpl<Questi
         List<Questions> sourceList = questionsService.selectList(questionsEntityWrapper);
         for (Questions file:sourceList)
         {
-            folderFileInfoList.add(file.getForderInfo());
+            folderFileInfoList.add(file.getFolderInfo());
         }
         return folderFileInfoList;
     }

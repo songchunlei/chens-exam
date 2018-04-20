@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.enums.FieldFill;
 import com.chens.bpm.enums.WfStatus;
 import com.chens.bpm.vo.BaseWfEntity;
 import com.chens.exam.core.enums.SourceTypeEnum;
+import com.chens.file.enums.FileTypeEnum;
 import com.chens.file.vo.FolderFileInfo;
 
 /**
@@ -119,7 +120,7 @@ public class Source extends BaseWfEntity<Source> {
         this.fileType = fileType;
         this.path = path;
         this.folderId = folderId;
-        this.type = SourceTypeEnum.IMAGE_TEXT.getCode();
+        this.type = SourceTypeEnum.FILE.getCode();
     }
 
     public String getFolderId() {
@@ -202,8 +203,8 @@ public class Source extends BaseWfEntity<Source> {
         this.isDelete = isDelete;
     }
 
-	public FolderFileInfo getForderInfo()
+	public FolderFileInfo getFolderInfo()
     {
-        return new FolderFileInfo(id,fileType,name,updateTime);
+        return new FolderFileInfo(id,FileTypeEnum.getEnumByExt(fileType).getCode(),name,updateTime);
     }
 }
