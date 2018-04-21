@@ -3,25 +3,20 @@ package com.chens.exam.wms.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.chens.bpm.vo.WorkFlowRequestParam;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.chens.core.util.StringUtils;
+import com.chens.bpm.service.impl.BaseWfServiceImpl;
+import com.chens.bpm.vo.WorkFlowRequestParam;
+import com.chens.exam.core.entity.wms.Source;
+import com.chens.exam.wms.mapper.SourceMapper;
+import com.chens.exam.wms.service.ISourceService;
 import com.chens.file.entity.SysFile;
 import com.chens.file.exception.FileException;
 import com.chens.file.exception.FileExceptionEnum;
 import com.chens.file.service.IFileService;
 import com.chens.file.vo.FileData;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
-
-import com.chens.bpm.service.impl.BaseWfServiceImpl;
-import com.chens.core.exception.BaseException;
-import com.chens.core.exception.BaseExceptionEnum;
-import com.chens.exam.core.entity.wms.Source;
-import com.chens.exam.wms.mapper.SourceMapper;
-import com.chens.exam.wms.service.ISourceService;
 
 /**
  * <p>

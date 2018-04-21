@@ -66,19 +66,19 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 	public Questions selectById(Serializable id) {
 
 		//查询题目
-		Questions questions = this.selectById(id);
+		Questions questions = super.selectById(id);
 
 		if(questions!=null)
 		{
 			//放入题目选项
 			QuestionsOption queryQuestionsOption = new QuestionsOption();
 			queryQuestionsOption.setQuestionId((String)id);
-			questions.setQuestionsOptionList(questionsOptionService.selectList(new EntityWrapper<>(queryQuestionsOption)));
+			questions.setQuestionsOptionList(questionsOptionService.selectList(new EntityWrapper<QuestionsOption>(queryQuestionsOption)));
 
 			//放入题目-资源关系
 			QuestionsQuote queryQuestionsQuote = new QuestionsQuote();
 			queryQuestionsQuote.setDataId((String)id);
-			questions.setQuestionsQuoteList(questionsQuoteService.selectList(new EntityWrapper<>(queryQuestionsQuote)));
+			questions.setQuestionsQuoteList(questionsQuoteService.selectList(new EntityWrapper<QuestionsQuote>(queryQuestionsQuote)));
 
 			return questions;
 		}

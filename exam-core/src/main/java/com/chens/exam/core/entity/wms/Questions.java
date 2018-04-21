@@ -26,8 +26,8 @@ public class Questions extends BaseWfEntity<Questions> {
 	/**
      * 所在文件夹id
      */
-	@TableField("folder_id")
-	private String folderId;
+	@TableField("forder_id")
+	private String forderId;
     /**
      * 所属学科
      */
@@ -57,11 +57,7 @@ public class Questions extends BaseWfEntity<Questions> {
      * 级别
      */
 	private String level;
-    /**
-     * 题目语意id
-     */
-	@TableField("semantics_id")
-	private String semanticsId;
+
     /**
      * 上级题目id
      */
@@ -100,12 +96,13 @@ public class Questions extends BaseWfEntity<Questions> {
 	@TableField(exist = false)
 	private List<QuestionsQuote> questionsQuoteList;
 
-	public String getFolderId() {
-		return folderId;
+
+	public String getForderId() {
+		return forderId;
 	}
 
-	public void setFolderId(String folderId) {
-		this.folderId = folderId;
+	public void setForderId(String forderId) {
+		this.forderId = forderId;
 	}
 
 	public String getBelongSubject() {
@@ -164,13 +161,6 @@ public class Questions extends BaseWfEntity<Questions> {
 		this.level = level;
 	}
 
-	public String getSemanticsId() {
-		return semanticsId;
-	}
-
-	public void setSemanticsId(String semanticsId) {
-		this.semanticsId = semanticsId;
-	}
 
 	public String getParentId() {
 		return parentId;

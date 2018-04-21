@@ -1,7 +1,6 @@
 package com.chens.exam.wms.service;
 
 import com.chens.bpm.service.IWfBaseService;
-import com.chens.bpm.vo.WorkFlowRequestParam;
 import com.chens.exam.core.entity.wms.Questions;
 
 /**

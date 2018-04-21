@@ -1,11 +1,13 @@
 package com.chens.exam.wms.controller;
 
 
-import com.chens.file.util.FileUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.chens.bpm.controller.BaseWfWebController;
 import com.chens.core.exception.BaseException;
@@ -14,9 +16,7 @@ import com.chens.core.vo.Result;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
 import com.chens.exam.wms.service.ISourceService;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.IOException;
+import com.chens.file.util.FileUtil;
 
 /**
  * <p>
@@ -35,6 +35,7 @@ public class SourceController extends BaseWfWebController<ISourceService,Source>
 	@Override
 	protected void init(Source source) {
 		source.setProcessDefinitionKey(WfProcessDefinitionKey);
+		source.setTaskName(source.getName());
 	}
 
 	/**

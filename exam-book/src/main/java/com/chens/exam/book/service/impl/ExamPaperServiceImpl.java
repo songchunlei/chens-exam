@@ -1,19 +1,14 @@
 package com.chens.exam.book.service.impl;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.chens.bpm.service.impl.BaseWfServiceImpl;
-import com.chens.bpm.vo.WorkFlowRequestParam;
-import com.chens.core.util.StringUtils;
-import com.chens.exam.core.entity.book.ExamPaper;
-import com.chens.exam.book.mapper.ExamPaperMapper;
-import com.chens.exam.book.service.IExamPaperService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.chens.exam.core.entity.book.ExampaperQuestion;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.chens.bpm.service.impl.BaseWfServiceImpl;
+import com.chens.bpm.vo.WorkFlowRequestParam;
+import com.chens.exam.book.mapper.ExamPaperMapper;
+import com.chens.exam.book.service.IExamPaperService;
+import com.chens.exam.core.entity.book.ExamPaper;
 
 /**
  * 

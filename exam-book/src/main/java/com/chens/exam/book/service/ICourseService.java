@@ -2,7 +2,6 @@ package com.chens.exam.book.service;
 
 import com.chens.bpm.service.IWfBaseService;
 import com.chens.exam.core.entity.book.Course;
-import com.baomidou.mybatisplus.service.IService;
 
 /**
  *

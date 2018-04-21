@@ -1,10 +1,9 @@
 package com.chens.exam.core.vo;
 
+import javax.validation.constraints.NotNull;
+
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.chens.core.vo.BaseEntity;
-import com.chens.exam.core.enums.TagTypeEnum;
-
-import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -13,9 +12,10 @@ import javax.validation.constraints.NotNull;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
+@SuppressWarnings("rawtypes")
 public abstract class AbstractTag<T extends AbstractTag> extends BaseEntity<T> {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -4754273073121186898L;
 
 	/**
 	 * 类型

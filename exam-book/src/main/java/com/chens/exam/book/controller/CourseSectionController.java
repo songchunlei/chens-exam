@@ -1,21 +1,19 @@
 package com.chens.exam.book.controller;
 
-import com.chens.core.annotation.InsertValid;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.chens.core.constants.CommonConstants;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.stereotype.Controller;
-import com.chens.core.web.BaseController;
+import com.chens.core.web.BaseWebController;
 import com.chens.exam.book.service.ICourseSectionService;
 import com.chens.exam.core.entity.book.CourseSection;
-
-
-import com.chens.core.web.BaseWebController;
 
 /**
  *

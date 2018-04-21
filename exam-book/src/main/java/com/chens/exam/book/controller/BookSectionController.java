@@ -1,20 +1,19 @@
 package com.chens.exam.book.controller;
 
-import com.chens.core.constants.CommonConstants;
-import com.chens.core.exception.BaseException;
-import com.chens.core.exception.BaseExceptionEnum;
-import com.chens.core.vo.Result;
-import com.chens.core.web.BaseWebController;
-import com.chens.exam.book.service.IBookSectionService;
-import com.chens.exam.book.service.ICourseSectionService;
-import com.chens.exam.core.entity.book.BookSection;
-import com.chens.exam.core.entity.book.CourseSection;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.chens.core.constants.CommonConstants;
+import com.chens.core.exception.BaseException;
+import com.chens.core.exception.BaseExceptionEnum;
+import com.chens.core.vo.Result;
+import com.chens.core.web.BaseWebController;
+import com.chens.exam.book.service.IBookSectionService;
+import com.chens.exam.core.entity.book.BookSection;
 
 /**
  *

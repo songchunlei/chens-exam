@@ -1,12 +1,12 @@
 package com.chens.exam.book.service.impl;
 
+import org.springframework.stereotype.Service;
+
 import com.chens.bpm.service.impl.BaseWfServiceImpl;
 import com.chens.bpm.vo.WorkFlowRequestParam;
-import com.chens.exam.core.entity.book.Book;
 import com.chens.exam.book.mapper.BookMapper;
 import com.chens.exam.book.service.IBookService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
+import com.chens.exam.core.entity.book.Book;
 
 /**
  * 

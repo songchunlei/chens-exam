@@ -1,10 +1,7 @@
 package com.chens.exam.core.entity.wms;
 
 import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.FieldFill;
-import com.chens.bpm.enums.WfStatus;
 import com.chens.bpm.vo.BaseWfEntity;
 import com.chens.exam.core.enums.SourceTypeEnum;
 import com.chens.file.enums.FileTypeEnum;

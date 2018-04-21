@@ -15,6 +15,10 @@
         id, tenant_id AS tenantId, question_id AS questionId, type, data_id AS dataId, source_id AS sourceId, source_seq AS sourceSeq, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
     </sql>
     
+    <sql id="Sys_File_Quote_Base_Column_List">
+        id, tenant_id AS tenantId, type, data_id AS dataId, seq, file_id AS fileId, file_type AS fileType, file_ext AS fileExt, file_path AS filePath, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
+    </sql>
+     
     
     <resultMap type="com.chens.exam.core.entity.wms.Questions" id="questionDetail">
 		<id column="id" property="id"/>  
@@ -32,9 +36,9 @@
 		from t_questions_option where question_id = #{id}  
     </select>
     
-    <select id="selectQuestionsQuoteList" parameterType="string" resultType="com.chens.exam.core.entity.wms.QuestionsQuoteBAK">
-        select <include refid="Quote_Base_Column_List"/>
-		from t_questions_quote where question_id = #{id}  
+    <select id="selectQuestionsQuoteList" parameterType="string" resultType="com.chens.exam.core.entity.wms.QuestionsQuote">
+        select <include refid="Sys_File_Quote_Base_Column_List"/>
+		from sys_file_quote where data_id = #{id}
     </select>
     
 

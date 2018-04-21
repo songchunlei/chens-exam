@@ -28,10 +28,10 @@ public class QuestionsFolderServiceImpl extends AbstractFolderServiceImpl<Questi
     private IQuestionsService questionsService;
 
     @Override
-    protected List<FolderFileInfo> getFileInfoListByFolderId(String folderId) {
+    protected List<FolderFileInfo> getFileInfoListByFolderId(String forderId) {
         List<FolderFileInfo> folderFileInfoList = new ArrayList<>();
         Questions questions = new Questions();
-        questions.setFolderId(folderId);
+        questions.setForderId(forderId);
         EntityWrapper<Questions> questionsEntityWrapper = new EntityWrapper<>(questions);
         List<Questions> sourceList = questionsService.selectList(questionsEntityWrapper);
         for (Questions file:sourceList)

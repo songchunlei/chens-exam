@@ -1,22 +1,23 @@
 package com.chens.exam.book.controller;
 
+import javax.validation.constraints.NotNull;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.chens.bpm.controller.BaseWfWebController;
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
 import com.chens.core.vo.Result;
-import com.chens.exam.book.service.IExampaperQuestionService;
-import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.stereotype.Controller;
 import com.chens.exam.book.service.IExamPaperService;
+import com.chens.exam.book.service.IExampaperQuestionService;
 import com.chens.exam.core.entity.book.ExamPaper;
-
-
-import com.chens.core.web.BaseWebController;
-
-import javax.validation.constraints.NotNull;
+import com.chens.exam.core.enums.WfProcessDefinitionKeyEnum;
 
 /**
  *
@@ -36,6 +37,7 @@ public class ExamPaperController extends BaseWfWebController<IExamPaperService,E
     @Override
     protected void init(ExamPaper examPaper) {
         examPaper.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.EXAM_PAPER_APPROVE.getCode());
+        examPaper.setTaskName(examPaper.getName());
     }
 
     /**
