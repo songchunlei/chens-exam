@@ -7,6 +7,7 @@ import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 /**
  *
@@ -71,6 +72,8 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
 	 */
 	@TableField("answer_sheet")
 	private String answerSheet;
+
+	List<ExampaperQuestion> exampaperQuestionList;
 
 
 	public String getName() {

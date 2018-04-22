@@ -26,8 +26,8 @@ public class Questions extends BaseWfEntity<Questions> {
 	/**
      * 所在文件夹id
      */
-	@TableField("forder_id")
-	private String forderId;
+	@TableField("folder_id")
+	private String folderId;
     /**
      * 所属学科
      */
@@ -96,13 +96,18 @@ public class Questions extends BaseWfEntity<Questions> {
 	@TableField(exist = false)
 	private List<QuestionsQuote> questionsQuoteList;
 
+	/**
+	 * 题目标签关联关系
+	 */
+	@TableField(exist = false)
+	private List<String> tags;
 
-	public String getForderId() {
-		return forderId;
+	public String getFolderId() {
+		return folderId;
 	}
 
-	public void setForderId(String forderId) {
-		this.forderId = forderId;
+	public void setFolderId(String folderId) {
+		this.folderId = folderId;
 	}
 
 	public String getBelongSubject() {
@@ -225,6 +230,15 @@ public class Questions extends BaseWfEntity<Questions> {
 	public void setQuestionsQuoteList(List<QuestionsQuote> questionsQuoteList) {
 		this.questionsQuoteList = questionsQuoteList;
 	}
+
+	public List<String> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<String> tags) {
+		this.tags = tags;
+	}
+
 	public FolderFileInfo getFolderInfo()
 	{
 		return new FolderFileInfo(id, ExamFileTypeEnum.QUESTIONS.getCode(),name,null,updateTime);

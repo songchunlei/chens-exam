@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chens.exam.wms.mapper.AllFolderFileMapper">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, tenant_id AS tenantId, forder_id AS forderId, belong_subject AS belongSubject, type, name, content, difficulty, points, level, parent_id AS parentId, seq, qr_code AS qrCode, status, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
+    </sql>
+    
+
+</mapper>

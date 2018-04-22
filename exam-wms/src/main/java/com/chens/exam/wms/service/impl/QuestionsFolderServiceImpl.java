@@ -31,7 +31,7 @@ public class QuestionsFolderServiceImpl extends AbstractFolderServiceImpl<Questi
     protected List<FolderFileInfo> getFileInfoListByFolderId(String forderId) {
         List<FolderFileInfo> folderFileInfoList = new ArrayList<>();
         Questions questions = new Questions();
-        questions.setForderId(forderId);
+        questions.setFolderId(forderId);
         EntityWrapper<Questions> questionsEntityWrapper = new EntityWrapper<>(questions);
         List<Questions> sourceList = questionsService.selectList(questionsEntityWrapper);
         for (Questions file:sourceList)

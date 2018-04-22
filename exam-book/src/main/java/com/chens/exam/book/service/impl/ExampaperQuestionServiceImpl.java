@@ -30,7 +30,7 @@ public class ExampaperQuestionServiceImpl extends ServiceImpl<ExampaperQuestionM
             List<ExampaperQuestion> exampaperQuestionList = new ArrayList<>();
             String[] checkedStr = questionIds.split(DEFAULT_QUESTION_ID_SPLIT_FLG);
             for (String s : checkedStr) {
-                ExampaperQuestion exampaperQuestion = new ExampaperQuestion(papperId,s);
+                ExampaperQuestion exampaperQuestion = new ExampaperQuestion(papperId,s,0);
                 exampaperQuestionList.add(exampaperQuestion);
             }
             // 将选中角色id进行保存处理
@@ -44,7 +44,7 @@ public class ExampaperQuestionServiceImpl extends ServiceImpl<ExampaperQuestionM
         if (StringUtils.isNotEmpty(questionIds)) {
             String[] checkedStr = questionIds.split(DEFAULT_QUESTION_ID_SPLIT_FLG);
             for (String s : checkedStr) {
-                ExampaperQuestion exampaperQuestion = new ExampaperQuestion(papperId,s);
+                ExampaperQuestion exampaperQuestion = new ExampaperQuestion(papperId,s,null);
                 this.delete(new EntityWrapper<>(exampaperQuestion));
             }
         }
