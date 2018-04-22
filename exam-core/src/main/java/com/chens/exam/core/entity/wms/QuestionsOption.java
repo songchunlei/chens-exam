@@ -1,5 +1,7 @@
 package com.chens.exam.core.entity.wms;
 
+import java.util.List;
+
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.core.vo.BaseEntity;
@@ -49,7 +51,11 @@ public class QuestionsOption extends BaseEntity<QuestionsOption> {
 	@TableField("is_right")
 	private String isRight;
 
-
+	/**
+	 * 题目资源关联关系
+	 */
+	@TableField(exist = false)
+	private List<QuestionsOptionQuote> questionsOptionQuoteList;
 	
 
 
@@ -100,5 +106,15 @@ public class QuestionsOption extends BaseEntity<QuestionsOption> {
 	public void setIsRight(String isRight) {
 		this.isRight = isRight;
 	}
+
+	public List<QuestionsOptionQuote> getQuestionsOptionQuoteList() {
+		return questionsOptionQuoteList;
+	}
+
+	public void setQuestionsOptionQuoteList(List<QuestionsOptionQuote> questionsOptionQuoteList) {
+		this.questionsOptionQuoteList = questionsOptionQuoteList;
+	}
+	
+	
 
 }
