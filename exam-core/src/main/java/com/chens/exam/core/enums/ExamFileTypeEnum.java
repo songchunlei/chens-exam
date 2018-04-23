@@ -1,12 +1,14 @@
 package com.chens.exam.core.enums;
 
+import com.chens.file.enums.IBaseFolderTypeEnum;
+
 /**
  * 文件类型
  *
  * @author songchunlei@qq.com
  * @create 2018/4/15
  */
-public enum ExamFileTypeEnum {
+public enum ExamFileTypeEnum implements IBaseFolderTypeEnum {
 
     SOURCE("资源","SOURCE"),
     QUESTIONS("题目","QUESTIONS"),
@@ -22,10 +24,13 @@ public enum ExamFileTypeEnum {
         this.code = code;
 
     }
+
+    @Override
     public String getDisplay() {
         return display;
     }
 
+    @Override
     public String getCode() {
         return code;
     }

@@ -1,6 +1,7 @@
 package com.chens.exam.book.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.chens.exam.core.enums.ExamFileTypeEnum;
 import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.entity.book.Course;
 import com.chens.exam.core.entity.book.CourseFolder;
@@ -26,6 +27,11 @@ public class CourseFolderServiceImpl extends AbstractFolderServiceImpl<CourseFol
 
     @Autowired
     private ICourseService courseService;
+
+    @Override
+    protected String initType() {
+        return ExamFileTypeEnum.COURSE.getCode();
+    }
 
     @Override
     protected List<FolderFileInfo> getFileInfoListByFolderId(String folderId) {

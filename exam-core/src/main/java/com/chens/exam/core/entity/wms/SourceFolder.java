@@ -29,4 +29,7 @@ public class SourceFolder extends AbstractFolder<SourceFolder> {
 	public void setType(String type) {
 		this.type = ExamFileTypeEnum.SOURCE.getCode();
 	}
+
+
+
 }

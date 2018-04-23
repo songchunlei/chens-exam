@@ -1,6 +1,7 @@
 package com.chens.exam.wms.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.chens.exam.core.enums.ExamFileTypeEnum;
 import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.entity.wms.SourceFolder;
@@ -26,6 +27,11 @@ public class SourceFolderServiceImpl extends AbstractFolderServiceImpl<SourceFol
 
     @Autowired
     private ISourceService sourceService;
+
+    @Override
+    protected String initType() {
+        return ExamFileTypeEnum.SOURCE.getCode();
+    }
 
     @Override
     protected List<FolderFileInfo> getFileInfoListByFolderId(String folderId) {
