@@ -70,10 +70,6 @@ public class Questions extends BaseWfEntity<Questions> {
 	@TableField("qr_code")
 	private String qrCode;
     /**
-     * 题目状态
-     */
-	private String status;
-    /**
      * 备注
      */
 	private String remark;
@@ -189,14 +185,6 @@ public class Questions extends BaseWfEntity<Questions> {
 
 	public void setQrCode(String qrCode) {
 		this.qrCode = qrCode;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public String getRemark() {

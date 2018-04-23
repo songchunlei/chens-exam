@@ -33,10 +33,6 @@ public class Course extends BaseWfEntity<Course> {
 	@TableField("is_private")
 	private String isPrivate;
     /**
-     * 练习册状态
-     */
-	private String status;
-    /**
      * 生效时间
      */
 	@TableField("effective_time")
@@ -81,14 +77,6 @@ public class Course extends BaseWfEntity<Course> {
 
 	public void setIsPrivate(String isPrivate) {
 		this.isPrivate = isPrivate;
-	}
-
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
 	}
 
 	public Date getEffectiveTime() {
