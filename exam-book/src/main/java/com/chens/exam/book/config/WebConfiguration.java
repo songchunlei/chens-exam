@@ -27,13 +27,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
         ArrayList<String> commonPathPatterns = getExcludeCommonPathPatterns();
 
         //增加用户权限拦截器
-        //registry.addInterceptor(getUserAuthRestInterceptor()).addPathPatterns("/**").excludePathPatterns(commonPathPatterns.toArray(new String[]{}));
-        //存入缓存
-        BaseContextHandler.setUserName("admin");
-        BaseContextHandler.setName("测试");
-        BaseContextHandler.setUserId("");
-        BaseContextHandler.setTenantId("1L");
-        BaseContextHandler.setToken("");
+        registry.addInterceptor(getUserAuthRestInterceptor()).addPathPatterns("/**").excludePathPatterns(commonPathPatterns.toArray(new String[]{}));
 
         //存入缓存
         super.addInterceptors(registry);

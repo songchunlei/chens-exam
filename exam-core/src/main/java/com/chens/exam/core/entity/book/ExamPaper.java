@@ -73,6 +73,7 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
 	@TableField("answer_sheet")
 	private String answerSheet;
 
+	@TableField(exist = false)
 	List<ExampaperQuestion> exampaperQuestionList;
 
 
@@ -146,6 +147,14 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
 
 	public void setFolderId(String folderId) {
 		this.folderId = folderId;
+	}
+
+	public List<ExampaperQuestion> getExampaperQuestionList() {
+		return exampaperQuestionList;
+	}
+
+	public void setExampaperQuestionList(List<ExampaperQuestion> exampaperQuestionList) {
+		this.exampaperQuestionList = exampaperQuestionList;
 	}
 
 	public FolderFileInfo getFolderInfo()

@@ -1,4 +1,4 @@
-package com.chens.exam.wms.aop;
+package com.chens.exam.book.aop;
 
 import com.chens.core.aop.BaseControllerExceptionHandler;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
  * @create 2018/3/9
  */
 @ControllerAdvice
-public class WmsExceptionHandler extends BaseControllerExceptionHandler{
+public class BookExceptionHandler extends BaseControllerExceptionHandler{
 
 
 }
