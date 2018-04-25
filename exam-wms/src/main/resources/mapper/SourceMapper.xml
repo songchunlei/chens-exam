@@ -7,9 +7,9 @@
 		id, zone_id AS zoneId, forder_id AS forderId, tenant_id AS tenantId, type, name, content, file_name AS fileName, file_type AS fileType, file_forder AS fileForder, path, status, qr_code AS qrCode, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
 	</sql>
 
-	<select id="selectReSourcePage" parameterMap="" resultMap="" >
+	<!--<select id="selectReSourcePage" parameterMap="" resultMap="" >-->
 
-	</select>
+	<!--</select>-->
 
 
 </mapper>
