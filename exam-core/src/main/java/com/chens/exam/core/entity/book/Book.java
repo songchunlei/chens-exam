@@ -2,6 +2,7 @@ package com.chens.exam.core.entity.book;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
 import com.chens.file.vo.FolderFileInfo;
@@ -46,6 +47,7 @@ public class Book extends BaseWfEntity<Book> {
      * 是否删除
      */
 	@TableField("is_delete")
+	@TableLogic
 	private String isDelete;
 
 	/**

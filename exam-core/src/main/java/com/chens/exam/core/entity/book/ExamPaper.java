@@ -1,8 +1,10 @@
 package com.chens.exam.core.entity.book;
 
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.enums.YesNoEnum;
 import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
 
@@ -72,6 +74,13 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
 	 */
 	@TableField("answer_sheet")
 	private String answerSheet;
+
+	/**
+	 * 逻辑删除
+	 */
+	@TableField("is_delete")
+	@TableLogic
+	private String isDelete = YesNoEnum.NO.getCode();
 
 	@TableField(exist = false)
 	List<ExampaperQuestion> exampaperQuestionList;
@@ -147,6 +156,14 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
 
 	public void setFolderId(String folderId) {
 		this.folderId = folderId;
+	}
+
+	public String getIsDelete() {
+		return isDelete;
+	}
+
+	public void setIsDelete(String isDelete) {
+		this.isDelete = isDelete;
 	}
 
 	public List<ExampaperQuestion> getExampaperQuestionList() {

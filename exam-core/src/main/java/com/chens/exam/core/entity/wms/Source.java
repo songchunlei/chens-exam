@@ -1,8 +1,10 @@
 package com.chens.exam.core.entity.wms;
 
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.enums.YesNoEnum;
 import com.chens.exam.core.enums.SourceTypeEnum;
 import com.chens.file.enums.FileTypeEnum;
 import com.chens.file.vo.FolderFileInfo;
@@ -73,7 +75,8 @@ public class Source extends BaseWfEntity<Source> {
      * 是否删除
      */
     @TableField(value = "is_delete")
-    private String isDelete;
+    @TableLogic
+    private String isDelete = YesNoEnum.NO.getCode();
 
 
     public Source() {

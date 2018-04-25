@@ -2,8 +2,10 @@ package com.chens.exam.core.entity.book;
 
 import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.enums.YesNoEnum;
 import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
 
@@ -53,7 +55,6 @@ public class Course extends BaseWfEntity<Course> {
 	 */
 	@TableField("folder_id")
 	private String folderId;
-
 
 	public String getName() {
 		return name;

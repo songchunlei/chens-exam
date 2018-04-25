@@ -31,13 +31,6 @@
             <artifactId>chens-core</artifactId>
             <version>${chens.framework.version}</version>
         </dependency>
-
-
-
-
-
-
-
     </dependencies>
 
     <dependencyManagement>
@@ -74,6 +67,13 @@
             <dependency>
                 <groupId>com.chens</groupId>
                 <artifactId>chens-file-server</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
+            <!--ueditor服务-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-ueditor</artifactId>
                 <version>${chens.framework.version}</version>
             </dependency>
 

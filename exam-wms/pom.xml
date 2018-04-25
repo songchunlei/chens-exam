@@ -31,10 +31,10 @@
             <artifactId>chens-file-server</artifactId>
         </dependency>
 
+        <!--ueditor-->
         <dependency>
             <groupId>com.chens</groupId>
-            <artifactId>exam-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <artifactId>chens-ueditor</artifactId>
         </dependency>
 
         <dependency>
@@ -76,6 +76,7 @@
             <!-- optional=true,依赖不会传递，该项目依赖devtools；之后依赖myboot项目的项目如果想要使用devtools，需要重新引入 -->
             <optional>true</optional>
         </dependency>
+
     </dependencies>
 
     <build>

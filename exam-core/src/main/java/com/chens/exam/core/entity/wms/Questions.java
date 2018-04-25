@@ -4,8 +4,10 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.enums.YesNoEnum;
 import com.chens.file.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
 
@@ -78,7 +80,8 @@ public class Questions extends BaseWfEntity<Questions> {
      * 逻辑删除
      */
 	@TableField("is_delete")
-	private String isDelete;
+	@TableLogic
+	private String isDelete = YesNoEnum.NO.getCode();
 	
 	/**
 	 * 题目选项
