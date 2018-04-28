@@ -20,4 +20,12 @@ public interface ISourceService extends IWfBaseService<Source> {
 	 * @return
 	 */
 	Source uploadFile(FileData fileData,String folderId);
+
+	/**
+	 * 获取分享地址
+	 * @param id 资源id
+	 * @return 分享地址
+	 */
+	String getShareURL(String id);
+
 }

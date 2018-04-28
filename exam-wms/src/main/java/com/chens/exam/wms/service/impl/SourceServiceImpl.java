@@ -3,8 +3,7 @@ package com.chens.exam.wms.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.baomidou.mybatisplus.mapper.Wrapper;
-import com.chens.core.enums.YesNoEnum;
+import com.chens.core.exception.FileExceptionEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +14,7 @@ import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.wms.mapper.SourceMapper;
 import com.chens.exam.wms.service.ISourceService;
 import com.chens.file.entity.SysFile;
-import com.chens.file.exception.FileException;
-import com.chens.file.exception.FileExceptionEnum;
+import com.chens.core.exception.FileException;
 import com.chens.file.service.IFileService;
 import com.chens.file.vo.FileData;
 
@@ -50,7 +48,12 @@ public class SourceServiceImpl extends BaseWfServiceImpl<SourceMapper, Source> i
 		}
 		return source;
 	}
-	
+
+	@Override
+	public String getShareURL(String id) {
+		return null;
+	}
+
 	public List<Source> setSourceStatusBatch(List<Source> sourceList, String status){
 		List<Source> list = new ArrayList<Source>();
 		for(Source source: sourceList){

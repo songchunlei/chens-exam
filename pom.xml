@@ -80,12 +80,14 @@
             <!--标签-->
             <dependency>
                 <groupId>com.chens</groupId>
-                <artifactId>chens-tag-api</artifactId>
+                <artifactId>chens-tag</artifactId>
                 <version>${chens.framework.version}</version>
             </dependency>
+
+            <!--二维码-->
             <dependency>
                 <groupId>com.chens</groupId>
-                <artifactId>chens-tag</artifactId>
+                <artifactId>chens-zxing</artifactId>
                 <version>${chens.framework.version}</version>
             </dependency>
 
