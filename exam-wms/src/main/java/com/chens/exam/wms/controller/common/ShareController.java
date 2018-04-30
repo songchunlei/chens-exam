@@ -1,5 +1,6 @@
 package com.chens.exam.wms.controller.common;
 
+import com.chens.auth.client.annotation.IgnoreUserToken;
 import com.chens.core.constants.CommonConstants;
 import com.chens.core.vo.Result;
 import com.chens.exam.core.config.WebConfig;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 二维码生成器
@@ -25,8 +27,9 @@ public class ShareController extends AbstractShareController {
     @Autowired
     private ISourceService sourceService;
 
-    @GetMapping("/source/{id}")
-    public ResponseEntity<Result> url(@PathVariable("id") String id) {
+    @IgnoreUserToken
+    @GetMapping("/share")
+    public ResponseEntity<Result> url(@RequestParam("id") String id) {
         return doSuccess(CommonConstants.QUERY_SUCCESS,sourceService.getShareURL(id));
     }
 
