@@ -30,11 +30,7 @@ public class Questions extends BaseWfEntity<Questions> {
      */
 	@TableField("folder_id")
 	private String folderId;
-    /**
-     * 所属学科
-     */
-	@TableField("belong_subject")
-	private String belongSubject;
+
     /**
      * 题目类型
      */
@@ -65,16 +61,21 @@ public class Questions extends BaseWfEntity<Questions> {
      */
 	@TableField("parent_id")
 	private String parentId;
+
+	/**
+	 * 排序
+	 */
 	private Integer seq;
-    /**
-     * 二维码
-     */
-	@TableField("qr_code")
-	private String qrCode;
-    /**
-     * 备注
-     */
-	private String remark;
+
+	/**
+	 * 答案
+	 */
+	private String answer;
+
+	/**
+	 * 答案解析
+	 */
+	private String analysis;
 
     /**
      * 逻辑删除
@@ -107,14 +108,6 @@ public class Questions extends BaseWfEntity<Questions> {
 
 	public void setFolderId(String folderId) {
 		this.folderId = folderId;
-	}
-
-	public String getBelongSubject() {
-		return belongSubject;
-	}
-
-	public void setBelongSubject(String belongSubject) {
-		this.belongSubject = belongSubject;
 	}
 
 	public String getType() {
@@ -182,20 +175,20 @@ public class Questions extends BaseWfEntity<Questions> {
 		this.seq = seq;
 	}
 
-	public String getQrCode() {
-		return qrCode;
+	public String getAnswer() {
+		return answer;
 	}
 
-	public void setQrCode(String qrCode) {
-		this.qrCode = qrCode;
+	public void setAnswer(String answer) {
+		this.answer = answer;
 	}
 
-	public String getRemark() {
-		return remark;
+	public String getAnalysis() {
+		return analysis;
 	}
 
-	public void setRemark(String remark) {
-		this.remark = remark;
+	public void setAnalysis(String analysis) {
+		this.analysis = analysis;
 	}
 
 	public String getIsDelete() {

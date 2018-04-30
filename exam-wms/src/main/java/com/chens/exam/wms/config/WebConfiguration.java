@@ -38,7 +38,7 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
      */
     @Bean
     UserAuthRestInterceptor getUserAuthRestInterceptor() {
-        return new UserAuthRestInterceptor();
+        return new UserAuthRestInterceptor(true);
     }
 
     /**
@@ -53,7 +53,8 @@ public class WebConfiguration extends WebMvcConfigurerAdapter {
     private ArrayList<String> getExcludeCommonPathPatterns() {
         ArrayList<String> list = new ArrayList<>();
         String[] urls = {
-                "/authController/**"
+                "/authController/**",
+                "/shareController/**"
         };
         Collections.addAll(list, urls);
         return list;

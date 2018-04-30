@@ -48,3 +48,7 @@ eureka:
 feign:
   httpclient:
     enabled: true
+
+chens-exam:
+  wmsurl: http://exam.songchenyu.com/exam-wms
+  bookurl: http://exam.songchenyu.com/exam-book

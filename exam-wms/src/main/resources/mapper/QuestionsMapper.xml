@@ -4,42 +4,10 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, tenant_id AS tenantId, forder_id AS forderId, belong_subject AS belongSubject, type, name, content, difficulty, points, level, parent_id AS parentId, seq, qr_code AS qrCode, status, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
-    </sql>
-     <!-- 题目选项通用查询结果列 -->
-     <sql id="Option_Base_Column_List">
-        id, tenant_id AS tenantId, question_id AS questionId, option_seq AS optionSeq, option_content AS optionContent, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete, is_right AS isRight
-    </sql>
-     <!-- 题目资源通用查询结果列 -->
-    <sql id="Quote_Base_Column_List">
-        id, tenant_id AS tenantId, question_id AS questionId, type, data_id AS dataId, source_id AS sourceId, source_seq AS sourceSeq, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
-    </sql>
-    
-    <sql id="Sys_File_Quote_Base_Column_List">
-        id, tenant_id AS tenantId, type, data_id AS dataId, seq, file_id AS fileId, file_type AS fileType, file_ext AS fileExt, file_path AS filePath, remark, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete
+        id, tenant_id AS tenantId, folder_id AS folderId, answer, analysis, type, name, content, difficulty, points, level, parent_id AS parentId, seq, status, create_by AS createBy, create_time AS createTime, update_by AS updateBy, update_time AS updateTime, is_delete AS isDelete, update_by_name AS updateByName, create_by_name AS createByName
     </sql>
      
-    
-    <resultMap type="com.chens.exam.core.entity.wms.Questions" id="questionDetail">
-		<id column="id" property="id"/>  
-        <collection property="questionsOptionList" select="selectQuestionsOptionList" column="id" ofType="com.chens.exam.core.entity.wms.QuestionsOption"></collection>  
-    	<collection property="questionsQuoteList" select="selectQuestionsQuoteList" column="id" ofType="com.chens.exam.core.entity.wms.QuestionsQuoteBAK"></collection>
-    </resultMap>
 
-	<select id="selectQuestionDetail" parameterType="com.chens.exam.core.entity.wms.Questions" resultMap="questionDetail">
-		select <include refid="Base_Column_List"></include>
-		from t_questions where id = #{id}
-	</select>
-	
-	<select id="selectQuestionsOptionList" parameterType="string" resultType="com.chens.exam.core.entity.wms.QuestionsOption">  
-        select <include refid="Option_Base_Column_List"/>
-		from t_questions_option where question_id = #{id}  
-    </select>
-    
-    <select id="selectQuestionsQuoteList" parameterType="string" resultType="com.chens.exam.core.entity.wms.QuestionsQuote">
-        select <include refid="Sys_File_Quote_Base_Column_List"/>
-		from sys_file_quote where data_id = #{id}
-    </select>
     
 
 </mapper>

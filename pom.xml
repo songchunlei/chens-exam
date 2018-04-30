@@ -91,6 +91,13 @@
                 <version>${chens.framework.version}</version>
             </dependency>
 
+            <!--分享-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-share</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
