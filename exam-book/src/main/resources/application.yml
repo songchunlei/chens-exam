@@ -5,7 +5,7 @@ server:
 mybatis-plus:
   #global-config:
     #刷新mapper 调试神器
-    #refresh-mapper: true
+   # refresh-mapper: true
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
@@ -42,3 +42,7 @@ eureka:
 feign:
   httpclient:
     enabled: true
+
+chens-exam:
+  wmsurl: http://exam.songchenyu.com/exam-wms
+  bookurl: http://exam.songchenyu.com/exam-book

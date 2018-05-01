@@ -21,6 +21,15 @@ public class ExamConstants {
     public static final String SOURCE_RPC = "sourceRpc";
 
 
+    /**
+     * 保存二维码位置
+     */
+    public static final String SAVE_QR_CODER_PATH = "/opt/upload/qrcoder";
+
+    /**
+     * 服务分享地址
+     */
+    public static final String SHARE_ROOT_URL = "/shareController/share?id=";
 
 
 

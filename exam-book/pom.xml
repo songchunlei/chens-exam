@@ -37,6 +37,18 @@
             <artifactId>chens-file-server</artifactId>
         </dependency>
 
+        <!--标签-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-tag</artifactId>
+        </dependency>
+
+        <!--二维码-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-zxing</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>

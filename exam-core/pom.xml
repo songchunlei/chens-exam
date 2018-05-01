@@ -41,6 +41,12 @@
             <artifactId>chens-tag-api</artifactId>
         </dependency>
 
+        <!--分享-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-share-api</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>

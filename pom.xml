@@ -99,7 +99,7 @@
             <!--分享-->
             <dependency>
                 <groupId>com.chens</groupId>
-                <artifactId>chens-share</artifactId>
+                <artifactId>chens-share-api</artifactId>
                 <version>${chens.framework.version}</version>
             </dependency>
 

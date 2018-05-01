@@ -55,13 +55,6 @@
             <artifactId>chens-zxing</artifactId>
         </dependency>
 
-        <!--分享-->
-        <dependency>
-            <groupId>com.chens</groupId>
-            <artifactId>chens-share</artifactId>
-        </dependency>
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
