@@ -1,7 +1,7 @@
 package com.chens.exam.book.mapper;
 
 import com.chens.exam.core.entity.book.BookFolder;
-import com.chens.file.vo.mapper.AbstractFolderMapper;
+import com.chens.folder.vo.mapper.AbstractFolderMapper;
 
 /**
  *

@@ -98,6 +98,20 @@
                 <version>${chens.framework.version}</version>
             </dependency>
 
+            <!--文件夹-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-folder-api</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
+            <!--引用-->
+            <dependency>
+                <groupId>com.chens</groupId>
+                <artifactId>chens-quote-api</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

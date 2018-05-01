@@ -2,7 +2,7 @@ package com.chens.exam.core.entity.wms;
 
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.exam.core.enums.ExamDataTypeEnum;
-import com.chens.file.vo.AbstractFileQuote;
+import com.chens.quote.vo.AbstractFileQuote;
 
 /**
  *

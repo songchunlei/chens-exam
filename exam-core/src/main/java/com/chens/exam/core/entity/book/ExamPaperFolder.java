@@ -2,7 +2,7 @@ package com.chens.exam.core.entity.book;
 
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
-import com.chens.file.vo.AbstractFolder;
+import com.chens.folder.vo.AbstractFolder;
 
 /**
  *

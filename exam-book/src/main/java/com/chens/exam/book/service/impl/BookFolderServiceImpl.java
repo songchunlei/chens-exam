@@ -2,13 +2,13 @@ package com.chens.exam.book.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
-import com.chens.file.vo.FolderFileInfo;
+import com.chens.folder.vo.FolderFileInfo;
 import com.chens.exam.core.entity.book.Book;
 import com.chens.exam.core.entity.book.BookFolder;
 import com.chens.exam.book.mapper.BookFolderMapper;
 import com.chens.exam.book.service.IBookFolderService;
 import com.chens.exam.book.service.IBookService;
-import com.chens.file.vo.service.impl.AbstractFolderServiceImpl;
+import com.chens.folder.vo.service.impl.AbstractFolderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

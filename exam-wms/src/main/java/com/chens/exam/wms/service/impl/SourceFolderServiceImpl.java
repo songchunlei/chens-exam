@@ -2,13 +2,13 @@ package com.chens.exam.wms.service.impl;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
-import com.chens.file.vo.FolderFileInfo;
+import com.chens.folder.vo.FolderFileInfo;
 import com.chens.exam.core.entity.wms.Source;
 import com.chens.exam.core.entity.wms.SourceFolder;
 import com.chens.exam.wms.mapper.SourceFolderMapper;
 import com.chens.exam.wms.service.ISourceFolderService;
 import com.chens.exam.wms.service.ISourceService;
-import com.chens.file.vo.service.impl.AbstractFolderServiceImpl;
+import com.chens.folder.vo.service.impl.AbstractFolderServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

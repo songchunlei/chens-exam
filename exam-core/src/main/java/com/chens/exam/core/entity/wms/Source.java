@@ -7,7 +7,7 @@ import com.chens.bpm.vo.BaseWfEntity;
 import com.chens.core.enums.YesNoEnum;
 import com.chens.exam.core.enums.SourceTypeEnum;
 import com.chens.file.enums.FileTypeEnum;
-import com.chens.file.vo.FolderFileInfo;
+import com.chens.folder.vo.FolderFileInfo;
 
 /**
  * <p>

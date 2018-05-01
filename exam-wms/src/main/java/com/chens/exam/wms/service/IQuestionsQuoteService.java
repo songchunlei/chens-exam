@@ -2,7 +2,7 @@ package com.chens.exam.wms.service;
 
 
 import com.chens.exam.core.entity.wms.QuestionsQuote;
-import com.chens.file.vo.service.IAbstractFileQuoteService;
+import com.chens.quote.vo.service.IAbstractFileQuoteService;
 
 /**
  *

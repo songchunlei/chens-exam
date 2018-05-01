@@ -11,6 +11,7 @@
     <artifactId>exam-core</artifactId>
     <dependencies>
 
+        <!--文件-->
         <dependency>
             <groupId>com.chens</groupId>
             <artifactId>chens-file-core</artifactId>
@@ -20,6 +21,18 @@
         <dependency>
             <groupId>com.chens</groupId>
             <artifactId>chens-bpm-core</artifactId>
+        </dependency>
+
+        <!--文件夹-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-folder-api</artifactId>
+        </dependency>
+
+        <!--引用-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-quote-api</artifactId>
         </dependency>
 
         <dependency>

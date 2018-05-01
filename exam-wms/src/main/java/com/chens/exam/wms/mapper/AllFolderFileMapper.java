@@ -1,7 +1,7 @@
 package com.chens.exam.wms.mapper;
 
 import com.baomidou.mybatisplus.plugins.Page;
-import com.chens.file.vo.FolderFileInfo;
+import com.chens.folder.vo.FolderFileInfo;
 
 /**
  * 所有文件夹/文件

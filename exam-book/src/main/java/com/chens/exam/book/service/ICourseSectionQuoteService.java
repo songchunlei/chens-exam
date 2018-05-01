@@ -2,7 +2,7 @@ package com.chens.exam.book.service;
 
 
 import com.chens.exam.core.entity.book.CourseSectionQuote;
-import com.chens.file.vo.service.IAbstractFileQuoteService;
+import com.chens.quote.vo.service.IAbstractFileQuoteService;
 
 /**
  *

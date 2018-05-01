@@ -2,7 +2,7 @@ package com.chens.exam.book.mapper;
 
 
 import com.chens.exam.core.entity.book.BookSectionQuote;
-import com.chens.file.vo.mapper.AbstractFileQuoteMapper;
+import com.chens.quote.vo.mapper.AbstractFileQuoteMapper;
 
 /**
  *

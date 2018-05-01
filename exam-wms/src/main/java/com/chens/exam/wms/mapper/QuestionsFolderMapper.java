@@ -1,7 +1,7 @@
 package com.chens.exam.wms.mapper;
 
 import com.chens.exam.core.entity.wms.QuestionsFolder;
-import com.chens.file.vo.mapper.AbstractFolderMapper;
+import com.chens.folder.vo.mapper.AbstractFolderMapper;
 
 /**
  *

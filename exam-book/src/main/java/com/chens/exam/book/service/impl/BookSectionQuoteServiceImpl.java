@@ -4,7 +4,7 @@ package com.chens.exam.book.service.impl;
 import com.chens.exam.book.mapper.BookSectionQuoteMapper;
 import com.chens.exam.book.service.IBookSectionQuoteService;
 import com.chens.exam.core.entity.book.BookSectionQuote;
-import com.chens.file.vo.service.impl.AbstractFileQuoteServiceImpl;
+import com.chens.quote.vo.service.impl.AbstractFileQuoteServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**

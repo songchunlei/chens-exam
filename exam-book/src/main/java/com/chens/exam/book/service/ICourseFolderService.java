@@ -2,7 +2,7 @@ package com.chens.exam.book.service;
 
 
 import com.chens.exam.core.entity.book.CourseFolder;
-import com.chens.file.vo.service.IAbstractFolderService;
+import com.chens.folder.vo.service.IAbstractFolderService;
 
 /**
  *

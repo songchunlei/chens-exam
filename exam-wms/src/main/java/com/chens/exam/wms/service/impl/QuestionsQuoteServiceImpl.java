@@ -4,7 +4,7 @@ package com.chens.exam.wms.service.impl;
 import com.chens.exam.core.entity.wms.QuestionsQuote;
 import com.chens.exam.wms.mapper.QuestionsQuoteMapper;
 import com.chens.exam.wms.service.IQuestionsQuoteService;
-import com.chens.file.vo.service.impl.AbstractFileQuoteServiceImpl;
+import com.chens.quote.vo.service.impl.AbstractFileQuoteServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
