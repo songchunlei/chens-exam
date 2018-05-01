@@ -80,6 +80,11 @@
             <!--标签-->
             <dependency>
                 <groupId>com.chens</groupId>
+                <artifactId>chens-tag-api</artifactId>
+                <version>${chens.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.chens</groupId>
                 <artifactId>chens-tag</artifactId>
                 <version>${chens.framework.version}</version>
             </dependency>

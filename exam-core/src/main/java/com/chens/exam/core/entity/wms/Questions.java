@@ -1,5 +1,6 @@
 package com.chens.exam.core.entity.wms;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import com.chens.bpm.vo.BaseWfEntity;
 import com.chens.core.enums.YesNoEnum;
 import com.chens.folder.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
+import com.chens.tag.entity.Tag;
 
 /**
  *
@@ -19,7 +21,7 @@ import com.chens.exam.core.enums.ExamFileTypeEnum;
  * @create 2018-04-06
  */
 @TableName("t_questions")
-public class Questions extends BaseWfEntity<Questions> {
+public class Questions extends BaseWfEntity<Questions>{
 
     /**
 	 * 
@@ -89,18 +91,35 @@ public class Questions extends BaseWfEntity<Questions> {
 	 */
 	@TableField(exist = false)
 	private List<QuestionsOption> questionsOptionList;
-	
+
 	/**
-	 * 题目资源关联关系
+	 * 题目下的资源
 	 */
 	@TableField(exist = false)
-	private List<QuestionsQuote> questionsQuoteList;
+	private List<Source> sources;
+
+	/**
+	 * 题目下的标签
+	 */
+	@TableField(exist = false)
+	private List<Tag> tags;
+	
+	/**
+	 * 题目资源引用关联关系
+	 */
+	@TableField(exist = false)
+	private List<String> quoteRels;
 
 	/**
 	 * 题目标签关联关系
 	 */
 	@TableField(exist = false)
-	private List<String> tags;
+	private List<String> tagRels;
+
+
+	public Questions() {
+	}
+
 
 	public String getFolderId() {
 		return folderId;
@@ -207,20 +226,36 @@ public class Questions extends BaseWfEntity<Questions> {
 		this.questionsOptionList = questionsOptionList;
 	}
 
-	public List<QuestionsQuote> getQuestionsQuoteList() {
-		return questionsQuoteList;
+	public List<Source> getSources() {
+		return sources;
 	}
 
-	public void setQuestionsQuoteList(List<QuestionsQuote> questionsQuoteList) {
-		this.questionsQuoteList = questionsQuoteList;
+	public void setSources(List<Source> sources) {
+		this.sources = sources;
 	}
 
-	public List<String> getTags() {
+	public List<Tag> getTags() {
 		return tags;
 	}
 
-	public void setTags(List<String> tags) {
+	public void setTags(List<Tag> tags) {
 		this.tags = tags;
+	}
+
+	public List<String> getQuoteRels() {
+		return quoteRels;
+	}
+
+	public void setQuoteRels(List<String> quoteRels) {
+		this.quoteRels = quoteRels;
+	}
+
+	public List<String> getTagRels() {
+		return tagRels;
+	}
+
+	public void setTagRels(List<String> tagRels) {
+		this.tagRels = tagRels;
 	}
 
 	public FolderFileInfo getFolderInfo()

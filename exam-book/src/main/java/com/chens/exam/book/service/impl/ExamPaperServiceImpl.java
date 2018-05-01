@@ -2,6 +2,7 @@ package com.chens.exam.book.service.impl;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import org.springframework.stereotype.Service;
 
 import com.chens.bpm.service.impl.BaseWfServiceImpl;
@@ -22,9 +23,17 @@ public class ExamPaperServiceImpl extends BaseWfServiceImpl<ExamPaperMapper, Exa
 
 
     @Override
-    public List<ExamPaper> getPapperListByQuestionId(String questionId) {
-        return baseMapper.getPapperListByQuestionId(questionId);
+    public List<ExamPaper> getExamPaperListByQuestionId(String questionId) {
+        return baseMapper.getExamPaperListByQuestionId(questionId);
     }
+
+    @Override
+    public Page<ExamPaper> getDeletedExamPaperList(Page<ExamPaper> page, ExamPaper examPaper) {
+        List<ExamPaper> examPaperList = baseMapper.getDeletedExamPaperList(page,examPaper);
+        page.setRecords(examPaperList);
+        return page;
+    }
+
 
     @Override
     public ExamPaper saveEntity(ExamPaper examPaper) {

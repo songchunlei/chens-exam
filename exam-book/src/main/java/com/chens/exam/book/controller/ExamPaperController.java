@@ -2,13 +2,13 @@ package com.chens.exam.book.controller;
 
 import javax.validation.constraints.NotNull;
 
+import com.baomidou.mybatisplus.plugins.Page;
+import com.chens.core.vo.PageVo;
+import com.chens.core.vo.QueryPageEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.chens.bpm.controller.BaseWfWebController;
 import com.chens.core.exception.BaseException;
@@ -45,10 +45,26 @@ public class ExamPaperController extends BaseWfWebController<IExamPaperService,E
      * @param questionId
      * @return
      */
-    @GetMapping("/getPapperListByQuestionId")
-    public ResponseEntity<Result> getPapperListByQuestionId(String questionId) {
+    @GetMapping("/getExamPaperListByQuestionId")
+    public ResponseEntity<Result> getExamPaperListByQuestionId(String questionId) {
         if(questionId!=null){
-            return doSuccess(service.getPapperListByQuestionId(questionId));
+            return doSuccess(service.getExamPaperListByQuestionId(questionId));
+        } else {
+            throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
+        }
+    }
+
+    /**
+     * 回收箱
+     * @param spage
+     * @return
+     */
+    @PostMapping("/getDeletedExamPaperList")
+    public ResponseEntity<Result> getDeletedExamPaperList(@RequestBody QueryPageEntity<ExamPaper> spage) {
+        //创建查询条件
+        Page<ExamPaper> page = this.createPage(spage);
+        if(page!=null){
+            return doSuccess(service.getDeletedExamPaperList(page,spage.getSearch()));
         } else {
             throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
         }

@@ -18,6 +18,7 @@ public class QuestionsOptionQuote extends AbstractFileQuote<QuestionsOptionQuote
 
 	public QuestionsOptionQuote() {
 		this.type = ExamDataTypeEnum.QUESTIONS_OPTION.getCode();
+		this.fileType = ExamDataTypeEnum.SOURCE.getCode();
 	}
 
 	@Override
@@ -28,5 +29,15 @@ public class QuestionsOptionQuote extends AbstractFileQuote<QuestionsOptionQuote
 	@Override
 	public void setType(String type) {
 		this.type = ExamDataTypeEnum.QUESTIONS_OPTION.getCode();
+	}
+
+	@Override
+	public String getFileType() {
+		return ExamDataTypeEnum.SOURCE.getCode();
+	}
+
+	@Override
+	public void setFileType(String fileType) {
+		this.fileType = ExamDataTypeEnum.SOURCE.getCode();
 	}
 }

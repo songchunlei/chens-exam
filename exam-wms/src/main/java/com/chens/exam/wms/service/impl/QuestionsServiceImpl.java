@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.chens.exam.core.entity.wms.*;
+import com.chens.exam.wms.service.*;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +16,7 @@ import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.chens.bpm.service.impl.BaseWfServiceImpl;
 import com.chens.bpm.vo.WorkFlowRequestParam;
 import com.chens.core.util.UUIDUtil;
-import com.chens.exam.core.entity.wms.Questions;
-import com.chens.exam.core.entity.wms.QuestionsOption;
-import com.chens.exam.core.entity.wms.QuestionsOptionQuote;
-import com.chens.exam.core.entity.wms.QuestionsQuote;
 import com.chens.exam.wms.mapper.QuestionsMapper;
-import com.chens.exam.wms.service.IQuestionsOptionQuoteService;
-import com.chens.exam.wms.service.IQuestionsOptionService;
-import com.chens.exam.wms.service.IQuestionsQuoteService;
-import com.chens.exam.wms.service.IQuestionsService;
 
 /**
  * 
@@ -40,6 +34,9 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 	private IQuestionsQuoteService questionsQuoteService;
 	@Autowired
 	private IQuestionsOptionQuoteService questionsOptionQuoteService;
+	@Autowired
+	private ISourceService sourceService;
+
 
 	@Override
 	@Transactional(rollbackFor = Exception.class)
@@ -79,23 +76,36 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 			QuestionsOption queryQuestionsOption = new QuestionsOption();
 			queryQuestionsOption.setQuestionId((String)id);
 			List<QuestionsOption> optionList = questionsOptionService.selectList(new EntityWrapper<QuestionsOption>(queryQuestionsOption));
-			List<QuestionsOption> questionsOptionList = new ArrayList<QuestionsOption>(); 
+			List<Source> questionsOptionSourceList = new ArrayList<Source>();
 			for(QuestionsOption questionsOption : optionList){
-				//加入题目资源关联关系
-				QuestionsOptionQuote questionsOptionQuote = new QuestionsOptionQuote();
-				questionsOptionQuote.setDataId(questionsOption.getId());
-				EntityWrapper<QuestionsOptionQuote> ew = new EntityWrapper<QuestionsOptionQuote>(questionsOptionQuote);
-				List<QuestionsOptionQuote> questionsOptionQuoteList = questionsOptionQuoteService.selectList(ew);
-				questionsOption.setQuestionsOptionQuoteList(questionsOptionQuoteList);
-				questionsOptionList.add(questionsOption);
+				//加入题目选项-资源关联关系
+				QuestionsOptionQuote queryQuestionsOptionQuote = new QuestionsOptionQuote();
+				queryQuestionsOptionQuote.setDataId(questionsOption.getId());
+				List<String> questionsOptionQuoteList = questionsOptionQuoteService.getQuoteFileIdListByDataId(queryQuestionsOptionQuote);
+				questionsOption.setQuoteRels(questionsOptionQuoteList);
+				if(CollectionUtils.isNotEmpty(questionsOptionSourceList))
+				{
+					//选项-资源
+					EntityWrapper<Source> sourceEntityWrapper = new EntityWrapper<Source>(new Source());
+					sourceEntityWrapper.in("id",questionsOptionQuoteList);
+					questionsOption.setSources(sourceService.selectList(sourceEntityWrapper));
+				}
+
 			}
-			questions.setQuestionsOptionList(questionsOptionList);
+			questions.setQuestionsOptionList(optionList);
 
 			//放入题目-资源关系
 			QuestionsQuote queryQuestionsQuote = new QuestionsQuote();
 			queryQuestionsQuote.setDataId((String)id);
-			questions.setQuestionsQuoteList(questionsQuoteService.selectList(new EntityWrapper<QuestionsQuote>(queryQuestionsQuote)));
-
+			List<String> quoteRels = questionsQuoteService.getQuoteFileIdListByDataId(queryQuestionsQuote);
+			questions.setQuoteRels(quoteRels);
+			if(CollectionUtils.isNotEmpty(quoteRels))
+			{
+				//选项-资源
+				EntityWrapper<Source> sourceEntityWrapper = new EntityWrapper<Source>(new Source());
+				sourceEntityWrapper.in("id",quoteRels);
+				questions.setSources(sourceService.selectList(sourceEntityWrapper));
+			}
 			return questions;
 		}
 		return null;
@@ -140,15 +150,19 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 		List<QuestionsOption> questionsOptionList = questions.getQuestionsOptionList();
 		if(CollectionUtils.isNotEmpty(questionsOptionList)){
 			List<QuestionsOption> questionsOptionForInsertList = new ArrayList<QuestionsOption>();
-			List<QuestionsOptionQuote> questionsOptionQuoteForInsertList = new ArrayList<QuestionsOptionQuote>();//选项关联资源
+			//选项关联资源
+			List<QuestionsOptionQuote> questionsOptionQuoteForInsertList = new ArrayList<QuestionsOptionQuote>();
+
 			for(QuestionsOption questionsOption : questionsOptionList){
 				questionsOption.setQuestionId(questions.getId());
 				questionsOption.setId(UUIDUtil.getUUID());
 				questionsOptionForInsertList.add(questionsOption);
-				List<QuestionsOptionQuote> questionsOptionQuoteList = questionsOption.getQuestionsOptionQuoteList();
-				if(CollectionUtils.isNotEmpty(questionsOptionQuoteList)){
-					for(QuestionsOptionQuote questionsOptionQuote : questionsOptionQuoteList){
+				List<String> questionsOptionQuoteIdRels = questionsOption.getQuoteRels();
+				if(CollectionUtils.isNotEmpty(questionsOptionQuoteIdRels)){
+					for(String quoteRelId : questionsOptionQuoteIdRels){
+						QuestionsOptionQuote questionsOptionQuote = new QuestionsOptionQuote();
 						questionsOptionQuote.setDataId(questionsOption.getId());
+						questionsOptionQuote.setFileId(quoteRelId);
 						questionsOptionQuoteForInsertList.add(questionsOptionQuote);
 					}
 				}
@@ -159,10 +173,12 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 			}
 		}
 		//创建题目-资源关联关系
-		List<QuestionsQuote> questionsQuoteList = questions.getQuestionsQuoteList();
-		if(CollectionUtils.isNotEmpty(questionsQuoteList)){
+		List<String> questionsQuoteIdList = questions.getQuoteRels();
+		if(CollectionUtils.isNotEmpty(questionsQuoteIdList)){
 			List<QuestionsQuote> questionsQuoteForInsertList = new ArrayList<>();
-			for(QuestionsQuote questionsQuote : questionsQuoteList){
+			for(String quoteRelId : questionsQuoteIdList){
+				QuestionsQuote questionsQuote = new QuestionsQuote();
+				questionsQuote.setFileId(quoteRelId);
 				questionsQuote.setDataId(questions.getId());
 				questionsQuoteForInsertList.add(questionsQuote);
 			}

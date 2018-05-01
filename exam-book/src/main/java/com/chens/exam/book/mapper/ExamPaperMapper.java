@@ -1,5 +1,6 @@
 package com.chens.exam.book.mapper;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.chens.exam.core.entity.book.ExamPaper;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 
@@ -19,5 +20,13 @@ public interface ExamPaperMapper extends BaseMapper<ExamPaper> {
      * @param questionId
      * @return
      */
-    List<ExamPaper> getPapperListByQuestionId(String questionId);
+    List<ExamPaper> getExamPaperListByQuestionId(String questionId);
+
+    /**
+     * 回收试卷列表
+     * @param page 分页
+     * @param examPaper 试卷参数
+     * @return
+     */
+    List<ExamPaper> getDeletedExamPaperList(Page<ExamPaper> page,ExamPaper examPaper);
 }

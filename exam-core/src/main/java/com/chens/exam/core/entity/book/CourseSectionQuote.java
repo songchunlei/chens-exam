@@ -18,6 +18,7 @@ public class CourseSectionQuote extends AbstractFileQuote<CourseSectionQuote> {
 
 	public CourseSectionQuote() {
 		this.type = ExamDataTypeEnum.COURSE_SECTION.getCode();
+		this.fileType = ExamDataTypeEnum.SOURCE.getCode();
 	}
 
 	@Override
@@ -28,5 +29,15 @@ public class CourseSectionQuote extends AbstractFileQuote<CourseSectionQuote> {
 	@Override
 	public void setType(String type) {
 		this.type = ExamDataTypeEnum.COURSE_SECTION.getCode();
+	}
+
+	@Override
+	public String getFileType() {
+		return ExamDataTypeEnum.SOURCE.getCode();
+	}
+
+	@Override
+	public void setFileType(String fileType) {
+		this.fileType = ExamDataTypeEnum.SOURCE.getCode();
 	}
 }

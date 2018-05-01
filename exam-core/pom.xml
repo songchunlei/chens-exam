@@ -35,6 +35,12 @@
             <artifactId>chens-quote-api</artifactId>
         </dependency>
 
+        <!--标签-->
+        <dependency>
+            <groupId>com.chens</groupId>
+            <artifactId>chens-tag-api</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>

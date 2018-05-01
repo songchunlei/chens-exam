@@ -4,7 +4,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, name, description, is_private AS isPrivate, effective_time AS effectiveTime, expiry_time AS expiryTime, is_delete AS isDelete, create_time AS createTime, create_by AS createBy, update_time AS updateTime, update_by AS updateBy, tenant_id AS tenantId
+        id, name, description, is_private AS isPrivate, effective_time AS effectiveTime, expiry_time AS expiryTime, is_delete AS isDelete, create_time AS createTime, create_by AS createBy, update_time AS updateTime, update_by AS updateBy, tenant_id AS tenantId, create_by_name AS createByName, update_by_name AS updateByName, folder_id AS folderId, status, pic_group_id AS picGroupId
     </sql>
 
 </mapper>
