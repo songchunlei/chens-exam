@@ -31,6 +31,11 @@ public class ExamConstants {
      */
     public static final String SHARE_ROOT_URL = "/shareController/share?id=";
 
+    /**
+     * 统一分享表表名
+     */
+    public static final String SHARE_TABLE_NAME = "t_share";
+
 
 
 

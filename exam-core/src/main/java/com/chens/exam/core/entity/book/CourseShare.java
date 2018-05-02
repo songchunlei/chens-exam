@@ -1,6 +1,7 @@
 package com.chens.exam.core.entity.book;
 
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.chens.exam.core.constants.ExamConstants;
 import com.chens.exam.core.enums.ExamDataTypeEnum;
 import com.chens.share.vo.AbstractShare;
 
@@ -11,7 +12,7 @@ import com.chens.share.vo.AbstractShare;
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
-@TableName("t_share")
+@TableName(ExamConstants.SHARE_TABLE_NAME)
 public class CourseShare extends AbstractShare<CourseShare> {
 
     private static final long serialVersionUID = 1L;

@@ -7,27 +7,14 @@ import com.chens.share.vo.AbstractShare;
 
 /**
  *
- *  题目分享
+ *  所有分享
  *
  * @author chunlei.song@live.com
  * @create 2018-04-01
  */
 @TableName(ExamConstants.SHARE_TABLE_NAME)
-public class QuestionsShare extends AbstractShare<QuestionsShare> {
+public class AllShare extends AbstractShare<AllShare> {
 
     private static final long serialVersionUID = 1L;
 
-	public QuestionsShare() {
-		this.dataType = ExamDataTypeEnum.QUESTIONS.getCode();
-	}
-
-	@Override
-	public String getDataType() {
-		return ExamDataTypeEnum.QUESTIONS.getCode();
-	}
-
-	@Override
-	public void setDataType(String dataType) {
-		this.dataType = ExamDataTypeEnum.QUESTIONS.getCode();
-	}
 }
