@@ -5,8 +5,12 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.annotation.InsertValid;
+import com.chens.core.annotation.UpdateValid;
 import com.chens.folder.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
+
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -23,9 +27,11 @@ public class Book extends BaseWfEntity<Book> {
     /**
      * 书本名称
      */
+    @NotNull(message = "{book.name.null}",groups = {InsertValid.class, UpdateValid.class})
 	private String name;
+
     /**
-     * 练习册描述
+     * 书本描述
      */
 	private String description;
     /**
@@ -54,6 +60,7 @@ public class Book extends BaseWfEntity<Book> {
 	 * 文件夹id
 	 */
 	@TableField("folder_id")
+	@NotNull(message = "{folderId.null}",groups = {InsertValid.class, UpdateValid.class})
 	private String folderId;
 
 

@@ -23,14 +23,4 @@ public class CourseServiceImpl extends BaseWfServiceImpl<CourseMapper, Course> i
         this.insertOrUpdate(course);
         return course;
     }
-
-    @Override
-    public boolean beforeSubmit(WorkFlowRequestParam<Course> workFlowRequestParam) {
-        return false;
-    }
-
-    @Override
-    public boolean afterSubmit(WorkFlowRequestParam<Course> workFlowRequestParam) {
-        return false;
-    }
 }

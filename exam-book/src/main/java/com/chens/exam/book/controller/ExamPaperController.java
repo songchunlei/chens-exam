@@ -42,9 +42,13 @@ public class ExamPaperController extends BaseWfWebController<IExamPaperService,E
 
 
     @Override
-    protected void init(ExamPaper examPaper) {
-        examPaper.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.EXAM_PAPER_APPROVE.getCode());
-        examPaper.setTaskName(examPaper.getName());
+    protected String getProcessDefinitionKey() {
+        return WfProcessDefinitionKeyEnum.EXAM_PAPER_APPROVE.getCode();
+    }
+
+    @Override
+    protected String getProcessTaskName(ExamPaper examPaper) {
+        return examPaper.getName();
     }
 
     /**

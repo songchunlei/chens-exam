@@ -3,13 +3,8 @@ package com.chens.exam.wms.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.chens.core.constants.CommonConstants;
-import com.chens.core.context.BaseContextHandler;
 import com.chens.core.enums.YesNoEnum;
-import com.chens.exam.core.enums.ExamDataTypeEnum;
-import com.chens.share.vo.AbstractShare;
-import com.chens.share.vo.service.IAbstractShareService;
 import org.apache.commons.lang.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,12 +36,14 @@ import java.util.Date;
 @RequestMapping("/sourceController")
 public class SourceController extends BaseWfWebController<ISourceService,Source> {
 
-	private static final String WfProcessDefinitionKey = WfProcessDefinitionKeyEnum.SOURCE_APPROVE.getCode();
+	@Override
+	protected String getProcessDefinitionKey() {
+		return WfProcessDefinitionKeyEnum.SOURCE_APPROVE.getCode();
+	}
 
 	@Override
-	protected void init(Source source) {
-		source.setProcessDefinitionKey(WfProcessDefinitionKey);
-		source.setTaskName(source.getName());
+	protected String getProcessTaskName(Source source) {
+		return source.getName();
 	}
 
 	/**
@@ -81,6 +78,5 @@ public class SourceController extends BaseWfWebController<ISourceService,Source>
 			throw new BaseException(BaseExceptionEnum.REQUEST_NULL);
 		}
 	}
-
 }
 

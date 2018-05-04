@@ -4,9 +4,13 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.annotation.InsertValid;
+import com.chens.core.annotation.UpdateValid;
 import com.chens.core.enums.YesNoEnum;
+import com.chens.exam.core.entity.wms.Questions;
 import com.chens.folder.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
+import com.chens.tag.entity.Tag;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -26,18 +30,19 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
     /**
      * 试卷名称
      */
-    @NotNull
+	@NotNull(message = "{examPaper.name.null}",groups = {InsertValid.class, UpdateValid.class})
 	private String name;
 
     /**
      * 试卷考试时间（分钟）
      */
-	@NotNull
+	@NotNull(message = "{examPaper.duration.null}",groups = {InsertValid.class, UpdateValid.class})
 	private Integer duration;
 
 	/**
 	 * 文件夹id
 	 */
+	@NotNull(message = "{folder.null}",groups = {InsertValid.class, UpdateValid.class})
 	@TableField("folder_id")
 	private String folderId;
 
@@ -82,8 +87,29 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
 	@TableLogic
 	private String isDelete = YesNoEnum.NO.getCode();
 
+	/**
+	 * 题目列表
+	 */
 	@TableField(exist = false)
-	List<ExampaperQuestion> exampaperQuestionList;
+	List<Questions> questionsList;
+
+	/**
+	 * 标签列表
+	 */
+	@TableField(exist = false)
+	List<Tag> tags;
+
+	/**
+	 * 关联题目id
+	 */
+	@TableField(exist = false)
+	List<String> questionsRels;
+
+	/**
+	 * 关联标签id
+	 */
+	@TableField(exist = false)
+	List<String> tagRels;
 
 
 	public String getName() {
@@ -166,16 +192,42 @@ public class ExamPaper extends BaseWfEntity<ExamPaper> {
 		this.isDelete = isDelete;
 	}
 
-	public List<ExampaperQuestion> getExampaperQuestionList() {
-		return exampaperQuestionList;
+	public List<Questions> getQuestionsList() {
+		return questionsList;
 	}
 
-	public void setExampaperQuestionList(List<ExampaperQuestion> exampaperQuestionList) {
-		this.exampaperQuestionList = exampaperQuestionList;
+	public void setQuestionsList(List<Questions> questionsList) {
+		this.questionsList = questionsList;
+	}
+
+	public List<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(List<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public List<String> getQuestionsRels() {
+		return questionsRels;
+	}
+
+	public void setQuestionsRels(List<String> questionsRels) {
+		this.questionsRels = questionsRels;
+	}
+
+	public List<String> getTagRels() {
+		return tagRels;
+	}
+
+	public void setTagRels(List<String> tagRels) {
+		this.tagRels = tagRels;
 	}
 
 	public FolderFileInfo getFolderInfo()
 	{
 		return new FolderFileInfo(id, ExamFileTypeEnum.EXAM_PAPER.getCode(),name,null,updateTime);
 	}
+
+
 }

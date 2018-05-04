@@ -33,10 +33,14 @@ import java.util.Date;
 @RequestMapping("/bookController")
 public class BookController extends BaseWfWebController<IBookService,Book> {
 
+
     @Override
-    protected void init(Book book) {
-        book.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.BOOK_APPROVE.getCode());
-        book.setTaskName(book.getName());
+    protected String getProcessDefinitionKey() {
+       return WfProcessDefinitionKeyEnum.BOOK_APPROVE.getCode();
     }
-    
+
+    @Override
+    protected String getProcessTaskName(Book book) {
+        return book.getName();
+    }
 }

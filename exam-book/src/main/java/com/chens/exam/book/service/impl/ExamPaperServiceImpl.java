@@ -40,14 +40,4 @@ public class ExamPaperServiceImpl extends BaseWfServiceImpl<ExamPaperMapper, Exa
         this.insertOrUpdate(examPaper);
         return examPaper;
     }
-
-    @Override
-    public boolean beforeSubmit(WorkFlowRequestParam<ExamPaper> workFlowRequestParam) {
-        return false;
-    }
-
-    @Override
-    public boolean afterSubmit(WorkFlowRequestParam<ExamPaper> workFlowRequestParam) {
-        return false;
-    }
 }

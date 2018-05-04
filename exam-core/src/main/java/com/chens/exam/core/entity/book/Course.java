@@ -4,8 +4,12 @@ import java.util.Date;
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.annotation.InsertValid;
+import com.chens.core.annotation.UpdateValid;
 import com.chens.folder.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
+
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -22,6 +26,7 @@ public class Course extends BaseWfEntity<Course> {
     /**
      * 课程名称
      */
+	@NotNull(message = "{course.name.null}",groups = {InsertValid.class, UpdateValid.class})
 	private String name;
     /**
      * 练习册描述
@@ -52,6 +57,7 @@ public class Course extends BaseWfEntity<Course> {
 	 * 文件夹id
 	 */
 	@TableField("folder_id")
+	@NotNull(message = "{folder.null}",groups = {InsertValid.class, UpdateValid.class})
 	private String folderId;
 
 	public String getName() {

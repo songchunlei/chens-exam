@@ -51,18 +51,6 @@ public class QuestionsServiceImpl extends BaseWfServiceImpl<QuestionsMapper, Que
 		}
 		return questions;
 	}
-
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean beforeSubmit(WorkFlowRequestParam<Questions> workFlowRequestParam) {
-		return true;
-	}
-
-	@Override
-	@Transactional(rollbackFor = Exception.class)
-	public boolean afterSubmit(WorkFlowRequestParam<Questions> workFlowRequestParam) {
-		return true;
-	}
 	
 	@Override
 	public Questions selectById(Serializable id) {

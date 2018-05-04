@@ -8,10 +8,14 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.annotation.InsertValid;
+import com.chens.core.annotation.UpdateValid;
 import com.chens.core.enums.YesNoEnum;
 import com.chens.folder.vo.FolderFileInfo;
 import com.chens.exam.core.enums.ExamFileTypeEnum;
 import com.chens.tag.entity.Tag;
+
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -30,6 +34,7 @@ public class Questions extends BaseWfEntity<Questions>{
 	/**
      * 所在文件夹id
      */
+	@NotNull(message = "{folder.null}",groups = {InsertValid.class, UpdateValid.class})
 	@TableField("folder_id")
 	private String folderId;
 
@@ -40,10 +45,12 @@ public class Questions extends BaseWfEntity<Questions>{
     /**
      * 题目名称
      */
+	@NotNull(message = "{questions.name.null}",groups = {InsertValid.class, UpdateValid.class})
 	private String name;
     /**
      * 题目内容
      */
+	@NotNull(message = "{questions.content.null}",groups = {InsertValid.class, UpdateValid.class})
 	private String content;
     /**
      * 难度 

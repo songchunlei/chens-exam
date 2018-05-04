@@ -71,14 +71,4 @@ public class SourceServiceImpl extends BaseWfServiceImpl<SourceMapper, Source> i
 		}
 		return source;
 	}
-
-	@Override
-	public boolean beforeSubmit(WorkFlowRequestParam<Source> workFlowRequestParam) {
-		return true;
-	}
-
-	@Override
-	public boolean afterSubmit(WorkFlowRequestParam<Source> workFlowRequestParam) {
-		return true;
-	}
 }

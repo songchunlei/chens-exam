@@ -33,9 +33,15 @@ import java.util.Date;
 @RequestMapping("/courseController")
 public class CourseController extends BaseWfWebController<ICourseService,Course> {
 
+
     @Override
-    protected void init(Course course) {
-        course.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.COURSE_APPROVE.getCode());
-        course.setTaskName(course.getName());
+    protected String getProcessDefinitionKey() {
+        return WfProcessDefinitionKeyEnum.COURSE_APPROVE.getCode();
     }
+
+    @Override
+    protected String getProcessTaskName(Course course) {
+        return course.getName();
+    }
+
 }

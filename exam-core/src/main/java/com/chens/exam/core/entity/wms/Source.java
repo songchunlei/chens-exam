@@ -4,10 +4,14 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.chens.bpm.vo.BaseWfEntity;
+import com.chens.core.annotation.InsertValid;
+import com.chens.core.annotation.UpdateValid;
 import com.chens.core.enums.YesNoEnum;
 import com.chens.exam.core.enums.SourceTypeEnum;
 import com.chens.file.enums.FileTypeEnum;
 import com.chens.folder.vo.FolderFileInfo;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * <p>
@@ -27,6 +31,7 @@ public class Source extends BaseWfEntity<Source> {
      * 文件夹id
      */
     @TableField("folder_id")
+    @NotNull(message = "{folder.null}",groups = {InsertValid.class, UpdateValid.class})
     private String folderId;
 
     /**
@@ -36,6 +41,7 @@ public class Source extends BaseWfEntity<Source> {
     /**
      * 资源名称
      */
+    @NotNull(message = "{source.name.null}",groups = {InsertValid.class, UpdateValid.class})
     private String name;
 
     /**

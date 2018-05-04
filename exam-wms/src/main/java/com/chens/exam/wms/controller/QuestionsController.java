@@ -34,9 +34,13 @@ import java.util.Date;
 public class QuestionsController extends BaseWfWebController<IQuestionsService,Questions> {
 
 	@Override
-	protected void init(Questions questions) {
-		questions.setProcessDefinitionKey(WfProcessDefinitionKeyEnum.QUESTION_APPROVE.getCode());
-		questions.setTaskName(questions.getName());
+	protected String getProcessDefinitionKey() {
+		return WfProcessDefinitionKeyEnum.QUESTION_APPROVE.getCode();
+	}
+
+	@Override
+	protected String getProcessTaskName(Questions questions) {
+		return questions.getName();
 	}
 
 }

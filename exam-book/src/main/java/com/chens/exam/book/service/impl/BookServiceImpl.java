@@ -24,13 +24,4 @@ public class BookServiceImpl extends BaseWfServiceImpl<BookMapper, Book> impleme
         return book;
     }
 
-    @Override
-    public boolean beforeSubmit(WorkFlowRequestParam<Book> workFlowRequestParam) {
-        return false;
-    }
-
-    @Override
-    public boolean afterSubmit(WorkFlowRequestParam<Book> workFlowRequestParam) {
-        return false;
-    }
 }
