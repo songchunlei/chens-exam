@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 import com.chens.core.exception.BaseException;
 import com.chens.core.exception.BaseExceptionEnum;
-import com.chens.core.vo.ZTree;
+import com.chens.core.vo.TreeVo;
 import com.chens.exam.wms.remote.forder.ISourceForderClient;
 @Component
 public class SourceForderClientHystrix implements ISourceForderClient {
@@ -23,7 +23,7 @@ public class SourceForderClientHystrix implements ISourceForderClient {
 	}
 
 	@Override
-	public List<ZTree> loadForderTree(SourceFolder sourceForder) {
+	public List<TreeVo> loadForderTree(SourceFolder sourceForder) {
 		logger.error("----调用获取资源目录方法出错-----");
 		throw new BaseException(BaseExceptionEnum.REQUEST_NULL.getCode(), "调用获取资源目录方法出错");
 	}

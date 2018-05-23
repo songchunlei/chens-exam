@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.chens.core.vo.ZTree;
+import com.chens.core.vo.TreeVo;
 import com.chens.exam.wms.remote.forder.hystrix.SourceForderClientHystrix;
 /**
  * @ClassName: IForderClient 
@@ -31,7 +31,7 @@ public interface ISourceForderClient {
 	 * @return
 	 */
 	@RequestMapping(value="/loadForderTree")
-	List<ZTree> loadForderTree(@RequestBody SourceFolder sourceForder);
+	List<TreeVo> loadForderTree(@RequestBody SourceFolder sourceForder);
 	
 	/**
 	 * 删除文件夹

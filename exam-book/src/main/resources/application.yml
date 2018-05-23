@@ -21,14 +21,28 @@ spring:
   #数据库连接
   datasource:
     url: jdbc:mysql://${chens_mysql_url:chens}:3306/qyexam?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
-    username: root
-    password: abc@123456
+    username: ${chens_mysql_username:root}
+    password: ${chens_mysql_password:abc@123456}
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
   activiti:
     check-process-definitions: false    #校验流程文件，默认校验resources下的processes文件夹里的流程文件
     database-schema-update: true  #没有时自动创建表。有时不创建
-
+  redis:
+    database: 0
+    host: ${chens_redis_host:127.0.0.1}
+    port: ${chens_redis_port:6379}
+    password: ${chens_redis_password:}
+    timeout: 0
+    pool:
+      # 连接池最大连接数（使用负值表示没有限制）
+      max-active: 8
+      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+      max-wait: -1
+      # 连接池中的最大空闲连接
+      min-idle: 8
+      # 连接池中的最小空闲连接
+      max-idle: 0
 
 eureka:
   client:
@@ -42,6 +56,8 @@ eureka:
 feign:
   httpclient:
     enabled: true
+
+
 
 chens-exam:
   wmsurl: http://exam.songchenyu.com/exam-wms

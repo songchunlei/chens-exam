@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.chens.core.vo.ZTree;
+import com.chens.core.vo.TreeVo;
 import com.chens.exam.core.entity.wms.SourceFolder;
 import com.chens.exam.wms.remote.forder.ISourceForderClient;
 
@@ -29,7 +29,7 @@ public class SourceFolderClientImpl implements ISourceForderClient {
 	}
 
 	@Override
-	public List<ZTree> loadForderTree(@RequestBody SourceFolder sourceForder) {
+	public List<TreeVo> loadForderTree(@RequestBody SourceFolder sourceForder) {
 		return null;
 	}
 
